@@ -1,0 +1,360 @@
+{
+  "repoName": "speed-bingo-template",
+  "title": "Bingo Title",
+  "size": 5,
+  "lang": ["ja", "en"],
+  "description": {
+    "ja": "説明文が入ります。",
+    "en": "description is here."
+  },
+  "version": {
+    "major": 0,
+    "minor": 0,
+    "revision": 1
+  },
+  "data": [
+    {
+      "difficulty": 1,
+      "contents": {
+        "ja": "タスク1",
+        "en": "task 1"
+      },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 25,
+            "init": 5,
+            "icon": ""
+          }
+        }
+      ]
+    },
+    {
+      "difficulty": 2,
+      "contents": {
+        "ja": "タスク2",
+        "en": "task 2"
+      },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5
+          }
+        }
+      ]
+    },
+    {
+      "difficulty": 3,
+      "contents": {
+        "ja": "タスク3",
+        "en": "task 3"
+      },
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": ["", "", ""]
+          }
+        }
+      ]
+    },
+    {
+      "difficulty": 4,
+      "contents": {
+        "ja": "タスク4",
+        "en": "task 4"
+      },
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": ["", ""]
+          }
+        }
+      ]
+    },
+    {
+      "difficulty": 5,
+      "contents": {
+        "ja": "タスク5",
+        "en": "task 5"
+      },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5
+          }
+        },
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": ["", ""]
+          }
+        }
+      ]
+    },
+    {
+      "difficulty": 6,
+      "contents": {
+        "ja": "タスク6",
+        "en": "task 6"
+      }
+    },
+    {
+      "difficulty": 7,
+      "contents": {
+        "ja": "タスク7",
+        "en": "task 7"
+      }
+    },
+    {
+      "difficulty": 8,
+      "contents": {
+        "ja": "タスク8",
+        "en": "task 8"
+      }
+    },
+    {
+      "difficulty": 9,
+      "contents": {
+        "ja": "タスク9",
+        "en": "task 9"
+      }
+    },
+    {
+      "difficulty": 10,
+      "contents": {
+        "ja": "タスク10",
+        "en": "task 10"
+      }
+    },
+    {
+      "difficulty": 11,
+      "contents": {
+        "ja": "タスク11",
+        "en": "task 11"
+      }
+    },
+    {
+      "difficulty": 12,
+      "contents": {
+        "ja": "タスク12",
+        "en": "task 12"
+      }
+    },
+    {
+      "difficulty": 13,
+      "contents": {
+        "ja": "タスク13",
+        "en": "task 13"
+      }
+    },
+    {
+      "difficulty": 14,
+      "contents": {
+        "ja": "タスク14",
+        "en": "task 14"
+      }
+    },
+    {
+      "difficulty": 15,
+      "contents": {
+        "ja": "タスク15",
+        "en": "task 15"
+      }
+    },
+    {
+      "difficulty": 16,
+      "contents": {
+        "ja": "タスク16",
+        "en": "task 16"
+      }
+    },
+    {
+      "difficulty": 17,
+      "contents": {
+        "ja": "タスク17",
+        "en": "task 17"
+      }
+    },
+    {
+      "difficulty": 18,
+      "contents": {
+        "ja": "タスク18",
+        "en": "task 18"
+      }
+    },
+    {
+      "difficulty": 19,
+      "contents": {
+        "ja": "タスク19",
+        "en": "task 19"
+      }
+    },
+    {
+      "difficulty": 20,
+      "contents": {
+        "ja": "タスク20",
+        "en": "task 20"
+      }
+    },
+    {
+      "difficulty": 21,
+      "contents": {
+        "ja": "タスク21",
+        "en": "task 21"
+      }
+    },
+    {
+      "difficulty": 22,
+      "contents": {
+        "ja": "タスク22",
+        "en": "task 22"
+      }
+    },
+    {
+      "difficulty": 23,
+      "contents": {
+        "ja": "タスク23",
+        "en": "task 23"
+      }
+    },
+    {
+      "difficulty": 24,
+      "contents": {
+        "ja": "タスク24",
+        "en": "task 24"
+      }
+    },
+    {
+      "difficulty": 25,
+      "contents": {
+        "ja": "タスク25",
+        "en": "task 25"
+      }
+    },
+    {
+      "difficulty": 1,
+      "contents": {
+        "ja": "タスク26",
+        "en": "task 26"
+      },
+      "tags": ["no_explosives"]
+    },
+    {
+      "difficulty": 2,
+      "contents": {
+        "ja": "タスク27",
+        "en": "task 27"
+      },
+      "tags": ["no_explosives"]
+    },
+    {
+      "difficulty": 3,
+      "contents": {
+        "ja": "タスク28",
+        "en": "task 28"
+      },
+      "tags": ["no_explosives"]
+    },
+    {
+      "difficulty": 4,
+      "contents": {
+        "ja": "タスク29",
+        "en": "task 29"
+      },
+      "tags": ["foo"]
+    },
+    {
+      "difficulty": 5,
+      "contents": {
+        "ja": "タスク30",
+        "en": "task 30"
+      },
+      "tags": ["foo"]
+    },
+    {
+      "difficulty": 6,
+      "contents": {
+        "ja": "タスク31",
+        "en": "task 31"
+      },
+      "tags": ["foo"]
+    },
+    {
+      "difficulty": 7,
+      "contents": {
+        "ja": "タスク32",
+        "en": "task 32"
+      },
+      "tags": ["bar"]
+    },
+    {
+      "difficulty": 8,
+      "contents": {
+        "ja": "タスク33",
+        "en": "task 33"
+      },
+      "tags": ["bar"]
+    },
+    {
+      "difficulty": 9,
+      "contents": {
+        "ja": "タスク34",
+        "en": "task 34"
+      },
+      "tags": ["bar"]
+    },
+    {
+      "difficulty": 10,
+      "contents": {
+        "ja": "タスク35",
+        "en": "task 35"
+      },
+      "tags": ["no_explosives", "foo"]
+    },
+    {
+      "difficulty": 11,
+      "contents": {
+        "ja": "タスク36",
+        "en": "task 36"
+      },
+      "tags": ["no_explosives", "bar"]
+    },
+    {
+      "difficulty": 12,
+      "contents": {
+        "ja": "タスク37",
+        "en": "task 37"
+      },
+      "tags": ["foo", "bar"]
+    },
+    {
+      "difficulty": 13,
+      "contents": {
+        "ja": "タスク38",
+        "en": "task 38"
+      },
+      "tags": ["no_explosives", "foo", "bar"]
+    },
+    {
+      "difficulty": 14,
+      "contents": {
+        "ja": "タスク39",
+        "en": "task 39"
+      },
+      "tags": ["dummy"]
+    },
+    {
+      "difficulty": 15,
+      "contents": {
+        "ja": "タスク40",
+        "en": "task 40"
+      },
+      "tags": ["dummy"]
+    }
+  ]
+}
