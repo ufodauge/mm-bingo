@@ -5,7 +5,7 @@ const isDevEnv = process.env.NODE_ENV !== "production";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix: isDevEnv ? "" : "/speed-bingo-template",
+  assetPrefix: isDevEnv ? "" : "/mm-bingo",
   output: "export",
   distDir: "out",
   images: {
