@@ -1,45 +1,73 @@
-import assert from "assert";
-import { useState } from "react";
+import { useState } from 'react';
 
-import Header from "@/components/features/popoutWindow/header";
-import TaskButtons from "@/components/features/popoutWindow/taskButtons";
-import { useQuery } from "@/lib/hooks/useQuery";
-import { useTaskData } from "@/lib/hooks/useTaskData";
-import { isLayoutName, LayoutName } from "@/types/layout";
-import { Task } from "@/types/task";
-import { css } from "@emotion/react";
-import { useThemeAction } from "@/contexts/theme";
-import { isThemeName } from "@/types/theme/theme";
-import { PopoutQuery } from "@/types/query/popout";
+import Header from '@/components/features/popoutWindow/header';
+import TaskButtons from '@/components/features/popoutWindow/taskButtons';
+import { useBingoBoardValuesContext } from '@/contexts/bingoBoard';
+import { useThemeAction } from '@/contexts/theme';
+import { useQuery } from '@/lib/hooks/useQuery';
+import { useTaskData } from '@/lib/hooks/useTaskData';
+import { isLayoutName, LayoutName } from '@/types/layout';
+import { LineType } from '@/types/lineType';
+import { PopoutQuery } from '@/types/query/popout';
+import { Task } from '@/types/task';
+import { isThemeName } from '@/types/theme/theme';
+
+import { container } from './index.css';
+import PopoutButtons from './popoutButtons';
 
 type Props = {};
 
 const Home: React.FC<Props> = () => {
-  const [header, setHeader] = useState<string>("");
+  const [header, setHeader] = useState<LineType | undefined>();
+  const [layoutName, setLayoutName] = useState<LayoutName>('vertical');
 
-  const [layoutName, setLayoutName] = useState<LayoutName>("vertical");
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const { setTheme } = useThemeAction();
+  const { tasks } = useBingoBoardValuesContext();
 
   const taskData = useTaskData();
-  const { setTheme } = useThemeAction();
+  const edgeLength = taskData.size;
+
+  const deriveTasks = (tasks: Task[], lineType: LineType): Task[] => {
+    switch (lineType) {
+      case 'tlbr':
+        return tasks.filter((_, i) => i % (edgeLength + 1) === 0);
+      case 'bltr':
+        return tasks.filter(
+          (_, i) =>
+            i % (edgeLength - 1) === 0 &&
+            !(i === 0 || i === edgeLength ** 2 - 1)
+        );
+      case 'tlbr':
+        return tasks.filter((_, i) => i % (edgeLength + 1) === 0);
+    }
+
+    const matched = /^(col|row)(\d+)$/.exec(lineType);
+    const direction = matched?.at(1);
+    const indexStr = matched?.at(2);
+
+    if (matched === null || direction === undefined || indexStr === undefined) {
+      throw new Error('ParseLineTypeError');
+    } else if (
+      !['row', 'col'].includes(direction) ||
+      Number.isNaN(Number(indexStr))
+    ) {
+      throw new Error('ParseLineTypeError');
+    }
+
+    const index = Number(indexStr);
+
+    if (direction === 'row') {
+      return tasks.slice((index - 1) * edgeLength, index * edgeLength);
+    } else if (direction === 'col') {
+      return tasks.filter((_, i) => i % edgeLength === index - 1);
+    }
+
+    throw new Error('Unreachable');
+  };
 
   useQuery<PopoutQuery>(
     (query) => {
       setHeader(query.header);
-      setTasks(
-        query.tasks?.split(";").map((v) => {
-          const result = taskData.data[Number(v)];
-
-          return {
-            index: Number(v),
-            difficulty: result ? result.difficulty : 0,
-            text: result ? result.contents[query.lang] : "Error!",
-            filter: 0,
-            lineTypes: [],
-            trackers: result ? result.trackers ?? [] : [],
-          };
-        }) ?? []
-      );
 
       if (isLayoutName(query.layout)) {
         setLayoutName(query.layout);
@@ -50,27 +78,30 @@ const Home: React.FC<Props> = () => {
       }
     },
     {
-      tasks: "0;0;0;0;0",
-      lang: "en",
-      layout: "vertical",
-      header: "col1",
-      theme: "light",
+      seed: '0',
+      lang: 'en',
+      layout: 'vertical',
+      header: 'row1',
+      theme: 'light',
     }
   );
 
-  const style = css({
-    display: "grid",
-    gridTemplateRows: header === "" ? "1fr" : "2em 1fr",
-    width: "100%",
-    height: "100%",
-  });
-
-  return (
-    <div css={style}>
+  const innerElements = header ? (
+    <div className={container}>
       <Header text={header} />
-      <TaskButtons tasks={tasks} layout={layoutName} />
+      {layoutName === 'card' ? (
+        <PopoutButtons>
+          <TaskButtons tasks={tasks} layout={layoutName} />
+        </PopoutButtons>
+      ) : (
+        <TaskButtons tasks={deriveTasks(tasks, header)} layout={layoutName} />
+      )}
     </div>
+  ) : (
+    <></>
   );
+
+  return innerElements;
 };
 
 export default Home;

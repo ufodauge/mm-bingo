@@ -9,8 +9,8 @@
 //   ] },
 // ]
 
-import { css, useTheme } from "@emotion/react";
-import { ChangeEventHandler } from "react";
+import { ChangeEventHandler, memo } from "react";
+import { container } from "./index.css";
 
 type Option = { text: string; value: any };
 type Group = { group: string; values: Option[] };
@@ -22,28 +22,24 @@ const isOption = (v: any): v is Option =>
   Object.keys(v).length === 2;
 
 type Props = {
-  options: Options;
-  onChange?: ChangeEventHandler<HTMLSelectElement>;
-  value?: string;
+  options         : Options;
+  customClassName?: string;
+  onChange       ?: ChangeEventHandler<HTMLSelectElement>;
+  value          ?: string;
 };
 
-const Selector: React.FC<Props> = ({ options, onChange, value }) => {
-  const theme = useTheme();
-
-  const style = css({
-    width: "100%",
-    backgroundColor: theme.baseVariant,
-    color: theme.baseContent,
-    borderColor: theme.baseVariant,
-    borderStyle: "solid",
-    borderWidth: "2px",
-    borderRadius: "10px",
-    paddingInline: "1rem",
-    transition: "inherit",
-  });
-
+const Selector = memo<Props>(function Selector({
+  options,
+  onChange,
+  value,
+  customClassName,
+}) {
   return (
-    <select css={style} onChange={onChange} defaultValue={value}>
+    <select
+      className    = {`${container} ${customClassName}`}
+      onChange     = {onChange}
+      defaultValue = {value}
+    >
       {options.map((v, i) => {
         if (isOption(v)) {
           return (
@@ -66,6 +62,6 @@ const Selector: React.FC<Props> = ({ options, onChange, value }) => {
       })}
     </select>
   );
-};
+});
 
 export default Selector;

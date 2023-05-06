@@ -1,8 +1,9 @@
 export const ErrorCodes = {
-  Unexpected: "不明なエラーです。",
-  UnimplementedFunctionCalled: "未実装の関数を呼び出そうとしています。",
-  UnknownThemeName: "不明なテーマ名が指定されました。",
-  UnreadyRouter: "Router が準備できていません。"
+  Unexpected                 : "An unknown error has occurred.",
+  UnimplementedFunctionCalled: "Attempting to call an unimplemented function.",
+  UnknownThemeName           : "An unknown theme name was specified.",
+  UnreadyRouter              : "The router is not ready.",
+  UnsupportedFieldSize       : "An unsupported field size was specified.",
 };
 
 export type ErrorCode = string;

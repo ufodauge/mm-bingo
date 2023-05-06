@@ -1,5 +1,6 @@
-import { css } from "@emotion/react";
 import { MouseEventHandler, useState } from "react";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+import * as style from "./toggler.css";
 
 type Props = {
   icons: string[];
@@ -12,41 +13,31 @@ const Toggler: React.FC<Props> = ({ icons }) => {
   };
 
   const buttons: JSX.Element[] = icons.map((icon, i) => {
-    const style = {
-      base: css({
-        opacity: togglers[i] ? "" : "50%",
-        filter: togglers[i] ? "" : "grayscale(1)",
-        transitionDuration: ".15s",
-        transitionTimingFunction: "ease-out",
-      }),
-      image: css({
-        width: "1.5em",
-        height: "1.5em",
-        margin: ".375em",
-      }),
-    };
     const onClick: MouseEventHandler<HTMLDivElement> = (e) => {
       e.stopPropagation();
       toggleByIndex(i);
     };
 
     return (
-      <div key={i} css={style.base} onClick={onClick}>
+      <div
+        key       = {i}
+        className = {style.base}
+        onClick   = {onClick}
+        style     = {assignInlineVars({
+          opacity: togglers.at(i) ? "": "30%",
+          filter : togglers.at(i) ? "": "grayscale(1)",
+        })}
+      >
         <img
-          src={icon === "" ? "/button.png" : icon}
-          alt="icon"
-          css={style.image}
+          src       = {icon === "" ? "/button.png" : icon}
+          alt       = "icon"
+          className = {style.image}
         />
       </div>
     );
   });
 
-  const style = css({
-    display: "flex",
-    flexDirection: "row",
-  });
-
-  return <div css={style}>{buttons}</div>;
+  return <div className={style.container}>{buttons}</div>;
 };
 
 export default Toggler;

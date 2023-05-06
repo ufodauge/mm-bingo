@@ -1,25 +1,26 @@
 import assert from "assert";
-import zlib from "zlib";
+import crypto from "crypto";
 
-const password = process.env.NEXT_PUBLIC_PASSWORD;
+const key = process.env.NEXT_PUBLIC_KEY!;
 
-// TODO 
-export const Encode = (str: string): string => {
-  assert(password, "Password?");
-
-  const content = encodeURIComponent(str + password);
-  const result = zlib.gzipSync(content);
-  const value = result.toString("base64");
-
-  return value;
+export const encrypt = (str: string): [string, string] => {
+  const iv = crypto.randomBytes(16);
+  const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
+  let encrypted = cipher.update(str, "utf8", "hex");
+  encrypted += cipher.final("hex");
+  
+  return [encrypted, iv.toString("hex")];
 };
 
-export const Decode = (code: string): string => {
-  assert(password, "Password?");
+export const decrypt = (code: string, hex: string): string => {
+  const decArray = hex.match(/.{1,2}/g)?.map((hex) => parseInt(hex, 16));
+  assert(decArray !== undefined);
+  const iv = Buffer.from(decArray);
 
-  const buffer = Buffer.from(code, "base64");
-  const result = zlib.unzipSync(buffer);
-  const str = decodeURIComponent(result.toString());
+  const decipher = crypto.createDecipheriv("aes-256-cbc", key, iv);
+  let decrypted = decipher.update(code, "hex", "utf8");
+  decrypted += decipher.final("utf8");
 
-  return str.replace(password, "");
+  return decrypted;
 };
+

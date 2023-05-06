@@ -1,18 +1,23 @@
-import { useBingoBoardContext } from "@/contexts/bingoBoard";
+import ReactMarkdown from "react-markdown";
+
 import { useTaskData } from "@/lib/hooks/useTaskData";
-import { css, useTheme } from "@emotion/react";
+import { useLanguageValue } from "@/contexts/language";
+import { container } from "./index.css";
 
 type Props = {};
 
 const Description: React.FC<Props> = () => {
   const { description } = useTaskData();
-  const { lang } = useBingoBoardContext().BoardValues;
-  const theme = useTheme();
+  const { languageName } = useLanguageValue();
 
-  const style = css({
-    color: theme.baseContent,
-  });
-  return <div css={style}>{description[lang]}</div>;
+  return (
+    <div className={container}>
+      {/* 
+        // TODO 
+      */}
+      <ReactMarkdown>{description[languageName as never]}</ReactMarkdown>
+    </div>
+  );
 };
 
 export default Description;

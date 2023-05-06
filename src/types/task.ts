@@ -5,7 +5,7 @@ export type Task = {
   index: number;
   difficulty: number;
   text: string;
-  filter: number;
+  filter: bigint;
   lineTypes: LineType[];
   trackers: Tracker[];
 };
