@@ -4,5 +4,9 @@
         "nowarp",
         "tlbr"
     ],
-    "todo-tree.tree.showBadges": true
+    "todo-tree.tree.showBadges": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none"
 }
