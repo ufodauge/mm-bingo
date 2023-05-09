@@ -1,10 +1,16 @@
 # Speedrun's Bingo Template
 
+## Requirements
+
+* Node.js
+
+
 ## How to use
 
 1. clone this repo
-2. edit `src/data/data.json`
-3. edit `next.config.json` as below:
+2. run `npm i`
+3. edit `src/data/data.json`
+4. edit `next.config.json` as below:
 
 ```js
 ...
@@ -12,9 +18,9 @@
 ...
 ```
 
-4. git push
+5. git push
 
 
-## `data.json`'s configuration
+## `data.json`'s scheme
 
 later
