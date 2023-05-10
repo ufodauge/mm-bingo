@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+
 import { useBingoBoardContext } from "@/contexts/bingoBoard";
 import { useTaskData } from "@/lib/hooks/useTaskData";
 import { css, useTheme } from "@emotion/react";
@@ -12,7 +14,12 @@ const Description: React.FC<Props> = () => {
   const style = css({
     color: theme.baseContent,
   });
-  return <div css={style}>{description[lang]}</div>;
+
+  return (
+    <div css={style}>
+      <ReactMarkdown>{description[lang]}</ReactMarkdown>
+    </div>
+  );
 };
 
 export default Description;

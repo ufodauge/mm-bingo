@@ -2,7 +2,7 @@ import React from "react";
 
 import { useTaskData } from "@/lib/hooks/useTaskData";
 import { LineType } from "@/types/lineType";
-import { css } from "@emotion/react";
+import { Global, css } from "@emotion/react";
 
 import PopoutButton from "./buttons/popoutButton";
 import PopoutCols from "./parts/popoutCols";
@@ -17,26 +17,37 @@ export default function BingoBoard() {
     lines.push(`col${i + 1}`, `row${i + 1}`);
   }
 
-  const minCellSize = 3.8;
-  const normalCellSize = 7.6;
+  const minCellSize = 60;
+  const normalCellSize = 120;
   const gapPx = 2;
   const boardSize = taskData.size;
 
   const style = css({
     display: "grid",
     gridTemplateColumns: `
-            ${minCellSize}em 
-            ${normalCellSize * boardSize}em`,
+            ${minCellSize}px 
+            ${normalCellSize * boardSize}px`,
     gridTemplateRows: `
-            ${minCellSize}em 
-            ${normalCellSize * boardSize}em
-            ${minCellSize}em`,
+            ${minCellSize}px 
+            ${normalCellSize * boardSize}px
+            ${minCellSize}px`,
     gap: `${gapPx}px`,
     margin: "1em",
   });
 
+  const globalStyle = css({
+    body: {
+      minWidth:
+        (taskData.size + 1) * normalCellSize +
+        minCellSize +
+        gapPx * taskData.size,
+    },
+  });
+
   return (
     <div css={style}>
+      <Global styles={globalStyle} />
+
       <PopoutButton lineType="tlbr" />
       <PopoutCols boardSize={boardSize} gap={gapPx} />
       <PopoutRows boardSize={boardSize} gap={gapPx} />

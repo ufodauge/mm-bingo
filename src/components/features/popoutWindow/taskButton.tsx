@@ -70,12 +70,12 @@ const TaskButton: React.FC<Props> = ({ task }) => {
     theme.highlightColor4,
   ];
 
-  const highlightVariants = [
-    theme.highlightColor1Variant,
-    theme.highlightColor2Variant,
-    theme.highlightColor3Variant,
-    theme.highlightColor4Variant,
-  ];
+  // const highlightVariants = [
+  //   theme.highlightColor1Variant,
+  //   theme.highlightColor2Variant,
+  //   theme.highlightColor3Variant,
+  //   theme.highlightColor4Variant,
+  // ];
 
   const kf = keyframes({
     "0%": { boxShadow: `0 0 0 0 ${theme.primary}` },
@@ -109,15 +109,10 @@ const TaskButton: React.FC<Props> = ({ task }) => {
       justifyContent: "center",
       alignItems: "center",
       width: "100%",
-      marginTop: "4px",
-      marginBottom: "4px",
+      margin: ".3em",
       fontWeight: "bold",
       fontSize: "1.2em",
     }),
-    // trackers: css({
-    //   display: "flex",
-    //   flexDirection: "col",
-    // }),
   };
 
   return (

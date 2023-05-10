@@ -5,7 +5,7 @@ import Header from "@/components/ui/header";
 import BingoBoardWrapper from "@/contexts/bingoBoard";
 import ThemeWrapper from "@/contexts/theme";
 import { useTaskData } from "@/lib/hooks/useTaskData";
-import { css } from "@emotion/react";
+import { Global, css } from "@emotion/react";
 
 type Props = {};
 
@@ -17,6 +17,10 @@ const Home: React.FC<Props> = () => {
     flexWrap: "wrap",
     justifyContent: "center",
     gap: "1.5rem",
+  });
+
+  const globalStyle = css({
+    
   });
 
   return (

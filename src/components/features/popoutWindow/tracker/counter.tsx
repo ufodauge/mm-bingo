@@ -1,7 +1,7 @@
-import Button from "@/components/ui/button";
-import { hslToHex } from "@/lib/utils/colorConversion";
-import { css, useTheme } from "@emotion/react";
 import { ButtonHTMLAttributes, useState } from "react";
+
+import Button from "@/components/ui/button";
+import { css, useTheme } from "@emotion/react";
 
 type Props = {
   max: number;
@@ -51,16 +51,21 @@ const Counter: React.FC<Props> = ({ max, init, icon }) => {
     }),
     textMain: css({
       padding: "",
-      fontSize: "1.2em"
+      fontSize: "1.2em",
     }),
     textSlash: css({
       paddingInlineStart: "0.5em",
+    }),
+    image: css({
+      width: "1.5em",
+      height: "1.5em",
+      margin: ".375em",
     }),
   };
 
   return (
     <Button ghost customProps={customProps} customStyle={customStyle}>
-      {icon ? <img src={icon} alt="" /> : <></>}
+      {icon ? <img src={icon} alt="" css={style.image} /> : <></>}
       <div css={style.text}>
         <p css={style.textMain}>{count}</p>
         <p css={[style.textSub, style.textSlash]}>/</p>

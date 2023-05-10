@@ -4,7 +4,7 @@
   "size": 5,
   "lang": ["ja", "en"],
   "description": {
-    "ja": "ハートのかけら増殖禁止、牛からミルクを絞るやつは飲んでしまっても構わない",
+    "ja": "* ハートのかけら増殖禁止\n* 牛からミルクを絞るやつは飲んでしまっても構わない",
     "en": "English version is currently not supported."
   },
   "version": {
@@ -15,138 +15,153 @@
   "data": [
     {
       "difficulty": 1,
-      "contents": { "ja": "宿のカギ", "en": "" },
+      "contents": { "ja": "宿のカギ", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 1,
-      "contents": { "ja": "ブレー面", "en": "" },
+      "contents": { "ja": "ブレー面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 1,
-      "contents": { "ja": "カーフェイのお面", "en": "" },
+      "contents": { "ja": "カーフェイのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 1,
-      "contents": { "ja": "月の涙", "en": "" },
+      "contents": { "ja": "月の涙", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 1,
-      "contents": { "ja": "バクレツのお面", "en": "" },
+      "contents": { "ja": "バクレツのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 2,
-      "contents": { "ja": "キータンのお面", "en": "" },
+      "contents": { "ja": "キータンのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 2,
-      "contents": { "ja": "母への速達をトイレの手に渡す", "en": "" },
+      "contents": {
+        "ja": "母への速達をトイレの手に渡す",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 2,
-      "contents": { "ja": "赤いクスリ", "en": "" },
+      "contents": { "ja": "赤いクスリ", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 2,
       "contents": {
         "ja": "ムジュラの仮面が描かれた風船をすべて割る",
-        "en": ""
+        "en": "not available"
       },
       "trackers": []
     },
     {
       "difficulty": 2,
-      "contents": { "ja": "3日目のやぐらの最上階に上る", "en": "" },
+      "contents": {
+        "ja": "3日目のやぐらの最上階に上る",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 2,
-      "contents": { "ja": "写し絵の箱", "en": "" },
+      "contents": { "ja": "写し絵の箱", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 3,
       "contents": {
         "ja": "ロマニーがお化けに連れ去られるシーンを見る",
-        "en": ""
+        "en": "not available"
       },
       "trackers": []
     },
     {
       "difficulty": 3,
-      "contents": { "ja": "月を落とす", "en": "" },
+      "contents": { "ja": "月を落とす", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 3,
-      "contents": { "ja": "サコンを爆破する", "en": "" },
+      "contents": { "ja": "サコンを爆破する", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 3,
-      "contents": { "ja": "エポナの歌", "en": "" },
+      "contents": { "ja": "エポナの歌", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 3,
-      "contents": { "ja": "シャトーロマーニ", "en": "" },
+      "contents": { "ja": "シャトーロマーニ", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 4,
-      "contents": { "ja": "執事の息子をチェックする", "en": "" },
+      "contents": { "ja": "執事の息子をチェックする", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 4,
-      "contents": { "ja": "500ルピーを保持する", "en": "" },
+      "contents": { "ja": "500ルピーを保持する", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 4,
-      "contents": { "ja": "キータンクイズのハートのかけら", "en": "" },
+      "contents": {
+        "ja": "キータンクイズのハートのかけら",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 4,
-      "contents": { "ja": "預金も所持金も空にする", "en": "" },
+      "contents": { "ja": "預金も所持金も空にする", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 4,
-      "contents": { "ja": "時の逆さ歌禁止", "en": "" },
+      "contents": { "ja": "時の逆さ歌禁止", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 4,
-      "contents": { "ja": "時の重ね歌禁止", "en": "" },
+      "contents": { "ja": "時の重ね歌禁止", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 4,
-      "contents": { "ja": "タルミナ平原の宝箱をすべて開ける", "en": "" },
+      "contents": {
+        "ja": "タルミナ平原の宝箱をすべて開ける",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "グッドな剣orナイスな盾購入", "en": "" },
+      "contents": { "ja": "グッドな剣orナイスな盾購入", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "ロマニーの寝顔を撮影する", "en": "" },
+      "contents": { "ja": "ロマニーの寝顔を撮影する", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "異なるスタルチュラを5体倒す", "en": "" },
+      "contents": {
+        "ja": "異なるスタルチュラを5体倒す",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -159,122 +174,140 @@
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "特上ロース岩をエリア外に投げ捨てる", "en": "" },
+      "contents": {
+        "ja": "特上ロース岩をエリア外に投げ捨てる",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "写し絵コンテストのハートのかけら", "en": "" },
+      "contents": {
+        "ja": "写し絵コンテストのハートのかけら",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "石ころのお面", "en": "" },
+      "contents": { "ja": "石ころのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "勇者の弓", "en": "" },
+      "contents": { "ja": "勇者の弓", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "ギブドのお面", "en": "" },
+      "contents": { "ja": "ギブドのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 6,
-      "contents": { "ja": "踊っているリーデッドの写真を撮る", "en": "" },
+      "contents": {
+        "ja": "踊っているリーデッドの写真を撮る",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 6,
-      "contents": { "ja": "フックショットのウィアードショット禁止", "en": "" },
+      "contents": {
+        "ja": "フックショットのウィアードショット禁止",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 6,
-      "contents": { "ja": "ウサギずきん", "en": "" },
+      "contents": { "ja": "ウサギずきん", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 6,
-      "contents": { "ja": "ゴロンの里のハートのかけら", "en": "" },
+      "contents": { "ja": "ゴロンの里のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 6,
-      "contents": { "ja": "宝箱屋のハートのかけら", "en": "" },
+      "contents": { "ja": "宝箱屋のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "タツノオトシゴ", "en": "" },
+      "contents": { "ja": "タツノオトシゴ", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "沼の射的場のハートのかけら", "en": "" },
+      "contents": { "ja": "沼の射的場のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "漁師のジャンプゲームのハートのかけら", "en": "" },
+      "contents": {
+        "ja": "漁師のジャンプゲームのハートのかけら",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "ボートクルーズを強制終了させる", "en": "" },
+      "contents": {
+        "ja": "ボートクルーズを強制終了させる",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "隊長のボウシ", "en": "" },
+      "contents": { "ja": "隊長のボウシ", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "フェザーソード", "en": "" },
+      "contents": { "ja": "フェザーソード", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "ビーバーレースの空き瓶", "en": "" },
+      "contents": { "ja": "ビーバーレースの空き瓶", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "海洋研究所のハートのかけら", "en": "" },
+      "contents": { "ja": "海洋研究所のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "嵐の歌", "en": "" },
+      "contents": { "ja": "嵐の歌", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "デク姫", "en": "" },
+      "contents": { "ja": "デク姫", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "ジャパスとセッションをする", "en": "" },
+      "contents": { "ja": "ジャパスとセッションをする", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "海のクモ館のハートのかけら", "en": "" },
+      "contents": { "ja": "海のクモ館のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "海賊の砦のハートのかけら", "en": "" },
+      "contents": { "ja": "海賊の砦のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "ロックビルのはぐれ妖精5匹", "en": "" },
+      "contents": { "ja": "ロックビルのはぐれ妖精5匹", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -287,67 +320,70 @@
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "トンガリ岩のハートのかけら", "en": "" },
+      "contents": { "ja": "トンガリ岩のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "大バクダン", "en": "" },
+      "contents": { "ja": "大バクダン", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 8,
-      "contents": { "ja": "大バクダンで爆死する", "en": "" },
+      "contents": { "ja": "大バクダンで爆死する", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "街の射的場のハートのかけら", "en": "" },
+      "contents": { "ja": "街の射的場のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "幽霊小屋のハートのかけら", "en": "" },
+      "contents": { "ja": "幽霊小屋のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "アイアンナックを倒す", "en": "" },
+      "contents": { "ja": "アイアンナックを倒す", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "デク王とデク姫を一緒に撮る", "en": "" },
+      "contents": { "ja": "デク王とデク姫を一緒に撮る", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "最大のボム袋", "en": "" },
+      "contents": { "ja": "最大のボム袋", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "ビックポウ", "en": "" },
+      "contents": { "ja": "ビックポウ", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "ゾーラホールのハートのかけら2つ", "en": "" },
+      "contents": {
+        "ja": "ゾーラホールのハートのかけら2つ",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "光の矢", "en": "" },
+      "contents": { "ja": "光の矢", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "炎の矢", "en": "" },
+      "contents": { "ja": "炎の矢", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "手帳のリボンを6個つける", "en": "" },
+      "contents": { "ja": "手帳のリボンを6個つける", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -360,35 +396,44 @@
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "太陽のお面を奪取", "en": "" },
+      "contents": { "ja": "太陽のお面を奪取", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "ゴシップストーンに魔法の矢を当てる", "en": "" },
+      "contents": {
+        "ja": "ゴシップストーンに魔法の矢を当てる",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 10,
       "contents": {
         "ja": "6:00から18:00の間にスノーヘッドの神殿に入る",
-        "en": ""
+        "en": "not available"
       },
       "trackers": []
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "全ての墓をあばく", "en": "" },
+      "contents": { "ja": "全ての墓をあばく", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "ドッグレースのハートのかけら", "en": "" },
+      "contents": {
+        "ja": "ドッグレースのハートのかけら",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "ウッドフォールのはぐれ妖精10匹", "en": "" },
+      "contents": {
+        "ja": "ウッドフォールのはぐれ妖精10匹",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -401,22 +446,28 @@
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "座長のお面", "en": "" },
+      "contents": { "ja": "座長のお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 10,
-      "contents": { "ja": "ガロのお面", "en": "" },
+      "contents": { "ja": "ガロのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "ハニーとダーリンの店のハートのかけら", "en": "" },
+      "contents": {
+        "ja": "ハニーとダーリンの店のハートのかけら",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "黄金のスタルチュラの魂を15個集める", "en": "" },
+      "contents": {
+        "ja": "黄金のスタルチュラの魂を15個集める",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -429,32 +480,35 @@
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "イカーナ川を復活させる", "en": "" },
+      "contents": { "ja": "イカーナ川を復活させる", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "ミラーシールド", "en": "" },
+      "contents": { "ja": "ミラーシールド", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "氷の矢", "en": "" },
+      "contents": { "ja": "氷の矢", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "ロマーニのお面", "en": "" },
+      "contents": { "ja": "ロマーニのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "ブーさんのお面", "en": "" },
+      "contents": { "ja": "ブーさんのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "グレートベイのはぐれ妖精5匹", "en": "" },
+      "contents": {
+        "ja": "グレートベイのはぐれ妖精5匹",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -467,12 +521,12 @@
     },
     {
       "difficulty": 11,
-      "contents": { "ja": "ゾーラの卵を売る", "en": "" },
+      "contents": { "ja": "ゾーラの卵を売る", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "手帳のリボンを8個つける", "en": "" },
+      "contents": { "ja": "手帳のリボンを8個つける", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -485,7 +539,10 @@
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "海賊の砦の宝箱をすべて開ける", "en": "" },
+      "contents": {
+        "ja": "海賊の砦の宝箱をすべて開ける",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -497,7 +554,10 @@
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "チンクルからマップをすべて回収する", "en": "" },
+      "contents": {
+        "ja": "チンクルからマップをすべて回収する",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -509,12 +569,15 @@
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "ぬけがらのエレジー", "en": "" },
+      "contents": { "ja": "ぬけがらのエレジー", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "海賊の砦の卵をすべて回収する", "en": "" },
+      "contents": {
+        "ja": "海賊の砦の卵をすべて回収する",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -527,12 +590,15 @@
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "ポストマンのハートのかけら", "en": "" },
+      "contents": { "ja": "ポストマンのハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "ウッドフォールの大妖精を復活させる", "en": "" },
+      "contents": {
+        "ja": "ウッドフォールの大妖精を復活させる",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -545,7 +611,10 @@
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "スノーヘッドのはぐれ妖精10匹", "en": "" },
+      "contents": {
+        "ja": "スノーヘッドのはぐれ妖精10匹",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -560,13 +629,13 @@
       "difficulty": 13,
       "contents": {
         "ja": "デクナッツのプレイスポットのハートのかけら",
-        "en": ""
+        "en": "not available"
       },
       "trackers": []
     },
     {
       "difficulty": 13,
-      "contents": { "ja": "お面を6種類集める", "en": "" },
+      "contents": { "ja": "お面を6種類集める", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -579,17 +648,23 @@
     },
     {
       "difficulty": 13,
-      "contents": { "ja": "井戸の下のすべてのドアを開錠する", "en": "" },
+      "contents": {
+        "ja": "井戸の下のすべてのドアを開錠する",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 13,
-      "contents": { "ja": "ワートを倒す", "en": "" },
+      "contents": { "ja": "ワートを倒す", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 13,
-      "contents": { "ja": "赤・緑・青のクスリを保持する", "en": "" },
+      "contents": {
+        "ja": "赤・緑・青のクスリを保持する",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -605,12 +680,15 @@
     },
     {
       "difficulty": 14,
-      "contents": { "ja": "グレートベイの神殿の水流を逆向きにする", "en": "" },
+      "contents": {
+        "ja": "グレートベイの神殿の水流を逆向きにする",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 14,
-      "contents": { "ja": "手帳の写真をすべて埋める", "en": "" },
+      "contents": { "ja": "手帳の写真をすべて埋める", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -623,7 +701,7 @@
     },
     {
       "difficulty": 14,
-      "contents": { "ja": "ゲッコーを2体倒す", "en": "" },
+      "contents": { "ja": "ゲッコーを2体倒す", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -636,14 +714,14 @@
     },
     {
       "difficulty": 14,
-      "contents": { "ja": "ゴメスを倒す", "en": "" },
+      "contents": { "ja": "ゴメスを倒す", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 14,
       "contents": {
         "ja": "黄色以外の犬でドッグレースのハートのかけら入手",
-        "en": ""
+        "en": "not available"
       },
       "trackers": []
     },
@@ -651,7 +729,7 @@
       "difficulty": 15,
       "contents": {
         "ja": "各アキンドナッツ近辺にあるハートのかけらすべて",
-        "en": ""
+        "en": "not available"
       },
       "trackers": [
         {
@@ -669,7 +747,7 @@
     },
     {
       "difficulty": 15,
-      "contents": { "ja": "手帳のリボンを10個つける", "en": "" },
+      "contents": { "ja": "手帳のリボンを10個つける", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -682,12 +760,15 @@
     },
     {
       "difficulty": 15,
-      "contents": { "ja": "まことのお面", "en": "" },
+      "contents": { "ja": "まことのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 15,
-      "contents": { "ja": "異なるウシ3頭からミルクをもらう", "en": "" },
+      "contents": {
+        "ja": "異なるウシ3頭からミルクをもらう",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -700,22 +781,22 @@
     },
     {
       "difficulty": 16,
-      "contents": { "ja": "夜更かしのお面", "en": "" },
+      "contents": { "ja": "夜更かしのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 16,
-      "contents": { "ja": "めおとのお面", "en": "" },
+      "contents": { "ja": "めおとのお面", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 16,
-      "contents": { "ja": "砂金", "en": "" },
+      "contents": { "ja": "砂金", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 16,
-      "contents": { "ja": "全てのフクロウ像を開放する", "en": "" },
+      "contents": { "ja": "全てのフクロウ像を開放する", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -727,12 +808,12 @@
     },
     {
       "difficulty": 17,
-      "contents": { "ja": "魔法のキノコ", "en": "" },
+      "contents": { "ja": "魔法のキノコ", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 17,
-      "contents": { "ja": "お面を8種類集める", "en": "" },
+      "contents": { "ja": "お面を8種類集める", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -745,7 +826,10 @@
     },
     {
       "difficulty": 17,
-      "contents": { "ja": "グレートベイのはぐれ妖精10匹", "en": "" },
+      "contents": {
+        "ja": "グレートベイのはぐれ妖精10匹",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -758,7 +842,10 @@
     },
     {
       "difficulty": 17,
-      "contents": { "ja": "スノーヘッドの大妖精を復活させる", "en": "" },
+      "contents": {
+        "ja": "スノーヘッドの大妖精を復活させる",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -771,7 +858,7 @@
     },
     {
       "difficulty": 18,
-      "contents": { "ja": "ロックビルのはぐれ妖精10匹", "en": "" },
+      "contents": { "ja": "ロックビルのはぐれ妖精10匹", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -784,7 +871,10 @@
     },
     {
       "difficulty": 18,
-      "contents": { "ja": "異なるウシ5頭からミルクをもらう", "en": "" },
+      "contents": {
+        "ja": "異なるウシ5頭からミルクをもらう",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -797,7 +887,7 @@
     },
     {
       "difficulty": 18,
-      "contents": { "ja": "歌7つ", "en": "" },
+      "contents": { "ja": "歌7つ", "en": "not available" },
       "trackers": [
         {
           "type": "toggler",
@@ -827,7 +917,7 @@
     },
     {
       "difficulty": 18,
-      "contents": { "ja": "帽子系のお面を3つ集める", "en": "" },
+      "contents": { "ja": "帽子系のお面を3つ集める", "en": "not available" },
       "trackers": [
         {
           "type": "toggler",
@@ -843,7 +933,7 @@
     },
     {
       "difficulty": 18,
-      "contents": { "ja": "動物由来のお面を4種集める", "en": "" },
+      "contents": { "ja": "動物由来のお面を4種集める", "en": "not available" },
       "trackers": [
         {
           "type": "toggler",
@@ -869,22 +959,31 @@
     },
     {
       "difficulty": 19,
-      "contents": { "ja": "沼と町それぞれの射的場のハートのかけら", "en": "" },
+      "contents": {
+        "ja": "沼と町それぞれの射的場のハートのかけら",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 19,
-      "contents": { "ja": "手帳のロマニーにリボンをつける", "en": "" },
+      "contents": {
+        "ja": "手帳のロマニーにリボンをつける",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 19,
-      "contents": { "ja": "金剛の剣", "en": "" },
+      "contents": { "ja": "金剛の剣", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 19,
-      "contents": { "ja": "黄金のスタルチュラの魂を30個集める", "en": "" },
+      "contents": {
+        "ja": "黄金のスタルチュラの魂を30個集める",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -897,7 +996,7 @@
     },
     {
       "difficulty": 20,
-      "contents": { "ja": "お面を10種類集める", "en": "" },
+      "contents": { "ja": "お面を10種類集める", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -910,17 +1009,23 @@
     },
     {
       "difficulty": 20,
-      "contents": { "ja": "手帳のマニ屋のおじさんにリボンをつける", "en": "" },
+      "contents": {
+        "ja": "手帳のマニ屋のおじさんにリボンをつける",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 20,
-      "contents": { "ja": "クリミアさんのハグ（あるいは200ルピー）", "en": "" },
+      "contents": {
+        "ja": "クリミアさんのハグ（あるいは200ルピー）",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 20,
-      "contents": { "ja": "任意のはぐれ妖精20匹", "en": "" },
+      "contents": { "ja": "任意のはぐれ妖精20匹", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -933,7 +1038,7 @@
     },
     {
       "difficulty": 21,
-      "contents": { "ja": "歌8つ", "en": "" },
+      "contents": { "ja": "歌8つ", "en": "not available" },
       "trackers": [
         {
           "type": "toggler",
@@ -963,7 +1068,10 @@
     },
     {
       "difficulty": 21,
-      "contents": { "ja": "グレートベイの大妖精を復活させる", "en": "" },
+      "contents": {
+        "ja": "グレートベイの大妖精を復活させる",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -976,7 +1084,7 @@
     },
     {
       "difficulty": 21,
-      "contents": { "ja": "ハート7つ", "en": "" },
+      "contents": { "ja": "ハート7つ", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -989,7 +1097,7 @@
     },
     {
       "difficulty": 21,
-      "contents": { "ja": "黄金のスタルチュラの魂40個", "en": "" },
+      "contents": { "ja": "黄金のスタルチュラの魂40個", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -1002,7 +1110,10 @@
     },
     {
       "difficulty": 21,
-      "contents": { "ja": "ロックビルの大妖精を復活させる", "en": "" },
+      "contents": {
+        "ja": "ロックビルの大妖精を復活させる",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -1015,7 +1126,7 @@
     },
     {
       "difficulty": 22,
-      "contents": { "ja": "あきびん4つ", "en": "" },
+      "contents": { "ja": "あきびん4つ", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -1028,12 +1139,18 @@
     },
     {
       "difficulty": 22,
-      "contents": { "ja": "アイテム画面のアイテムを斜めに4つ揃える", "en": "" },
+      "contents": {
+        "ja": "アイテム画面のアイテムを斜めに4つ揃える",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
       "difficulty": 22,
-      "contents": { "ja": "異なるウシ8頭からミルクをもらう", "en": "" },
+      "contents": {
+        "ja": "異なるウシ8頭からミルクをもらう",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -1046,7 +1163,7 @@
     },
     {
       "difficulty": 22,
-      "contents": { "ja": "神殿のボス鍵を3つ集める", "en": "" },
+      "contents": { "ja": "神殿のボス鍵を3つ集める", "en": "not available" },
       "trackers": [
         {
           "type": "toggler",
@@ -1063,7 +1180,7 @@
     },
     {
       "difficulty": 23,
-      "contents": { "ja": "案山子を10カ所出現させる", "en": "" },
+      "contents": { "ja": "案山子を10カ所出現させる", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -1077,7 +1194,7 @@
       "difficulty": 23,
       "contents": {
         "ja": "神殿のマップとコンパスをそれぞれ3つ集める",
-        "en": ""
+        "en": "not available"
       },
       "trackers": [
         {
@@ -1106,7 +1223,7 @@
     },
     {
       "difficulty": 23,
-      "contents": { "ja": "お面を12種類集める", "en": "" },
+      "contents": { "ja": "お面を12種類集める", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -1119,12 +1236,15 @@
     },
     {
       "difficulty": 23,
-      "contents": { "ja": "隠しフクロウ像禁止", "en": "" },
+      "contents": { "ja": "隠しフクロウ像禁止", "en": "not available" },
       "trackers": []
     },
     {
       "difficulty": 24,
-      "contents": { "ja": "秘密のほこらのウィズローブを倒す", "en": "" },
+      "contents": {
+        "ja": "秘密のほこらのウィズローブを倒す",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
@@ -1137,7 +1257,10 @@
     },
     {
       "difficulty": 24,
-      "contents": { "ja": "カエルの合唱団のハートのかけら", "en": "" },
+      "contents": {
+        "ja": "カエルの合唱団のハートのかけら",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "toggler",
@@ -1154,7 +1277,10 @@
     },
     {
       "difficulty": 24,
-      "contents": { "ja": "神殿のマップとコンパスをすべて集める", "en": "" },
+      "contents": {
+        "ja": "神殿のマップとコンパスをすべて集める",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "toggler",
@@ -1182,7 +1308,7 @@
     },
     {
       "difficulty": 24,
-      "contents": { "ja": "魔法の矢をすべて集める", "en": "" },
+      "contents": { "ja": "魔法の矢をすべて集める", "en": "not available" },
       "trackers": [
         {
           "type": "toggler",
@@ -1198,7 +1324,7 @@
     },
     {
       "difficulty": 25,
-      "contents": { "ja": "お面を14種類集める", "en": "" },
+      "contents": { "ja": "お面を14種類集める", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -1211,7 +1337,7 @@
     },
     {
       "difficulty": 25,
-      "contents": { "ja": "神殿のボス鍵をすべて集める", "en": "" },
+      "contents": { "ja": "神殿のボス鍵をすべて集める", "en": "not available" },
       "trackers": [
         {
           "type": "toggler",
@@ -1228,7 +1354,7 @@
     },
     {
       "difficulty": 25,
-      "contents": { "ja": "任意のはぐれ妖精30匹", "en": "" },
+      "contents": { "ja": "任意のはぐれ妖精30匹", "en": "not available" },
       "trackers": [
         {
           "type": "counter",
@@ -1241,7 +1367,10 @@
     },
     {
       "difficulty": 25,
-      "contents": { "ja": "あきびんに入るアイテムを10種類確保", "en": "" },
+      "contents": {
+        "ja": "あきびんに入るアイテムを10種類確保",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
