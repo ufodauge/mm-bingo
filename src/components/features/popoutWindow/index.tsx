@@ -1,16 +1,15 @@
-import assert from "assert";
-import { useState } from "react";
+import { useState } from 'react';
 
-import Header from "@/components/features/popoutWindow/header";
-import TaskButtons from "@/components/features/popoutWindow/taskButtons";
-import { useQuery } from "@/lib/hooks/useQuery";
-import { useTaskData } from "@/lib/hooks/useTaskData";
-import { isLayoutName, LayoutName } from "@/types/layout";
-import { Task } from "@/types/task";
-import { css } from "@emotion/react";
-import { useThemeAction } from "@/contexts/theme";
-import { isThemeName } from "@/types/theme/theme";
-import { PopoutQuery } from "@/types/query/popout";
+import Header from '@/components/features/popoutWindow/header';
+import TaskButtons from '@/components/features/popoutWindow/taskButtons';
+import { useThemeAction } from '@/contexts/theme';
+import { useQuery } from '@/lib/hooks/useQuery';
+import { useTaskData } from '@/lib/hooks/useTaskData';
+import { isLayoutName, LayoutName } from '@/types/layout';
+import { PopoutQuery } from '@/types/query/popout';
+import { Task } from '@/types/task';
+import { isThemeName } from '@/types/theme/theme';
+import { css } from '@emotion/react';
 
 type Props = {};
 

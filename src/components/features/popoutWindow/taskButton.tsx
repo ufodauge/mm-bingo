@@ -93,6 +93,7 @@ const TaskButton: React.FC<Props> = ({ task }) => {
       color: theme.highlightContent,
       transitionDuration: ".2s",
       userSelect: "none",
+      padding: ".8em",
       "&:hover": {
         borderColor: theme.primary,
         backgroundColor: highlights[highlightColorIndex],

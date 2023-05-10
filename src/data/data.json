@@ -667,7 +667,7 @@
       },
       "trackers": [
         {
-          "type": "counter",
+          "type": "toggler",
           "properties": {
             "icons": [
               "icons/redpotion.png",
