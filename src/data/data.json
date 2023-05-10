@@ -4,8 +4,8 @@
   "size": 5,
   "lang": ["ja", "en"],
   "description": {
-    "ja": "説明文が入ります。",
-    "en": "description is here."
+    "ja": "ハートのかけら増殖禁止、牛からミルクを絞るやつは飲んでしまっても構わない",
+    "en": "English version is currently not supported."
   },
   "version": {
     "major": 0,
@@ -101,6 +101,11 @@
     },
     {
       "difficulty": 4,
+      "contents": { "ja": "執事の息子をチェックする", "en": "" },
+      "trackers": []
+    },
+    {
+      "difficulty": 4,
       "contents": { "ja": "500ルピーを保持する", "en": "" },
       "trackers": []
     },
@@ -131,8 +136,26 @@
     },
     {
       "difficulty": 5,
-      "contents": { "ja": "異なるスタルチュラを5体倒す", "en": "" },
+      "contents": { "ja": "グッドな剣orナイスな盾購入", "en": "" },
       "trackers": []
+    },
+    {
+      "difficulty": 5,
+      "contents": { "ja": "ロマニーの寝顔を撮影する", "en": "" },
+      "trackers": []
+    },
+    {
+      "difficulty": 5,
+      "contents": { "ja": "異なるスタルチュラを5体倒す", "en": "" },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/skulltula.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 5,
@@ -196,7 +219,7 @@
     },
     {
       "difficulty": 7,
-      "contents": { "ja": "漁師のジャンプゲームのハートのか けら", "en": "" },
+      "contents": { "ja": "漁師のジャンプゲームのハートのかけら", "en": "" },
       "trackers": []
     },
     {
@@ -236,6 +259,11 @@
     },
     {
       "difficulty": 8,
+      "contents": { "ja": "ジャパスとセッションをする", "en": "" },
+      "trackers": []
+    },
+    {
+      "difficulty": 8,
       "contents": { "ja": "海のクモ館のハートのかけら", "en": "" },
       "trackers": []
     },
@@ -247,7 +275,15 @@
     {
       "difficulty": 8,
       "contents": { "ja": "ロックビルのはぐれ妖精5匹", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 8,
@@ -312,7 +348,15 @@
     {
       "difficulty": 10,
       "contents": { "ja": "手帳のリボンを6個つける", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/ribbon.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 10,
@@ -322,6 +366,14 @@
     {
       "difficulty": 10,
       "contents": { "ja": "ゴシップストーンに魔法の矢を当てる", "en": "" },
+      "trackers": []
+    },
+    {
+      "difficulty": 10,
+      "contents": {
+        "ja": "6:00から18:00の間にスノーヘッドの神殿に入る",
+        "en": ""
+      },
       "trackers": []
     },
     {
@@ -337,7 +389,15 @@
     {
       "difficulty": 10,
       "contents": { "ja": "ウッドフォールのはぐれ妖精10匹", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 10,
@@ -357,7 +417,15 @@
     {
       "difficulty": 11,
       "contents": { "ja": "黄金のスタルチュラの魂を15個集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/goldenskulltulatoken.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 11,
@@ -387,22 +455,57 @@
     {
       "difficulty": 11,
       "contents": { "ja": "グレートベイのはぐれ妖精5匹", "en": "" },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
+    },
+    {
+      "difficulty": 11,
+      "contents": { "ja": "ゾーラの卵を売る", "en": "" },
       "trackers": []
     },
     {
       "difficulty": 12,
       "contents": { "ja": "手帳のリボンを8個つける", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/ribbon.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "海賊 の砦の宝箱をすべて開ける", "en": "" },
-      "trackers": []
+      "contents": { "ja": "海賊の砦の宝箱をすべて開ける", "en": "" },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10
+          }
+        }
+      ]
     },
     {
       "difficulty": 12,
       "contents": { "ja": "チンクルからマップをすべて回収する", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 6
+          }
+        }
+      ]
     },
     {
       "difficulty": 12,
@@ -412,7 +515,15 @@
     {
       "difficulty": 12,
       "contents": { "ja": "海賊の砦の卵をすべて回収する", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/zoraegg.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 12,
@@ -422,12 +533,28 @@
     {
       "difficulty": 12,
       "contents": { "ja": "ウッドフォールの大妖精を復活させる", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 15,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 12,
       "contents": { "ja": "スノーヘッドのはぐれ妖精10匹", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 13,
@@ -440,7 +567,15 @@
     {
       "difficulty": 13,
       "contents": { "ja": "お面を6種類集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 6,
+            "icon": "icons/keatonmask.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 13,
@@ -455,7 +590,18 @@
     {
       "difficulty": 13,
       "contents": { "ja": "赤・緑・青のクスリを保持する", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "icons": [
+              "icons/redpotion.png",
+              "icons/greenpotion.png",
+              "icons/bluepotion.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 14,
@@ -465,16 +611,40 @@
     {
       "difficulty": 14,
       "contents": { "ja": "手帳の写真をすべて埋める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 20,
+            "icon": "icons/bombersnotebook.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 14,
       "contents": { "ja": "ゲッコーを2体倒す", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 2,
+            "icon": "icons/dongerosmask.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 14,
       "contents": { "ja": "ゴメスを倒す", "en": "" },
+      "trackers": []
+    },
+    {
+      "difficulty": 14,
+      "contents": {
+        "ja": "黄色以外の犬でドッグレースのハートのかけら入手",
+        "en": ""
+      },
       "trackers": []
     },
     {
@@ -483,12 +653,32 @@
         "ja": "各アキンドナッツ近辺にあるハートのかけらすべて",
         "en": ""
       },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/heartpiece.png",
+              "icons/heartpiece.png",
+              "icons/heartpiece.png",
+              "icons/heartpiece.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 15,
       "contents": { "ja": "手帳のリボンを10個つける", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10,
+            "icon": "icons/ribbon.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 15,
@@ -498,7 +688,15 @@
     {
       "difficulty": 15,
       "contents": { "ja": "異なるウシ3頭からミルクをもらう", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 3,
+            "icon": "icons/milk.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 16,
@@ -518,7 +716,14 @@
     {
       "difficulty": 16,
       "contents": { "ja": "全てのフクロウ像を開放する", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10
+          }
+        }
+      ]
     },
     {
       "difficulty": 17,
@@ -528,42 +733,139 @@
     {
       "difficulty": 17,
       "contents": { "ja": "お面を8種類集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 8,
+            "icon": "icons/keatonmask.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 17,
       "contents": { "ja": "グレートベイのはぐれ妖精10匹", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 17,
-      "contents": { "ja": "スノーヘッドの大妖精を 復活させる", "en": "" },
-      "trackers": []
+      "contents": { "ja": "スノーヘッドの大妖精を復活させる", "en": "" },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 15,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 18,
       "contents": { "ja": "ロックビルのはぐれ妖精10匹", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 18,
       "contents": { "ja": "異なるウシ5頭からミルクをもらう", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 5,
+            "icon": "icons/milk.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 18,
       "contents": { "ja": "歌7つ", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/songnormal.png",
+              "icons/songnormal.png",
+              "icons/songnormal.png",
+              "icons/songnormal.png",
+              "icons/songnormal.png"
+            ]
+          }
+        },
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/sonataofawakening.png",
+              "icons/goronlullaby.png",
+              "icons/newwavebossanova.png",
+              "icons/elegyofemptiness.png",
+              "icons/oathoforder.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 18,
       "contents": { "ja": "帽子系のお面を3つ集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/postmanshat.png",
+              "icons/bunnyhood.png",
+              "icons/captainshat.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 18,
       "contents": { "ja": "動物由来のお面を4種集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/keatonmask.png",
+              "icons/bremenmask.png",
+              "icons/bunnyhood.png"
+            ]
+          }
+        },
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/dongerosmask.png",
+              "icons/maskofscents.png",
+              "icons/romanismask.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 19,
@@ -583,12 +885,28 @@
     {
       "difficulty": 19,
       "contents": { "ja": "黄金のスタルチュラの魂を30個集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 30,
+            "icon": "icons/goldenskulltulatoken.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 20,
       "contents": { "ja": "お面を10種類集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10,
+            "icon": "icons/keatonmask.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 20,
@@ -603,37 +921,110 @@
     {
       "difficulty": 20,
       "contents": { "ja": "任意のはぐれ妖精20匹", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 20,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 21,
       "contents": { "ja": "歌8つ", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/songnormal.png",
+              "icons/songnormal.png",
+              "icons/songnormal.png",
+              "icons/songnormal.png",
+              "icons/songnormal.png"
+            ]
+          }
+        },
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/sonataofawakening.png",
+              "icons/goronlullaby.png",
+              "icons/newwavebossanova.png",
+              "icons/elegyofemptiness.png",
+              "icons/oathoforder.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 21,
       "contents": { "ja": "グレートベイの大妖精を復活させる", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 15,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 21,
       "contents": { "ja": "ハート7つ", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 15,
+            "icon": "icons/heartpiece.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 21,
-      "contents": { "ja": "黄金のスタルチ ュラの魂40個", "en": "" },
-      "trackers": []
+      "contents": { "ja": "黄金のスタルチュラの魂40個", "en": "" },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 40,
+            "icon": "icons/goldenskulltulatoken.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 21,
       "contents": { "ja": "ロックビルの大妖精を復活させる", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 15,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 22,
       "contents": { "ja": "あきびん4つ", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 4,
+            "icon": "icons/bottle.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 22,
@@ -643,17 +1034,44 @@
     {
       "difficulty": 22,
       "contents": { "ja": "異なるウシ8頭からミルクをもらう", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 8,
+            "icon": "icons/milk.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 22,
       "contents": { "ja": "神殿のボス鍵を3つ集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/bosskey.png",
+              "icons/bosskey.png",
+              "icons/bosskey.png",
+              "icons/bosskey.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 23,
       "contents": { "ja": "案山子を10カ所出現させる", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10
+          }
+        }
+      ]
     },
     {
       "difficulty": 23,
@@ -661,12 +1079,43 @@
         "ja": "神殿のマップとコンパスをそれぞれ3つ集める",
         "en": ""
       },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/dungeonmap.png",
+              "icons/dungeonmap.png",
+              "icons/dungeonmap.png",
+              "icons/dungeonmap.png"
+            ]
+          }
+        },
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/dungeoncompass.png",
+              "icons/dungeoncompass.png",
+              "icons/dungeoncompass.png",
+              "icons/dungeoncompass.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 23,
       "contents": { "ja": "お面を12種類集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 12,
+            "icon": "icons/keatonmask.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 23,
@@ -675,43 +1124,133 @@
     },
     {
       "difficulty": 24,
-      "contents": { "ja": "ハート8つ（増殖禁止）", "en": "" },
-      "trackers": []
+      "contents": { "ja": "秘密のほこらのウィズローブを倒す", "en": "" },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 19,
+            "icon": "icons/heartpiece.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 24,
       "contents": { "ja": "カエルの合唱団のハートのかけら", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/dongerosmask.png",
+              "icons/dongerosmask.png",
+              "icons/dongerosmask.png",
+              "icons/dongerosmask.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 24,
       "contents": { "ja": "神殿のマップとコンパスをすべて集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/dungeonmap.png",
+              "icons/dungeonmap.png",
+              "icons/dungeonmap.png",
+              "icons/dungeonmap.png"
+            ]
+          }
+        },
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/dungeoncompass.png",
+              "icons/dungeoncompass.png",
+              "icons/dungeoncompass.png",
+              "icons/dungeoncompass.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 24,
       "contents": { "ja": "魔法の矢をすべて集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/firearrow.png",
+              "icons/icearrow.png",
+              "icons/lightarrow.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 25,
       "contents": { "ja": "お面を14種類集める", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 14,
+            "icon": "icons/keatonmask.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 25,
-      "contents": { "ja": "神殿のボス鍵 をすべて集める", "en": "" },
-      "trackers": []
+      "contents": { "ja": "神殿のボス鍵をすべて集める", "en": "" },
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/bosskey.png",
+              "icons/bosskey.png",
+              "icons/bosskey.png",
+              "icons/bosskey.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 25,
       "contents": { "ja": "任意のはぐれ妖精30匹", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 30,
+            "icon": "icons/strayfairy.png"
+          }
+        }
+      ]
     },
     {
       "difficulty": 25,
       "contents": { "ja": "あきびんに入るアイテムを10種類確保", "en": "" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 10,
+            "icon": "icons/bottle.png"
+          }
+        }
+      ]
     }
   ]
 }
