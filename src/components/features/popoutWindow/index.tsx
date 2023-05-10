@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Header from '@/components/features/popoutWindow/header';
-import TaskButtons from '@/components/features/popoutWindow/taskButtons';
-import { useThemeAction } from '@/contexts/theme';
-import { useQuery } from '@/lib/hooks/useQuery';
-import { useTaskData } from '@/lib/hooks/useTaskData';
-import { isLayoutName, LayoutName } from '@/types/layout';
-import { PopoutQuery } from '@/types/query/popout';
-import { Task } from '@/types/task';
-import { isThemeName } from '@/types/theme/theme';
-import { css } from '@emotion/react';
+import Header from "@/components/features/popoutWindow/header";
+import TaskButtons from "@/components/features/popoutWindow/taskButtons";
+import { useThemeAction } from "@/contexts/theme";
+import { useQuery } from "@/lib/hooks/useQuery";
+import { useTaskData } from "@/lib/hooks/useTaskData";
+import { isLayoutName, LayoutName } from "@/types/layout";
+import { PopoutQuery } from "@/types/query/popout";
+import { Task } from "@/types/task";
+import { isThemeName } from "@/types/theme/theme";
+import { css, Global } from "@emotion/react";
 
 type Props = {};
 
@@ -64,8 +64,16 @@ const Home: React.FC<Props> = () => {
     height: "100%",
   });
 
+  const minCellSize = 120;
+  const globalStyle = css({
+    body: {
+      minWidth: (taskData.size + 1) * minCellSize + minCellSize,
+    },
+  });
+
   return (
     <div css={style}>
+      <Global styles={globalStyle} />
       <Header text={header} />
       <TaskButtons tasks={tasks} layout={layoutName} />
     </div>

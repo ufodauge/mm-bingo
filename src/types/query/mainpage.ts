@@ -4,5 +4,4 @@ export type MainPageQuery = {
   seed: number;
   lang: string;
   theme: ThemeName;
-  gist?: string;
 };

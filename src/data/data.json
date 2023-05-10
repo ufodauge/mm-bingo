@@ -1126,7 +1126,7 @@
     },
     {
       "difficulty": 22,
-      "contents": { "ja": "あきびん4つ", "en": "not available" },
+      "contents": { "ja": "あきビン4つ", "en": "not available" },
       "trackers": [
         {
           "type": "counter",

@@ -1,27 +1,25 @@
 import { useState } from "react";
 
 import CountdownUI from "@/components/ui/countdown";
-import { Decode } from "@/lib/encoder";
+import { decrypt } from "@/lib/encoder";
 import { useQuery } from "@/lib/hooks/useQuery";
 import { useRouterPush } from "@/lib/hooks/useRouterPush";
 import { MainPageQuery } from "@/types/query/mainpage";
 import { isThemeName } from "@/types/theme/theme";
-import assert from "assert";
+import { CountdownQuery } from "@/types/query/countdown";
 
 type Props = {};
 
 const Countdown: React.FC<Props> = () => {
   const [count, setCount] = useState(0);
-  const [getQuery, pushToMainPage] = useRouterPush<MainPageQuery>();
+  const [_, pushToMainPage] = useRouterPush<MainPageQuery>();
 
-  useQuery(
+  useQuery<CountdownQuery>(
     (v) => {
-      const seed = Decode(v.seed);
-      const releaseTime = Decode(v.release);
+      const text = decrypt(v.code, v.key);
+      const [seed, releaseTime] = text.split("_");
 
       const targetTime = new Date(Number(releaseTime)).getTime();
-
-      const [_, query] = getQuery();
 
       const timer = setInterval(() => {
         const now = new Date().getTime();
@@ -29,17 +27,12 @@ const Countdown: React.FC<Props> = () => {
 
         const themeName = isThemeName(v.theme) ? v.theme : "light";
 
-        assert(
-          typeof query.gist === "string" || typeof query.gist === "undefined"
-        );
-
         if (distance <= 0) {
           clearInterval(timer);
           pushToMainPage("/", {
             seed: Number(seed),
             lang: v.lang,
             theme: themeName,
-            gist: query.gist,
           });
         } else {
           setCount(distance);
@@ -48,7 +41,7 @@ const Countdown: React.FC<Props> = () => {
 
       return () => clearInterval(timer);
     },
-    { seed: "", release: "", lang: "ja", theme: "light" }
+    { code: "", key: "", lang: "ja", theme: "light" }
   );
 
   return <CountdownUI remains={count} />;

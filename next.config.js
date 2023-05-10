@@ -1,5 +1,6 @@
 require("dotenv").config();
-const randomBytes = require("crypto").randomBytes(32).toString("hex");
+const key = require("crypto").randomBytes(16).toString("hex");
+
 const isDevEnv = process.env.NODE_ENV !== "production";
 
 /** @type {import('next').NextConfig} */
@@ -12,7 +13,7 @@ const nextConfig = {
     unoptimized: true,
   },
   env: {
-    NEXT_PUBLIC_PASSWORD: randomBytes,
+    NEXT_PUBLIC_KEY: key,
   },
 };
 
