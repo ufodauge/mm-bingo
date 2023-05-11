@@ -6,6 +6,7 @@ import DateInput from "@/components/ui/dateinput";
 import Label from "@/components/ui/label";
 import Selector, { Options } from "@/components/ui/selector";
 import TextInput from "@/components/ui/textInput";
+import { SEP } from "@/const/crypto";
 import { useBingoBoardContext } from "@/contexts/bingoBoard";
 import { useThemeValue } from "@/contexts/theme";
 import { encrypt } from "@/lib/encoder";
@@ -14,7 +15,6 @@ import { useTaskData } from "@/lib/hooks/useTaskData";
 import { isLayoutName } from "@/types/layout";
 import { CountdownQuery } from "@/types/query/countdown";
 import { css } from "@emotion/react";
-import Copyright from "@/components/ui/copyright";
 
 const DEFAULT_SEED_DIGITS = 1000000;
 const DEFAULT_MINUTES_OFFSET = 10;
@@ -72,12 +72,9 @@ const DashBoard: React.FC<Props> = () => {
 
   const { themeName } = useThemeValue();
 
-  const [getCountDownQuery, updateCountDownQuery] =
-    useRouterPush<CountdownQuery>();
+  const [_, updateCountDownQuery] = useRouterPush<CountdownQuery>();
   const releaseClicked = () => {
-    const [_, query] = getCountDownQuery();
-
-    const [code, key] = encrypt(`${seed}_${releaseTime}`);
+    const [code, key] = encrypt([seed, releaseTime].join(SEP));
 
     const newQuery: CountdownQuery = {
       code,

@@ -1,12 +1,13 @@
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, { createContext, ReactNode, useContext, useState } from 'react';
 
-import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
-import { UnknownThemeNameException } from "@/class/exception/unknownThemeName";
-import { useQuery } from "@/lib/hooks/useQuery";
-import { getTheme } from "@/lib/theme/getTheme";
-import { isThemeName, ThemeName, ThemeNames } from "@/types/theme/theme";
-import { css, ThemeProvider } from "@emotion/react";
-import { useRouterPush } from "@/lib/hooks/useRouterPush";
+import {
+    UnimplementedFunctionCalledException
+} from '@/class/exception/unimplementedFunctionCalled';
+import { useQuery } from '@/lib/hooks/useQuery';
+import { useRouterPush } from '@/lib/hooks/useRouterPush';
+import { getTheme } from '@/lib/theme/getTheme';
+import { isThemeName, ThemeName, ThemeNames } from '@/types/theme/theme';
+import { css, ThemeProvider } from '@emotion/react';
 
 type ThemeActionProps = {
   toggle: () => void;
@@ -68,6 +69,8 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
   const theme = getTheme(themeName);
 
   const style = css({
+    display: "flex",
+    flexDirection: "column",
     backgroundColor: theme.base,
     transitionDuration: ".2s",
     transitionTimingFunction: "ease-in-out",

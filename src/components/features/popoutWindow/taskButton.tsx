@@ -99,7 +99,7 @@ const TaskButton: React.FC<Props> = ({ task }) => {
         backgroundColor: highlights[highlightColorIndex],
         color: theme.highlightContent,
         backgroundPosition: "right center",
-        backgroundSize: "200% auto",
+        backgroundSize: "auto",
         animationName: kf,
         animationDuration: "1s",
         zIndex: "10",

@@ -6,13 +6,13 @@ type Props = {};
 
 const PopoutWindow: React.FC<Props> = () => {
   const style = css({
-    width: "100vw",
-    height: "100vh",
+    // width: "100vw",
+    // height: "100vh",
   });
   return (
-    <div css={style}>
+    // <div css={style}>
       <PopoutWindowUI />
-    </div>
+    // </div>
   );
 };
 

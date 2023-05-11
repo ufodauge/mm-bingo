@@ -12,6 +12,7 @@ const CountdownPage: React.FC<Props> = () => {
     justifyContent: "center",
     alignItems: "center",
   });
+
   return (
     <ThemeWrapper>
       <div css={style}>

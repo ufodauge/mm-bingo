@@ -1,8 +1,8 @@
-import { Task } from "@/types/task";
+import { LayoutName } from '@/types/layout';
+import { Task } from '@/types/task';
+import { css } from '@emotion/react';
 
-import TaskButton from "./taskButton";
-import { css } from "@emotion/react";
-import { LayoutName } from "@/types/layout";
+import TaskButton from './taskButton';
 
 type Props = {
   tasks: Task[];
@@ -24,9 +24,9 @@ const TaskButtons: React.FC<Props> = ({ tasks, layout }) => {
 
   const style = css({
     display: "grid",
-    gridTemplateColumns: `repeat(${cols}, 1fr)`,
-    gridTemplateRows: `repeat(${rows}, 1fr)`,
-    // gap: "3px",
+    gridTemplateColumns: `repeat(${cols}, minmax(14em, 1fr))`,
+    gridTemplateRows: `repeat(${rows}, minmax(4em, 1fr))`,
+    gap: ".1em",
   });
 
   return (

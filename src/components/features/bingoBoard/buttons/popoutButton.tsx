@@ -14,6 +14,8 @@ type Props = {
   lineType: LineType;
 };
 
+const isDevEnv = process.env.NODE_ENV === "development";
+
 export default function PopoutButton({ lineType }: Props) {
   const { BoardActions, BoardValues } = useBingoBoardContext();
   const { tasks, layout } = BoardValues;
@@ -27,7 +29,7 @@ export default function PopoutButton({ lineType }: Props) {
 
   const { repoName } = useTaskData();
 
-  const url = `/${repoName}/popout`;
+  const url = `${isDevEnv ? "" : repoName}/popout`;
   const params: PopoutQuery = {
     tasks: targetTasks.map((v) => v.index).join(";"),
     header: lineType,
@@ -48,7 +50,7 @@ export default function PopoutButton({ lineType }: Props) {
       features
     );
     if (w) {
-      w.document.title = "popout"
+      w.document.title = "popout";
     }
   };
   const onMouseOver = () => updateTargetedLine(lineType);

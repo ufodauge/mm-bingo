@@ -7,6 +7,7 @@ import { useRouterPush } from "@/lib/hooks/useRouterPush";
 import { MainPageQuery } from "@/types/query/mainpage";
 import { isThemeName } from "@/types/theme/theme";
 import { CountdownQuery } from "@/types/query/countdown";
+import { SEP } from "@/const/crypto";
 
 type Props = {};
 
@@ -17,7 +18,7 @@ const Countdown: React.FC<Props> = () => {
   useQuery<CountdownQuery>(
     (v) => {
       const text = decrypt(v.code, v.key);
-      const [seed, releaseTime] = text.split("_");
+      const [seed, releaseTime] = text.split(SEP);
 
       const targetTime = new Date(Number(releaseTime)).getTime();
 

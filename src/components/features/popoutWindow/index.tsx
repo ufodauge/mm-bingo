@@ -57,23 +57,15 @@ const Home: React.FC<Props> = () => {
     }
   );
 
+  const headerSize = "2em";
   const style = css({
     display: "grid",
-    gridTemplateRows: header === "" ? "1fr" : "2em 1fr",
-    width: "100%",
-    height: "100%",
-  });
-
-  const minCellSize = 120;
-  const globalStyle = css({
-    body: {
-      minWidth: (taskData.size + 1) * minCellSize + minCellSize,
-    },
+    gridTemplateRows: header === "" ? "1fr" : `${headerSize} 1fr`,
+    minHeight: "100vh",
   });
 
   return (
     <div css={style}>
-      <Global styles={globalStyle} />
       <Header text={header} />
       <TaskButtons tasks={tasks} layout={layoutName} />
     </div>
