@@ -110,8 +110,8 @@ const DashBoard: React.FC<Props> = () => {
     base: css({
       display: "grid",
       gridTemplateColumns: "repeat(2, 1fr)",
-      gridTemplateRows: "repeat(6, 3rem)",
-      gap: "0.75rem",
+      gridTemplateRows: "repeat(6, 3em)",
+      gap: "0.75em",
       width: "100%",
       transitionDuration: ".2s",
       transitionTimingFunction: "ease-in-out",

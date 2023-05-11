@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, keyframes, useTheme } from "@emotion/react";
 import { MouseEventHandler, useState } from "react";
 
 type Props = {
@@ -14,17 +14,23 @@ const Toggler: React.FC<Props> = ({ icons }) => {
   const buttons: JSX.Element[] = icons.map((icon, i) => {
     const style = {
       base: css({
-        opacity: togglers[i] ? "" : "50%",
+        opacity: togglers[i] ? "" : "30%",
         filter: togglers[i] ? "" : "grayscale(1)",
         transitionDuration: ".15s",
         transitionTimingFunction: "ease-out",
+        ":hover": {
+          outlineStyle: "solid",
+          outlineWidth: "1px",
+          borderRadius: "4px",
+        },
       }),
       image: css({
-        width: "1.5em",
-        height: "1.5em",
-        margin: ".375em",
+        width: "1.8em",
+        height: "1.6em",
+        margin: ".1em",
       }),
     };
+
     const onClick: MouseEventHandler<HTMLDivElement> = (e) => {
       e.stopPropagation();
       toggleByIndex(i);

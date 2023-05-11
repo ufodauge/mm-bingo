@@ -24,7 +24,7 @@ const TaskButtons: React.FC<Props> = ({ tasks, layout }) => {
 
   const style = css({
     display: "grid",
-    gridTemplateColumns: `repeat(${cols}, minmax(14em, 1fr))`,
+    gridTemplateColumns: `repeat(${cols}, minmax(12em, 1fr))`,
     gridTemplateRows: `repeat(${rows}, minmax(4em, 1fr))`,
     gap: ".1em",
   });

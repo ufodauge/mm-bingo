@@ -42,16 +42,13 @@ export default function PopoutButton({ lineType }: Props) {
     const features = CalcPopupWindowFeatures(
       lineType === "card" ? "card" : layout
     );
-    const w = window.open(
+   window.open(
       `${url}?${Object.entries(params)
         .map(([k, v]) => `${k}=${v}`)
         .join("&")}`,
       "_blank",
       features
     );
-    if (w) {
-      w.document.title = "popout";
-    }
   };
   const onMouseOver = () => updateTargetedLine(lineType);
   const onMouseOut = () => updateTargetedLine();

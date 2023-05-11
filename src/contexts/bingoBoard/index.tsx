@@ -64,8 +64,8 @@ const BingoBoardWrapper: FC<Props> = ({ children }: Props) => {
   const taskData = useTaskData();
 
   const [seed, setSeed] = useState(0);
-  const [lang, setLanguage] = useState("en");
-  const [tasks, setTasks] = useState(TaskGenerator(taskData, 0, "en"));
+  const [lang, setLanguage] = useState(taskData.lang[0]);
+  const [tasks, setTasks] = useState(TaskGenerator(taskData, 0, taskData.lang[0]));
   const [layout, setLayout] = useState<LayoutName>("vertical");
 
   const updateTasks = (seed: number, lang: string) =>
