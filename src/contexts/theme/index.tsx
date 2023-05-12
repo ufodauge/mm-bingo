@@ -1,13 +1,11 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useState } from "react";
 
-import {
-    UnimplementedFunctionCalledException
-} from '@/class/exception/unimplementedFunctionCalled';
-import { useQuery } from '@/lib/hooks/useQuery';
-import { useRouterPush } from '@/lib/hooks/useRouterPush';
-import { getTheme } from '@/lib/theme/getTheme';
-import { isThemeName, ThemeName, ThemeNames } from '@/types/theme/theme';
-import { css, ThemeProvider } from '@emotion/react';
+import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
+import { useQuery } from "@/lib/hooks/useQuery";
+import { useRouterPush } from "@/lib/hooks/useRouterPush";
+import { getTheme } from "@/lib/theme/getTheme";
+import { isThemeName, ThemeName, ThemeNames } from "@/types/theme/theme";
+import { css, ThemeProvider } from "@emotion/react";
 
 type ThemeActionProps = {
   toggle: () => void;
@@ -37,6 +35,7 @@ type Props = {
 
 const ThemeWrapper: React.FC<Props> = ({ children }) => {
   const [themeName, setThemeName] = useState<ThemeName>("light");
+  const { getQuery, updateQuery } = useRouterPush();
 
   useQuery(
     (v) => {
@@ -47,15 +46,13 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
     { theme: "light" }
   );
 
-  const [getQuery, updateQuery] = useRouterPush();
-
   const themeAction: ThemeActionProps = {
     toggle: () => {
       const index = ThemeNames.findIndex((v) => v === themeName);
       const newThemeName = ThemeNames[(index + 1) % ThemeNames.length];
       setThemeName(newThemeName);
 
-      const [pathname, query] = getQuery();
+      const { pathname, query } = getQuery();
       query.theme = newThemeName;
       updateQuery(pathname, query, true);
     },

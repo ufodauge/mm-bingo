@@ -1,25 +1,25 @@
 import { UnreadyRouterException } from "@/class/exception/unreadyRouterException";
 import { useRouter } from "next/router";
-import { ParsedUrlQuery, ParsedUrlQueryInput } from "querystring";
 
 export const useRouterPush = <
-  // FROM extends ParsedUrlQuery,
-  TO extends string | ParsedUrlQueryInput | null | undefined
->(): [
-  () => [string, ParsedUrlQuery],
-  (pathname: string, query: TO, shallow?: boolean) => void
-] => {
+  FROM extends { [key: string]: string | number },
+  TO extends { [key: string]: string | number } = FROM
+>(): {
+  getQuery: () => { pathname: string; query: FROM };
+  updateQuery: (pathname: string, query: TO, shallow?: boolean) => void;
+} => {
   const router = useRouter();
 
-  return [
-    () => {
+  return {
+    getQuery: () => {
       if (!router.isReady) throw new UnreadyRouterException();
 
-      return [router.pathname, router.query];
+      return { pathname: router.pathname, query: router.query as FROM };
     },
-    (pathname: string, query: TO, shallow?: boolean) => {
+    updateQuery: (pathname: string, query: TO, shallow?: boolean) => {
       if (!router.isReady) throw new UnreadyRouterException();
+
       router.push({ pathname, query }, undefined, { shallow });
     },
-  ];
+  };
 };

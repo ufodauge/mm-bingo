@@ -15,6 +15,7 @@ import { useTaskData } from "@/lib/hooks/useTaskData";
 import { isLayoutName } from "@/types/layout";
 import { CountdownQuery } from "@/types/query/countdown";
 import { css } from "@emotion/react";
+import { MainPageQuery } from "@/types/query/mainpage";
 
 const DEFAULT_SEED_DIGITS = 1000000;
 const DEFAULT_MINUTES_OFFSET = 10;
@@ -39,14 +40,14 @@ const DashBoard: React.FC<Props> = () => {
     return { text: v, value: v };
   });
 
-  const [getMainPageQuery, updateMainPageQueryQuery] = useRouterPush();
+  const MainPage = useRouterPush<MainPageQuery>();
   const randomizeClicked = () => {
     const s = Math.floor(Math.random() * DEFAULT_SEED_DIGITS);
 
     setSeed(s);
     updateTasks(s, lang);
 
-    const [pathname, query] = getMainPageQuery();
+    const { pathname, query } = MainPage.getQuery();
     const newQuery = {
       ...query,
       seed: s,
@@ -54,13 +55,13 @@ const DashBoard: React.FC<Props> = () => {
       theme: themeName,
     };
 
-    updateMainPageQueryQuery(pathname, newQuery, true);
+    MainPage.updateQuery(pathname, newQuery, true);
   };
   const updateClicked = () => {
     updateTasks(seed, lang);
-
-    updateMainPageQueryQuery(
-      "/",
+    const { pathname } = MainPage.getQuery();
+    MainPage.updateQuery(
+      pathname,
       {
         seed: seed,
         lang,
@@ -72,7 +73,7 @@ const DashBoard: React.FC<Props> = () => {
 
   const { themeName } = useThemeValue();
 
-  const [_, updateCountDownQuery] = useRouterPush<CountdownQuery>();
+  const Countdown = useRouterPush<MainPageQuery, CountdownQuery>();
   const releaseClicked = () => {
     const [code, key] = encrypt([seed, releaseTime].join(SEP));
 
@@ -82,7 +83,7 @@ const DashBoard: React.FC<Props> = () => {
       lang,
       theme: themeName,
     };
-    updateCountDownQuery("/countdown", newQuery);
+    Countdown.updateQuery("/countdown", newQuery);
   };
   const onReleaseTimeChanged: ChangeEventHandler<HTMLInputElement> = (v) =>
     setReleaseTime(

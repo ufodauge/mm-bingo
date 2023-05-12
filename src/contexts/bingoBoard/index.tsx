@@ -65,7 +65,9 @@ const BingoBoardWrapper: FC<Props> = ({ children }: Props) => {
 
   const [seed, setSeed] = useState(0);
   const [lang, setLanguage] = useState(taskData.lang[0]);
-  const [tasks, setTasks] = useState(TaskGenerator(taskData, 0, taskData.lang[0]));
+  const [tasks, setTasks] = useState(
+    TaskGenerator(taskData, 0, taskData.lang[0])
+  );
   const [layout, setLayout] = useState<LayoutName>("vertical");
 
   const updateTasks = (seed: number, lang: string) =>
@@ -76,7 +78,7 @@ const BingoBoardWrapper: FC<Props> = ({ children }: Props) => {
     setTargetedLine(lineType);
   };
 
-  const [getQuery, updateQuery] = useRouterPush<MainPageQuery>();
+  const { getQuery, updateQuery } = useRouterPush<MainPageQuery>();
   const { themeName } = useThemeValue();
 
   useQuery(
@@ -92,7 +94,7 @@ const BingoBoardWrapper: FC<Props> = ({ children }: Props) => {
 
       updateTasks(_seed, _lang);
 
-      const [pathname, query] = getQuery();
+      const { pathname, query } = getQuery();
 
       const newQuery = {
         ...query,
