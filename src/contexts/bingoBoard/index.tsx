@@ -1,9 +1,16 @@
-import { createContext, FC, ReactNode, useContext, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import {
+  createContext,
+  FC,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
 import TaskGenerator from "@/class/TaskGenerator";
-import { DefaultLanguage } from "@/const/language";
-import { useQuery } from "@/lib/hooks/useQuery";
 import { useRouterPush } from "@/lib/hooks/useRouterPush";
 import { useTaskData } from "@/lib/hooks/useTaskData";
 import { LayoutName } from "@/types/layout";
@@ -60,7 +67,7 @@ type Props = {
 
 const DEFAULT_SEED_DIGITS = 1000000;
 
-const BingoBoardWrapper: FC<Props> = ({ children }: Props) => {
+const BingoBoardProvider: FC<Props> = ({ children }: Props) => {
   const taskData = useTaskData();
 
   const [seed, setSeed] = useState(0);
@@ -70,46 +77,43 @@ const BingoBoardWrapper: FC<Props> = ({ children }: Props) => {
   );
   const [layout, setLayout] = useState<LayoutName>("vertical");
 
-  const updateTasks = (seed: number, lang: string) =>
+  const updateTasks = useCallback((seed: number, lang: string) => {
     setTasks(TaskGenerator(taskData, seed, lang));
+  }, []);
 
   const [targetedLine, setTargetedLine] = useState<LineType | undefined>();
-  const updateTargetedLine = (lineType?: LineType) => {
+  const updateTargetedLine = useCallback((lineType?: LineType) => {
     setTargetedLine(lineType);
-  };
+  }, []);
 
-  const { getQuery, updateQuery } = useRouterPush<MainPageQuery>();
+  const { isReady, getQuery, updateQuery } = useRouterPush<MainPageQuery>();
   const { themeName } = useThemeValue();
 
-  useQuery(
-    (v) => {
-      const _lang =
-        v.lang && taskData.lang.includes(v.lang) ? v.lang : DefaultLanguage;
-      const _seed = !Number.isNaN(Number(v.seed))
-        ? Number(v.seed)
-        : Math.floor(Math.random() * DEFAULT_SEED_DIGITS);
+  useEffect(() => {
+    const { query, pathname } = getQuery();
 
-      setSeed(_seed);
-      setLanguage(_lang);
+    const _lang =
+      query.lang && taskData.lang.includes(query.lang)
+        ? query.lang
+        : taskData.lang[0];
+    const _seed = !Number.isNaN(Number(query.seed))
+      ? Number(query.seed)
+      : Math.floor(Math.random() * DEFAULT_SEED_DIGITS);
 
-      updateTasks(_seed, _lang);
+    setSeed(_seed);
+    setLanguage(_lang);
 
-      const { pathname, query } = getQuery();
+    updateTasks(_seed, _lang);
 
-      const newQuery = {
-        ...query,
-        seed: _seed,
-        lang: _lang,
-        theme: themeName,
-      };
+    const newQuery = {
+      ...query,
+      seed: _seed,
+      lang: _lang,
+      theme: themeName,
+    };
 
-      updateQuery(pathname, newQuery, true);
-    },
-    {
-      seed: "",
-      lang: "en",
-    }
-  );
+    updateQuery(pathname, newQuery, true);
+  }, [isReady]);
 
   const boardValues = {
     seed,
@@ -143,4 +147,4 @@ export const useBingoBoardContext = () => {
   };
 };
 
-export default BingoBoardWrapper;
+export default BingoBoardProvider;

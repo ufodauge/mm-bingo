@@ -1,8 +1,9 @@
 import { css, useTheme } from "@emotion/react";
+import React from "react";
 
 type Props = { text: string };
 
-const TimerLabel: React.FC<Props> = ({ text }) => {
+const TimerLabel = React.memo<Props>(function TimerLabel({ text }) {
   const theme = useTheme();
   const style = css({
     position: "absolute",
@@ -25,6 +26,6 @@ const TimerLabel: React.FC<Props> = ({ text }) => {
   });
 
   return <span css={style}>{text}</span>;
-};
+});
 
 export default TimerLabel;
