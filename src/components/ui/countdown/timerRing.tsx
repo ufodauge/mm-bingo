@@ -1,6 +1,5 @@
 import { css, useTheme } from "@emotion/react";
-
-type Props = { seconds: number };
+import React from "react";
 
 const TIME_LIMIT = 60 * 3;
 const FULL_DASH_ARRAY = 283;
@@ -16,7 +15,9 @@ const getCircleDashArray = (seconds: number) => {
   return `${(calculateTimeFraction(seconds) * FULL_DASH_ARRAY).toFixed(0)} 283`;
 };
 
-const TimerRing: React.FC<Props> = ({ seconds }) => {
+type Props = { seconds: number };
+
+const TimerRing = React.memo<Props>(function TimerRing({ seconds }) {
   const theme = useTheme();
 
   const style = css({
@@ -40,7 +41,7 @@ const TimerRing: React.FC<Props> = ({ seconds }) => {
   });
   return (
     <path
-      stroke-dasharray={getCircleDashArray(seconds)}
+      strokeDasharray={getCircleDashArray(seconds)}
       css={style}
       d="
           M 50, 50
@@ -50,6 +51,6 @@ const TimerRing: React.FC<Props> = ({ seconds }) => {
         "
     ></path>
   );
-};
+});
 
 export default TimerRing;

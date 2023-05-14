@@ -1,9 +1,10 @@
 import { css } from "@emotion/react";
 import TimerRing from "./timerRing";
+import React from "react";
 
-type Props = {seconds: number};
+type Props = { seconds: number };
 
-const TimerCircle: React.FC<Props> = ({ seconds }) => {
+const TimerCircle = React.memo<Props>(function TimerCircle({ seconds }) {
   const style = {
     baseTimerCircle: css({
       fill: "none",
@@ -23,6 +24,6 @@ const TimerCircle: React.FC<Props> = ({ seconds }) => {
       </g>
     </svg>
   );
-};
+});
 
 export default TimerCircle;

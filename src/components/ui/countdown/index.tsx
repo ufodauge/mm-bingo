@@ -1,13 +1,16 @@
 // https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/
 
-import { css } from "@emotion/react";
-import TimerCircle from "./timerCircle";
-import TimerLabel from "./timerLabel";
+import React from 'react';
+
+import { css } from '@emotion/react';
+
+import TimerCircle from './timerCircle';
+import TimerLabel from './timerLabel';
 
 type Props = { remains: number };
 
-const Countdown: React.FC<Props> = ({ remains }) => {
-  const days = Math.floor(remains / (1000 * 60 * 60 * 24));
+const Countdown = React.memo<Props>(function Countdown({ remains }) {
+  const days = Math.floor(remains / (1000 * 60 * 60 * 24));  
   const hours = String(
     Math.floor((remains % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
   ).padStart(2, "0");
@@ -47,6 +50,6 @@ const Countdown: React.FC<Props> = ({ remains }) => {
       <TimerLabel text={text} />
     </div>
   );
-};
+});
 
 export default Countdown;

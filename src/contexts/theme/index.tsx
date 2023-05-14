@@ -1,13 +1,18 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-import {
-    UnimplementedFunctionCalledException
-} from '@/class/exception/unimplementedFunctionCalled';
-import { useQuery } from '@/lib/hooks/useQuery';
-import { useRouterPush } from '@/lib/hooks/useRouterPush';
-import { getTheme } from '@/lib/theme/getTheme';
-import { isThemeName, ThemeName, ThemeNames } from '@/types/theme/theme';
-import { css, ThemeProvider } from '@emotion/react';
+import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
+import { useQuery } from "@/lib/hooks/useQuery";
+import { useRouterPush } from "@/lib/hooks/useRouterPush";
+import { getTheme } from "@/lib/theme/getTheme";
+import { isThemeName, ThemeName, ThemeNames } from "@/types/theme/theme";
+import { css, ThemeProvider } from "@emotion/react";
 
 type ThemeActionProps = {
   toggle: () => void;
@@ -37,27 +42,31 @@ type Props = {
 
 const ThemeWrapper: React.FC<Props> = ({ children }) => {
   const [themeName, setThemeName] = useState<ThemeName>("light");
+  const { isReady, getQuery, updateQuery } = useRouterPush();
 
-  useQuery(
-    (v) => {
-      if (isThemeName(v.theme)) {
-        setThemeName(v.theme);
-      }
-    },
-    { theme: "light" }
-  );
+  useEffect(() => {
+    if (!isReady) return;
 
-  const [getQuery, updateQuery] = useRouterPush();
+    const { query, pathname } = getQuery();
+
+    if (typeof query.theme === "string" && isThemeName(query.theme)) {
+      setThemeName(query.theme);
+    } else {
+      setThemeName("light");
+      updateQuery(pathname, { ...query, theme: "light" });
+    }
+  }, [isReady]);
 
   const themeAction: ThemeActionProps = {
     toggle: () => {
       const index = ThemeNames.findIndex((v) => v === themeName);
       const newThemeName = ThemeNames[(index + 1) % ThemeNames.length];
+
       setThemeName(newThemeName);
 
-      const [pathname, query] = getQuery();
-      query.theme = newThemeName;
-      updateQuery(pathname, query, true);
+      const { pathname, query } = getQuery();
+
+      updateQuery(pathname, { ...query, theme: newThemeName }, true);
     },
     setTheme: setThemeName,
   };
@@ -78,7 +87,7 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
     minHeight: "100vh",
   });
 
-  return (
+  return isReady ? (
     <ThemeProvider theme={theme}>
       <ThemeValue.Provider value={themeValue}>
         <ThemeAction.Provider value={themeAction}>
@@ -86,6 +95,8 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
         </ThemeAction.Provider>
       </ThemeValue.Provider>
     </ThemeProvider>
+  ) : (
+    <></>
   );
 };
 
