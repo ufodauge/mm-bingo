@@ -1,4 +1,5 @@
 import PopoutWindow from "@/components/layouts/popoutWindow";
+import LanguageProvider from "@/contexts/language";
 import ThemeWrapper from "@/contexts/theme";
 import { Global, css } from "@emotion/react";
 
@@ -15,8 +16,10 @@ const Home: React.FC<Props> = () => {
   });
   return (
     <ThemeWrapper>
-      <Global styles={globalStyle} />
-      <PopoutWindow />
+      <LanguageProvider>
+        <Global styles={globalStyle} />
+        <PopoutWindow />
+      </LanguageProvider>
     </ThemeWrapper>
   );
 };

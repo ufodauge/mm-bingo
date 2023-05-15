@@ -9,7 +9,7 @@
 //   ] },
 // ]
 
-import { css, useTheme } from "@emotion/react";
+import { SerializedStyles, css, useTheme } from "@emotion/react";
 import { ChangeEventHandler } from "react";
 
 type Option = { text: string; value: any };
@@ -23,11 +23,17 @@ const isOption = (v: any): v is Option =>
 
 type Props = {
   options: Options;
+  customStyle?: SerializedStyles;
   onChange?: ChangeEventHandler<HTMLSelectElement>;
   value?: string;
 };
 
-const Selector: React.FC<Props> = ({ options, onChange, value }) => {
+const Selector: React.FC<Props> = ({
+  options,
+  onChange,
+  value,
+  customStyle,
+}) => {
   const theme = useTheme();
 
   const style = css({
@@ -43,7 +49,7 @@ const Selector: React.FC<Props> = ({ options, onChange, value }) => {
   });
 
   return (
-    <select css={style} onChange={onChange} defaultValue={value}>
+    <select css={[style, customStyle]} onChange={onChange} defaultValue={value}>
       {options.map((v, i) => {
         if (isOption(v)) {
           return (

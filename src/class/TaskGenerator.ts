@@ -23,7 +23,7 @@ export default function TaskGenerator(taskData: TaskData, seed: number, lang: st
 
   // generate tasks
   const result: Task[] = tasks.map((task, i) => {
-    task.lineTypes = getLineTypesByIndex(i);
+    task.lineTypes = getLineTypesByIndex(i, taskData.size);
     return task;
   });
 
