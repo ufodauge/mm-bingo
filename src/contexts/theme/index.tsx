@@ -1,18 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
-import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
-import { useQuery } from "@/lib/hooks/useQuery";
-import { useRouterPush } from "@/lib/hooks/useRouterPush";
-import { getTheme } from "@/lib/theme/getTheme";
-import { isThemeName, ThemeName, ThemeNames } from "@/types/theme/theme";
-import { css, ThemeProvider } from "@emotion/react";
+import {
+    UnimplementedFunctionCalledException
+} from '@/class/exception/unimplementedFunctionCalled';
+import { useRouterPush } from '@/lib/hooks/useRouterPush';
+import { getTheme } from '@/lib/theme/getTheme';
+import { isThemeName, ThemeName, ThemeNames } from '@/types/theme/theme';
+import { css, ThemeProvider } from '@emotion/react';
 
 type ThemeActionProps = {
   toggle: () => void;
@@ -83,7 +78,7 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
     backgroundColor: theme.base,
     transitionDuration: ".2s",
     transitionTimingFunction: "ease-in-out",
-    minWidth: "100vw",
+    minWidth: "100%",
     minHeight: "100vh",
   });
 

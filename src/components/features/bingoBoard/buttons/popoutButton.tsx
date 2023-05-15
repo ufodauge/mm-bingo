@@ -38,9 +38,12 @@ export default function PopoutButton({ lineType }: Props) {
     theme: themeName,
   };
 
+  const taskData = useTaskData()
+
   const onClick = () => {
     const features = CalcPopupWindowFeatures(
-      lineType === "card" ? "card" : layout
+      lineType === "card" ? "card" : layout,
+      taskData.size
     );
    window.open(
       `${url}?${Object.entries(params)

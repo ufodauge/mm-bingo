@@ -1,4 +1,3 @@
-import { taskData } from "@/const/TaskData";
 import { LayoutName } from "@/types/layout";
 
 const HEADER_SIZE = 40;
@@ -6,8 +5,7 @@ const CARD_CELL_SIZE = 200;
 const VERT_CELL_SIZE = 180;
 const HORZ_CELL_SIZE = 240;
 
-export const CalcPopupWindowFeatures = (layoutName: LayoutName): string => {
-  const cellCount = taskData.size;
+export const CalcPopupWindowFeatures = (layoutName: LayoutName, cellCount: number): string => {
   const size = (() => {
     if (layoutName === "card") {
       return `width=${CARD_CELL_SIZE * cellCount},height=${
