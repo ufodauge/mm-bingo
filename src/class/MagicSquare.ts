@@ -18,7 +18,7 @@ export default class MagicSquare {
   /**
    * checker of if any tasks have same tag in a same row.
    */
-  private checkList: { [key: string]: number };
+  private checkList: { [key: string]: bigint };
 
   private random: Random;
 
@@ -32,10 +32,10 @@ export default class MagicSquare {
 
     this.size = size;
 
-    this.checkList = { bltr: 0b0, tlbr: 0b0 };
+    this.checkList = { bltr: BigInt(0b0), tlbr: BigInt(0b0) };
     for (let i = 0; i < size; i++) {
-      this.checkList[`col${i + 1}`] = 0b0;
-      this.checkList[`row${i + 1}`] = 0b0;
+      this.checkList[`col${i + 1}`] = BigInt(0b0);
+      this.checkList[`row${i + 1}`] = BigInt(0b0);
     }
 
     this.random = new Random(seed);
@@ -80,27 +80,33 @@ export default class MagicSquare {
   // generateEvenMS = () => {};
 
   /**
-   * return task or error task if some tasks are assignable.
+   * return task or error task if any tasks are not assignable.
    */
-  getAssignableTask = (tasks: Task[], pos: number): Task =>
-    this.shuffleArray(tasks).find((task) =>
-      this.checkFilter(task.filter, pos)
-    ) || {
-      index: pos,
+  getAssignableTaskRandomly = (tasks: Task[], pos: number): Task => {
+    const result = this.shuffleArray(tasks).find((task) => {
+      // console.log(task.text, task.filter, pos);
+      const result = this.checkFilter(task.filter, pos);
+      return result;
+    }) || {
+      index: -1,
       difficulty: this.getDifficulty(pos),
       text: "Error!",
-      filter: 0,
+      filter: BigInt(0),
       lineTypes: [],
       trackers: [],
     };
 
+    return result;
+  };
+
+  // 390910
   /**
    * get row's labels by position
    */
   getRowsByPosition = (pos: number): LineType[] => {
     const rows: LineType[] = [
-      `row${Math.floor(pos / this.size)}`,
-      `col${pos % this.size}`,
+      `row${Math.floor(pos / this.size) + 1}`,
+      `col${(pos % this.size) + 1}`,
     ];
 
     if (pos % (this.size + 1) === 0) {
@@ -120,17 +126,21 @@ export default class MagicSquare {
   /**
    *
    */
-  checkFilter = (filter: number, pos: number): boolean => {
-    return this.getRowsByPosition(pos).every(
-      (v) => (this.checkList[v] & filter) === 0b0
-    );
+  checkFilter = (filter: bigint, pos: number): boolean => {
+    return this.getRowsByPosition(pos).every((v) => {
+      // console.log(this.checkList[v], filter);
+      return (this.checkList[v] & filter) === BigInt(0b0);
+    });
   };
 
   /**
    * update filter of the position
    */
-  updateFilter = (filter: number, pos: number) => {
-    this.getRowsByPosition(pos).forEach((v) => (this.checkList[v] &= filter));
+  updateFilter = (filter: bigint, pos: number) => {
+    this.getRowsByPosition(pos).forEach((v) => {
+      this.checkList[v] |= filter;
+      console.log(this.checkList[v]);
+    });
   };
 
   /**
@@ -138,7 +148,7 @@ export default class MagicSquare {
    */
   getDifficulty = (pos: number): number => this.magicSquare[pos] + 1;
 
-  private shuffleArray = (array: any[]): any[] => {
+  private shuffleArray = <T>(array: T[]): T[] => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = this.random.nextInt(0, i);
       [array[i], array[j]] = [array[j], array[i]];

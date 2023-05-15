@@ -19,10 +19,11 @@ import { MainPageQuery } from "@/types/query/mainpage";
 import { Task } from "@/types/task";
 
 import { useThemeValue } from "../theme";
+import { useLanguageValue } from "../language";
+import React from "react";
 
 type BoardValuesProps = {
   seed: number;
-  lang: string;
   tasks: Task[];
   targetedLine?: LineType;
   layout: LayoutName;
@@ -30,7 +31,6 @@ type BoardValuesProps = {
 
 type BoardActionsProps = {
   setSeed: React.Dispatch<React.SetStateAction<number>>;
-  setLanguage: React.Dispatch<React.SetStateAction<string>>;
   setLayout: React.Dispatch<React.SetStateAction<LayoutName>>;
   updateTargetedLine: (lineType?: LineType) => void;
   updateTasks: (seed: number, lang: string) => void;
@@ -38,7 +38,6 @@ type BoardActionsProps = {
 
 const BoardValuesContext = createContext<BoardValuesProps>({
   seed: 0,
-  lang: "en",
   tasks: [],
   layout: "vertical",
 });
@@ -53,9 +52,6 @@ const BoardActionsContext = createContext<BoardActionsProps>({
   setLayout: () => {
     throw new UnimplementedFunctionCalledException();
   },
-  setLanguage: () => {
-    throw new UnimplementedFunctionCalledException();
-  },
   updateTasks: () => {
     throw new UnimplementedFunctionCalledException();
   },
@@ -67,18 +63,21 @@ type Props = {
 
 const DEFAULT_SEED_DIGITS = 1000000;
 
-const BingoBoardProvider: FC<Props> = ({ children }: Props) => {
+const BingoBoardProvider = React.memo<Props>(function BingoBoardProvider({
+  children,
+}) {
   const taskData = useTaskData();
+  const { languageName } = useLanguageValue();
 
   const [seed, setSeed] = useState(0);
-  const [lang, setLanguage] = useState(taskData.lang[0]);
   const [tasks, setTasks] = useState(
     TaskGenerator(taskData, 0, taskData.lang[0])
   );
   const [layout, setLayout] = useState<LayoutName>("vertical");
 
   const updateTasks = useCallback((seed: number, lang: string) => {
-    setTasks(TaskGenerator(taskData, seed, lang));
+    const tasks = TaskGenerator(taskData, seed, lang);
+    setTasks(tasks);
   }, []);
 
   const [targetedLine, setTargetedLine] = useState<LineType | undefined>();
@@ -92,23 +91,17 @@ const BingoBoardProvider: FC<Props> = ({ children }: Props) => {
   useEffect(() => {
     const { query, pathname } = getQuery();
 
-    const _lang =
-      query.lang && taskData.lang.includes(query.lang)
-        ? query.lang
-        : taskData.lang[0];
     const _seed = !Number.isNaN(Number(query.seed))
       ? Number(query.seed)
       : Math.floor(Math.random() * DEFAULT_SEED_DIGITS);
 
     setSeed(_seed);
-    setLanguage(_lang);
 
-    updateTasks(_seed, _lang);
+    updateTasks(_seed, languageName);
 
     const newQuery = {
       ...query,
       seed: _seed,
-      lang: _lang,
       theme: themeName,
     };
 
@@ -117,7 +110,6 @@ const BingoBoardProvider: FC<Props> = ({ children }: Props) => {
 
   const boardValues = {
     seed,
-    lang,
     tasks,
     targetedLine,
     layout,
@@ -126,7 +118,6 @@ const BingoBoardProvider: FC<Props> = ({ children }: Props) => {
   const boardActions = {
     setSeed,
     updateTasks,
-    setLanguage,
     updateTargetedLine,
     setLayout,
   };
@@ -138,7 +129,7 @@ const BingoBoardProvider: FC<Props> = ({ children }: Props) => {
       </BoardActionsContext.Provider>
     </BoardValuesContext.Provider>
   );
-};
+});
 
 export const useBingoBoardContext = () => {
   return {
