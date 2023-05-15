@@ -5,7 +5,11 @@ import MagicSquare from "./MagicSquare";
 import TaskList from "./TaskList";
 import { TaskData } from "./taskData";
 
-export default function TaskGenerator(taskData: TaskData, seed: number, lang: string): Task[] {
+export default function TaskGenerator(
+  taskData: TaskData,
+  seed: number,
+  lang: string
+): Task[] {
   const DISPLAY_TASKS = taskData.size ** 2;
   const magicSquare = new MagicSquare(taskData.size, seed);
   const taskList = new TaskList(taskData.data, lang);
@@ -13,10 +17,12 @@ export default function TaskGenerator(taskData: TaskData, seed: number, lang: st
   const tasks: Task[] = [...Array<Task>(DISPLAY_TASKS)].map((_, position) => {
     const difficulty = magicSquare.getDifficulty(position);
 
-    const task = magicSquare.getAssignableTask(
+    const task = magicSquare.getAssignableTaskRandomly(
       taskList.getTasksByDifficulty(difficulty),
       position
     );
+
+    magicSquare.updateFilter(task.filter, position);
 
     return task;
   });
@@ -26,6 +32,5 @@ export default function TaskGenerator(taskData: TaskData, seed: number, lang: st
     task.lineTypes = getLineTypesByIndex(i, taskData.size);
     return task;
   });
-
   return result;
 }

@@ -1,41 +1,37 @@
 import { Task } from "@/types/task";
-import { Tracker } from "@/types/tracker";
 
-type TaskListProps = {
-  difficulty: number;
-  contents: { [key: string]: string };
-  trackers?: Tracker[];
-  tags?: string[];
-};
+import { TaskData } from "./taskData";
 
 export default class TaskList {
   private tasks: Task[];
   private tagList: string[];
 
-  constructor(taskData: TaskListProps[], lang: string) {
+  constructor(taskData: TaskData["data"], lang: string) {
     this.tasks = [];
     this.tagList = [];
 
-    taskData.forEach((taskInfo, i) => {
-      taskInfo.tags?.forEach((v) => {
+    this.tasks = taskData.map((taskInfo, i) => {
+      taskInfo.tag.forEach((v) => {
         if (!this.tagList.includes(v)) {
           this.tagList.push(v);
         }
       });
 
       const filter = this.tagList.reduce(
-        (prev, v) => prev + (taskInfo.tags?.includes(v) ? 0b1 << i : 0b0),
-        0b0
+        (prev, v, j) =>
+          prev +
+          (taskInfo.tag.includes(v) ? BigInt(0b1) << BigInt(j) : BigInt(0b0)),
+        BigInt(0b0)
       );
 
-      this.tasks.push({
+      return {
         index: i,
         difficulty: taskInfo.difficulty,
         text: taskInfo.contents[lang],
         filter,
         lineTypes: [],
-        trackers: taskInfo.trackers ?? [],
-      });
+        trackers: taskInfo.trackers,
+      };
     });
   }
 

@@ -14,8 +14,8 @@ export class TaskData {
   readonly data: {
     difficulty: number;
     contents: { [key: string]: string };
-    trackers?: Tracker[];
-    tag?: string[];
+    trackers: Tracker[];
+    tag: string[];
   }[];
 
   constructor(data: any) {
@@ -25,6 +25,14 @@ export class TaskData {
     this.lang = data.lang ?? ["en"];
     this.description = data.description ?? { en: "" };
     this.data = data.data ?? [];
+    this.data = this.data.map((v) => {
+      return {
+        ...v,
+        trackers: v.trackers ?? [],
+        tag: v.tag ?? [],
+      };
+    });
+
     this.version = data.version ?? {
       major: 0,
       minor: 0,
