@@ -1,14 +1,14 @@
 import ReactMarkdown from "react-markdown";
 
-import { useBingoBoardContext } from "@/contexts/bingoBoard";
 import { useTaskData } from "@/lib/hooks/useTaskData";
 import { css, useTheme } from "@emotion/react";
+import { useLanguageValue } from "@/contexts/language";
 
 type Props = {};
 
 const Description: React.FC<Props> = () => {
   const { description } = useTaskData();
-  const { lang } = useBingoBoardContext().BoardValues;
+  const { languageName } = useLanguageValue();
   const theme = useTheme();
 
   const style = css({
@@ -17,7 +17,7 @@ const Description: React.FC<Props> = () => {
 
   return (
     <div css={style}>
-      <ReactMarkdown>{description[lang]}</ReactMarkdown>
+      <ReactMarkdown>{description[languageName]}</ReactMarkdown>
     </div>
   );
 };
