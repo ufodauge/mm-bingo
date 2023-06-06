@@ -1,8 +1,7 @@
 import { Task } from "@/types/task";
+import { TaskData } from "@/types/taskData";
 
-import { TaskData } from "./taskData";
-
-export default class TaskList {
+export class TaskList {
   private tasks: Task[];
   private tagList: string[];
 
@@ -26,7 +25,8 @@ export default class TaskList {
 
       return {
         index: i,
-        difficulty: taskInfo.difficulty,
+        // difficulties of all tasks are defined from 1 to 25 so subtract 1.
+        difficulty: taskInfo.difficulty - 1,
         text: taskInfo.contents[lang],
         filter,
         lineTypes: [],
@@ -35,6 +35,6 @@ export default class TaskList {
     });
   }
 
-  getTasksByDifficulty = (difficulty: number): Task[] =>
-    this.tasks.filter((v) => v.difficulty === difficulty);
+  getTasksByWeight = (weight: number): Task[] =>
+    this.tasks.filter((v) => v.difficulty === weight);
 }

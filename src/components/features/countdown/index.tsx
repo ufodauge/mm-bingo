@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import CountdownUI from "@/components/ui/countdown";
 import { SEP } from "@/const/crypto";
@@ -16,15 +16,12 @@ const Countdown = React.memo(function Countdown() {
   >();
 
   const [count, setCount] = useState(0);
-  const [timerRef, setTimerRef] = useState<NodeJS.Timer | undefined>();
+  // const [timerRef, setTimerRef] = useState<NodeJS.Timer | undefined>();
 
   const { themeName } = useThemeValue();
 
   useEffect(() => {
     if (!isReady) return;
-
-    console.log(timerRef);
-    clearInterval(timerRef);
 
     const { query } = getQuery();
 
@@ -32,23 +29,22 @@ const Countdown = React.memo(function Countdown() {
     const [seed, releaseTime] = decrypted.split(SEP);
     const targetTime = new Date(Number(releaseTime)).getTime();
 
-    setTimerRef(
-      setInterval(() => {
-        const now = new Date().getTime();
-        const distance = targetTime - now;
+    let timerRef = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetTime - now;
 
-        if (distance <= 0) {
-          clearInterval(timerRef);
-          updateQuery("/", {
-            seed: Number(seed),
-            lang: query.lang,
-            theme: themeName,
-          });
-        } else {
-          setCount(distance);
-        }
-      }, 10)
-    );
+      if (distance <= 0) {
+        clearInterval(timerRef);
+        console.log("???")
+        updateQuery("/", {
+          seed: Number(seed),
+          lang: query.lang,
+          theme: themeName,
+        });
+      } else {
+        setCount(distance);
+      }
+    }, 10);
   }, [isReady, themeName]);
 
   return count !== 0 ? <CountdownUI remains={count} /> : <></>;

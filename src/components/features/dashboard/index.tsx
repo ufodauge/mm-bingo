@@ -43,6 +43,9 @@ const DashBoard = React.memo(function DashBoard() {
 
   const MainPage = useRouterPush<MainPageQuery>();
   const randomizeClicked = useCallback(() => {
+    if (!MainPage.isReady) {
+      return;
+    }
     const _seed = Math.floor(Math.random() * DEFAULT_SEED_DIGITS);
 
     setSeed(_seed);
@@ -85,8 +88,9 @@ const DashBoard = React.memo(function DashBoard() {
   }, []);
 
   useEffect(() => {
+    if (!MainPage.isReady) return;
     updateTasks(seed, languageName);
-    
+
     const { pathname } = MainPage.getQuery();
     MainPage.updateQuery(
       pathname,

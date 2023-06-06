@@ -70,13 +70,6 @@ const TaskButton: React.FC<Props> = ({ task }) => {
     theme.highlightColor4,
   ];
 
-  // const highlightVariants = [
-  //   theme.highlightColor1Variant,
-  //   theme.highlightColor2Variant,
-  //   theme.highlightColor3Variant,
-  //   theme.highlightColor4Variant,
-  // ];
-
   const kf = keyframes({
     "0%": { boxShadow: `0 0 0 0 ${theme.primary}` },
     "100%": { boxShadow: `0 0 0 8px ${theme.primary}00` },
@@ -123,7 +116,7 @@ const TaskButton: React.FC<Props> = ({ task }) => {
       onContextMenu={toggleHighlightTypeIndex}
     >
       <div css={style.taskText}>{task.text}</div>
-      <div>{trackerElements}</div>
+      {trackerElements ? <div>{trackerElements}</div> : <></>}
     </div>
   );
 };

@@ -210,14 +210,6 @@
     {
       "difficulty": 5,
       "contents": {
-        "ja": "特上ロース岩を紛失する",
-        "en": "not available"
-      },
-      "trackers": []
-    },
-    {
-      "difficulty": 5,
-      "contents": {
         "ja": "取得済みアイテムの所持数をすべて最大値（緑）にする",
         "en": "not available"
       },

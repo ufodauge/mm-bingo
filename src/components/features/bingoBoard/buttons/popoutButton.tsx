@@ -9,6 +9,7 @@ import { LineType } from "@/types/lineType";
 import { PopoutQuery } from "@/types/query/popout";
 import { css, useTheme } from "@emotion/react";
 import { useTaskData } from "@/lib/hooks/useTaskData";
+import { useLanguageValue } from "@/contexts/language";
 
 type Props = {
   lineType: LineType;
@@ -21,7 +22,7 @@ export default function PopoutButton({ lineType }: Props) {
   const { tasks, layout } = BoardValues;
 
   const { updateTargetedLine } = BoardActions;
-  const { lang } = BoardValues;
+  const { languageName } = useLanguageValue();
 
   const { themeName } = useThemeValue();
 
@@ -34,18 +35,18 @@ export default function PopoutButton({ lineType }: Props) {
     tasks: targetTasks.map((v) => v.index).join(";"),
     header: lineType,
     layout: lineType === "card" ? "card" : layout,
-    lang,
+    lang: languageName,
     theme: themeName,
   };
 
-  const taskData = useTaskData()
+  const taskData = useTaskData();
 
   const onClick = () => {
     const features = CalcPopupWindowFeatures(
       lineType === "card" ? "card" : layout,
       taskData.size
     );
-   window.open(
+    window.open(
       `${url}?${Object.entries(params)
         .map(([k, v]) => `${k}=${v}`)
         .join("&")}`,

@@ -1,26 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import React, {
+    createContext, ReactNode, useCallback, useContext, useEffect, useState
+} from 'react';
+
 import {
-  createContext,
-  FC,
-  ReactNode,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+    UnimplementedFunctionCalledException
+} from '@/class/exception/unimplementedFunctionCalled';
+import { useRouterPush } from '@/lib/hooks/useRouterPush';
+import { useTaskData } from '@/lib/hooks/useTaskData';
+import { generateTasks } from '@/lib/taskGenerator/v0.1';
+import { LayoutName } from '@/types/layout';
+import { LineType } from '@/types/lineType';
+import { MainPageQuery } from '@/types/query/mainpage';
+import { Task } from '@/types/task';
 
-import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
-import TaskGenerator from "@/class/TaskGenerator";
-import { useRouterPush } from "@/lib/hooks/useRouterPush";
-import { useTaskData } from "@/lib/hooks/useTaskData";
-import { LayoutName } from "@/types/layout";
-import { LineType } from "@/types/lineType";
-import { MainPageQuery } from "@/types/query/mainpage";
-import { Task } from "@/types/task";
-
-import { useThemeValue } from "../theme";
-import { useLanguageValue } from "../language";
-import React from "react";
+import { useLanguageValue } from '../language';
+import { useThemeValue } from '../theme';
 
 type BoardValuesProps = {
   seed: number;
@@ -70,13 +65,13 @@ const BingoBoardProvider = React.memo<Props>(function BingoBoardProvider({
   const { languageName } = useLanguageValue();
 
   const [seed, setSeed] = useState(0);
-  const [tasks, setTasks] = useState(
-    TaskGenerator(taskData, 0, taskData.lang[0])
+  const [tasks, setTasks] = useState<Task[]>(
+    generateTasks(taskData, seed, languageName)
   );
   const [layout, setLayout] = useState<LayoutName>("vertical");
 
   const updateTasks = useCallback((seed: number, lang: string) => {
-    const tasks = TaskGenerator(taskData, seed, lang);
+    const tasks = generateTasks(taskData, seed, lang);
     setTasks(tasks);
   }, []);
 
@@ -89,6 +84,8 @@ const BingoBoardProvider = React.memo<Props>(function BingoBoardProvider({
   const { themeName } = useThemeValue();
 
   useEffect(() => {
+    if (!isReady) return;
+
     const { query, pathname } = getQuery();
 
     const _seed = !Number.isNaN(Number(query.seed))

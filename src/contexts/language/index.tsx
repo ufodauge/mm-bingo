@@ -35,7 +35,7 @@ type Props = {
 
 const LanguageProvider: React.FC<Props> = ({ children }) => {
   const taskData = useTaskData();
-  
+
   const [languageName, setLanguageName] = useState<string>(taskData.lang[0]);
   const { isReady, getQuery, updateQuery } = useRouterPush();
 
@@ -60,14 +60,12 @@ const LanguageProvider: React.FC<Props> = ({ children }) => {
     languageName,
   };
 
-  return isReady ? (
+  return (
     <LanguageValue.Provider value={languageValue}>
       <LanguageAction.Provider value={languageAction}>
         {children}
       </LanguageAction.Provider>
     </LanguageValue.Provider>
-  ) : (
-    <></>
   );
 };
 
