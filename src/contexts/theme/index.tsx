@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-import {
-    UnimplementedFunctionCalledException
-} from '@/class/exception/unimplementedFunctionCalled';
-import { useRouterPush } from '@/lib/hooks/useRouterPush';
-import { getTheme } from '@/lib/theme/getTheme';
-import { isThemeName, ThemeName, ThemeNames } from '@/types/theme/theme';
-import { css, ThemeProvider } from '@emotion/react';
+import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
+import { useRouterPush } from "@/lib/hooks/useRouterPush";
+import { getTheme } from "@/lib/theme/getTheme";
+import { isThemeName, ThemeName, ThemeNames } from "@/types/theme/theme";
+import { css, ThemeProvider } from "@emotion/react";
 
 type ThemeActionProps = {
   toggle: () => void;
@@ -82,7 +86,7 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
     minHeight: "100vh",
   });
 
-  return isReady ? (
+  return (
     <ThemeProvider theme={theme}>
       <ThemeValue.Provider value={themeValue}>
         <ThemeAction.Provider value={themeAction}>
@@ -90,8 +94,6 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
         </ThemeAction.Provider>
       </ThemeValue.Provider>
     </ThemeProvider>
-  ) : (
-    <></>
   );
 };
 

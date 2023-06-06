@@ -30,7 +30,6 @@ const Header: React.FC<Props> = ({ text, children }) => {
     display: "inline-flex",
     width: "50%",
     justifyContent: "flex-end",
-    marginInline: "1em",
   });
 
   return (

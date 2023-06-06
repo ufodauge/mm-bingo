@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Header from "@/components/features/popoutWindow/header";
-import TaskButtons from "@/components/features/popoutWindow/taskButtons";
-import { useThemeAction } from "@/contexts/theme";
-import { useQuery } from "@/lib/hooks/useQuery";
-import { useTaskData } from "@/lib/hooks/useTaskData";
-import { isLayoutName, LayoutName } from "@/types/layout";
-import { PopoutQuery } from "@/types/query/popout";
-import { Task } from "@/types/task";
-import { isThemeName } from "@/types/theme/theme";
-import { css, Global } from "@emotion/react";
+import Header from '@/components/features/popoutWindow/header';
+import TaskButtons from '@/components/features/popoutWindow/taskButtons';
+import { useThemeAction } from '@/contexts/theme';
+import { useQuery } from '@/lib/hooks/useQuery';
+import { useTaskData } from '@/lib/hooks/useTaskData';
+import { isLayoutName, LayoutName } from '@/types/layout';
+import { PopoutQuery } from '@/types/query/popout';
+import { Task } from '@/types/task';
+import { isThemeName } from '@/types/theme/theme';
+import { css } from '@emotion/react';
 
 type Props = {};
 
@@ -33,7 +33,7 @@ const Home: React.FC<Props> = () => {
             index: Number(v),
             difficulty: result ? result.difficulty : 0,
             text: result ? result.contents[query.lang] : "Error!",
-            filter: 0,
+            filter: BigInt(0),
             lineTypes: [],
             trackers: result ? result.trackers ?? [] : [],
           };

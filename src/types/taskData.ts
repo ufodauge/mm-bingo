@@ -1,10 +1,11 @@
 import { Tracker } from "./tracker";
 
 export type TaskData = {
+  repoName: string;
   title: string;
   size: number;
   lang: string[];
-  description: string;
+  description: { [key: string]: string };
   version: {
     major: number;
     minor: number;
@@ -12,7 +13,8 @@ export type TaskData = {
   };
   data: {
     difficulty: number;
-    contents: string[];
-    trackers?: Tracker[];
+    contents: { [key: string]: string };
+    trackers: Tracker[];
+    tag: string[];
   }[];
 };
