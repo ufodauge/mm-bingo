@@ -33,9 +33,9 @@ export const taskText = style({
   justifyContent: "center",
   alignItems    : "center",
   width         : "100%",
-  margin        : ".3em",
-  fontWeight    : "bold",
-  fontSize      : "1.2em",
+  margin        : ".2em",
+  // fontWeight    : "bold",
+  fontSize      : ".9em",
 });
 
 export const highlights = [

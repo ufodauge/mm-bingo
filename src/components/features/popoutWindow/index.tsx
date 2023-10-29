@@ -10,7 +10,7 @@ import { PopoutQuery } from '@/types/query/popout';
 import { Task } from '@/types/task';
 import { isThemeName } from '@/types/theme/theme';
 import { TASKS_QUERY_DELIMITER } from '@/const/popupWindowFeatures';
-import { container } from './header.css';
+import { container } from './index.css';
 
 type Props = {};
 

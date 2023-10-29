@@ -7,4 +7,5 @@ export const container = style({
   height      : `${BUTTON_HEIGHT}rem`,
   width       : `${BUTTON_WIDTH}rem`,
   borderRadius: "9999px",
+  marginInline: "1em"
 });

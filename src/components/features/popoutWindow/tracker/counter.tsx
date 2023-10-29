@@ -29,11 +29,11 @@ const Counter: React.FC<Props> = ({ max, init, icon }) => {
 
   return (
     <Button ghost customProps={customProps} customStyle={style.container}>
-      {icon ? <img src={icon} alt="" css={style.image} /> : <></>}
-      <div css={style.text}>
-        <p css={style.textMain}>{count}</p>
-        <p css={[style.textSub, style.textSlash]}>/</p>
-        <p css={style.textSub}>{max}</p>
+      {icon ? <img src={icon} alt="" className={style.image} /> : <></>}
+      <div className={style.text}>
+        <p className={style.textMain}>{count}</p>
+        <p className={`${style.textSub}, ${style.textSlash}`}>/</p>
+        <p className={style.textSub}>{max}</p>
       </div>
     </Button>
   );

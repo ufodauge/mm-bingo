@@ -7,13 +7,14 @@ import { isCounterTrackerProps, isTogglerTrackerProps } from "@/types/tracker";
 
 import Counter from "./tracker/counter";
 import Toggler from "./tracker/toggler";
-import * as style from "./taskButton.css"
+import * as style from "./taskButton.css";
 
 type Props = {
   task: Task;
+  disableTrackers: boolean;
 };
 
-const TaskButton: React.FC<Props> = ({ task }) => {
+const TaskButton: React.FC<Props> = ({ task, disableTrackers }) => {
   const [highlightColorIndex, setHighlightColorIndex] = useState(0);
 
   const highlightNext = () => {
@@ -44,10 +45,10 @@ const TaskButton: React.FC<Props> = ({ task }) => {
     } else if (v.type === "counter" && isCounterTrackerProps(v.properties)) {
       return (
         <Counter
-          key  = {i}
-          max  = {v.properties.max}
-          init = {v.properties.init ?? 0}
-          icon = {v.properties.icon}
+          key={i}
+          max={v.properties.max}
+          init={v.properties.init ?? 0}
+          icon={v.properties.icon}
         />
       );
     } else {
@@ -57,13 +58,14 @@ const TaskButton: React.FC<Props> = ({ task }) => {
 
   return (
     <div
-      className     = {`${style.base} ${style.highlights.at(highlightColorIndex) ?? ""}`}
-      onClick       = {toggleHighlightTypeIndex}
-      onContextMenu = {toggleHighlightTypeIndex}
+      className={`${style.base} ${
+        style.highlights.at(highlightColorIndex) ?? ""
+      }`}
+      onClick={toggleHighlightTypeIndex}
+      onContextMenu={toggleHighlightTypeIndex}
     >
       <div className={style.taskText}>{task.text}</div>
-      {/* {trackerElements ? <section>{trackerElements}</section> : <></>} */}
-      <section>{trackerElements}</section>
+      {disableTrackers ? <></> : <section>{trackerElements}</section>}
     </div>
   );
 };

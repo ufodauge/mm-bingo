@@ -20,24 +20,24 @@ const Toggler: React.FC<Props> = ({ icons }) => {
 
     return (
       <div
-        key     = {i}
-        css     = {style.base}
-        onClick = {onClick}
-        style   = {assignInlineVars({
-          opacity: togglers.at(i) ? "" : "30%",
-          filter : togglers.at(i) ? "" : "grayscale(1)",
+        key       = {i}
+        className = {style.base}
+        onClick   = {onClick}
+        style     = {assignInlineVars({
+          opacity: togglers.at(i) ? "": "30%",
+          filter : togglers.at(i) ? "": "grayscale(1)",
         })}
       >
         <img
-          src = {icon === "" ? "/button.png" : icon}
-          alt = "icon"
-          css = {style.image}
+          src       = {icon === "" ? "/button.png" : icon}
+          alt       = "icon"
+          className = {style.image}
         />
       </div>
     );
   });
 
-  return <div css={style.container}>{buttons}</div>;
+  return <div className={style.container}>{buttons}</div>;
 };
 
 export default Toggler;

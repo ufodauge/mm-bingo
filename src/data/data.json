@@ -963,12 +963,6 @@
     },
     {
       "difficulty": 17,
-      "contents": { "ja": "", "en": "not available" },
-      "tag": ["woodfall", "bottle"],
-      "trackers": []
-    },
-    {
-      "difficulty": 17,
       "contents": { "ja": "ゴートの亡骸", "en": "not available" },
       "tag": ["snowhead"],
       "trackers": []

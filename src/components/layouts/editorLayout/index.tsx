@@ -1,15 +1,8 @@
-import { css } from "@emotion/react";
+import { container } from "./index.css";
 
-type Props = {};
-
-const EditorLayout: React.FC<Props> = () => {
-  const style = css({
-    width: "50vmin",
-    height: "50vmin",
-  });
-
+const EditorLayout: React.FC = () => {
   return (
-    <div css={style}>
+    <div className={container}>
       
     </div>
   );

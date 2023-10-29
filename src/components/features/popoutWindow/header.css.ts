@@ -7,7 +7,6 @@ export const container = style({
     alignItems     : "center",
     backgroundColor: themeContract.neutral,
     color          : themeContract.neutralContent,
-    fontWeight     : "bold",
-    fontSize       : "1.2em",
+    fontSize       : ".9em",
     userSelect     : "none",
 });

@@ -24,6 +24,7 @@ export const navbarEnd = style({
   display       : "inline-flex",
   width         : "50%",
   justifyContent: "flex-end",
+  paddingInline : "1em",
 })
 
 export const title = style({
