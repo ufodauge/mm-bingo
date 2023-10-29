@@ -4,7 +4,7 @@
   "size": 5,
   "lang": ["ja", "en"],
   "description": {
-    "ja": "* ハートのかけら増殖禁止\n* 増殖ビンはタスクの要件としてカウントしない\n* 牛からミルクを絞るやつは飲んでしまっても構わない（あくまで貰うことが条件）\n* あとは（今のところ）適当",
+    "ja": "* ハートのかけら増殖禁止\n* 増殖ビンはタスクの要件としてカウントしない\n* 牛からミルクを絞るやつは飲んでしまっても構わない（あくまで貰うことが条件）\n* あとは（今のところ）適当\n\n 当サイトは任天堂株式会社様とは一切関係ございません。",
     "en": "English version is currently not supported"
   },
   "version": {
@@ -53,7 +53,6 @@
         "ja": "母への速達をトイレの手に渡す",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -139,7 +138,7 @@
     {
       "difficulty": 4,
       "contents": { "ja": "あきビン増殖禁止", "en": "not available" },
-      "tag": ["restrict", "no_bottle_dupe"],
+      "tag": ["restrict", "unrestricted_bottle_dupe"],
       "trackers": []
     },
     {
@@ -148,7 +147,6 @@
         "ja": "キータンクイズのハートのかけら",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -221,7 +219,7 @@
         "ja": "写し絵コンテストのハートのかけら",
         "en": "not available"
       },
-      "tag": ["camera", "heart_piece"],
+      "tag": ["camera"],
       "trackers": []
     },
     {
@@ -266,7 +264,6 @@
         "ja": "ロックビルの神殿への大翼の歌禁止",
         "en": "not available"
       },
-      "tag": ["restrict"],
       "trackers": []
     },
 
@@ -288,7 +285,6 @@
     {
       "difficulty": 6,
       "contents": { "ja": "ゴロンの里のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -300,7 +296,6 @@
     {
       "difficulty": 6,
       "contents": { "ja": "宝箱屋のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -312,7 +307,6 @@
     {
       "difficulty": 7,
       "contents": { "ja": "沼の射的場のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -321,13 +315,12 @@
         "ja": "漁師のジャンプゲームのハートのかけら",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": 7,
       "contents": {
-        "ja": "ボートクルーズを強制終了させる",
+        "ja": "コウメの的当てを強制終了させる",
         "en": "not available"
       },
       "tag": ["woodfall"],
@@ -348,7 +341,6 @@
     {
       "difficulty": 8,
       "contents": { "ja": "海洋研究所のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -371,13 +363,12 @@
     {
       "difficulty": 8,
       "contents": { "ja": "海のクモ館のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": 8,
       "contents": { "ja": "海賊の砦のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece", "fortress"],
+      "tag": ["fortress"],
       "trackers": []
     },
     {
@@ -397,7 +388,6 @@
     {
       "difficulty": 8,
       "contents": { "ja": "トンガリ岩のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -415,13 +405,11 @@
     {
       "difficulty": 9,
       "contents": { "ja": "街の射的場のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": 9,
       "contents": { "ja": "幽霊小屋のハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -464,7 +452,6 @@
         "ja": "ゾーラホールのハートのかけら2つ",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -528,7 +515,6 @@
         "ja": "ドッグレースのハートのかけら",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -566,7 +552,6 @@
         "ja": "ハニーとダーリンの店のハートのかけら",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -575,7 +560,6 @@
         "ja": "黄金のスタルチュラの魂を15個集める",
         "en": "not available"
       },
-      "tag": ["golden_skulltula"],
       "trackers": [
         {
           "type": "counter",
@@ -701,7 +685,7 @@
         "ja": "海賊の砦の卵をすべて回収する",
         "en": "not available"
       },
-      "tag": ["bottle", "no_bottle_dupe"],
+      "tag": ["bottle", "unrestricted_bottle_dupe"],
       "trackers": [
         {
           "type": "counter",
@@ -714,8 +698,7 @@
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "ポストマンのハートのかけら", "en": "not available" },
-      "tag": ["heart_piece"],
+      "contents": { "ja": "ポストマンの10秒チャレンジクリア", "en": "not available" },
       "trackers": []
     },
     {
@@ -758,7 +741,6 @@
         "ja": "デクナッツのプレイスポットのハートのかけら",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -824,7 +806,6 @@
         "ja": "沼と町それぞれの射的場のハートのかけら",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -866,7 +847,6 @@
         "ja": "黄色以外の犬でドッグレースのハートのかけら入手",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -875,7 +855,6 @@
         "ja": "各アキンドナッツ近辺にあるハートのかけらすべて",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": [
         {
           "type": "toggler",
@@ -979,6 +958,23 @@
     },
     {
       "difficulty": 17,
+      "contents": { "ja": "ダンペイのハートのかけら", "en": "not available" },
+      "trackers": []
+    },
+    {
+      "difficulty": 17,
+      "contents": { "ja": "", "en": "not available" },
+      "tag": ["woodfall", "bottle"],
+      "trackers": []
+    },
+    {
+      "difficulty": 17,
+      "contents": { "ja": "ゴートの亡骸", "en": "not available" },
+      "tag": ["snowhead"],
+      "trackers": []
+    },
+    {
+      "difficulty": 17,
       "contents": { "ja": "お面を8種類集める", "en": "not available" },
       "tag": ["collect_masks"],
       "trackers": [
@@ -1045,7 +1041,6 @@
         "ja": "異なるウシ5頭からミルクをもらう",
         "en": "not available"
       },
-      "tag": ["bottle"],
       "trackers": [
         {
           "type": "counter",
@@ -1143,7 +1138,6 @@
         "ja": "黄金のスタルチュラの魂を30個集める",
         "en": "not available"
       },
-      "tag": ["golden_skulltula"],
       "trackers": [
         {
           "type": "counter",
@@ -1296,7 +1290,6 @@
     {
       "difficulty": 21,
       "contents": { "ja": "黄金のスタルチュラの魂40個", "en": "not available" },
-      "tag": ["golden_skulltula"],
       "trackers": [
         {
           "type": "counter",
@@ -1431,7 +1424,6 @@
         "ja": "カエルの合唱団のハートのかけら",
         "en": "not available"
       },
-      "tag": ["heart_piece"],
       "trackers": [
         {
           "type": "toggler",
@@ -1543,11 +1535,24 @@
     },
     {
       "difficulty": 25,
+      "contents": { "ja": "クロックタウンのハートのかけらを12個集める", "en": "not available" },
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": {
+            "max": 12,
+            "icon": "icons/heartpiece.png"
+          }
+        }
+      ]
+    },
+    {
+      "difficulty": 25,
       "contents": {
         "ja": "あきびんに入るアイテムを10種類確保",
         "en": "not available"
       },
-      "tag": ["no_bottle_dupe", "bottle"],
+      "tag": ["unrestricted_bottle_dupe", "bottle"],
       "trackers": [
         {
           "type": "counter",

@@ -1,27 +1,34 @@
-import { css } from "@emotion/react";
 import TaskButton from "../buttons/taskButton";
-import { useBingoBoardContext } from "@/contexts/bingoBoard";
+import { useBingoBoardValuesContext } from "@/contexts/bingoBoard";
+import { container } from "./popouts.css";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 
-type Props = { boardSize: number; gap: number };
+type Props = { boardSize: number; };
 
-const TaskBoard: React.FC<Props> = ({ boardSize, gap }) => {
-  const { tasks } = useBingoBoardContext().BoardValues;
+const TaskBoard: React.FC<Props> = ({ boardSize }) => {
+  const { tasks } = useBingoBoardValuesContext();
 
-  const style = css({
-    display: "grid",
-    gridTemplateColumns: [...Array(boardSize)].map(() => "1fr").join(" "),
-    gridTemplateRows: [...Array(boardSize)].map(() => "1fr").join(" "),
-    gap: `${gap}px`,
-  });
+  const taskButtons = [];
+  for (let i = 0; i < boardSize ** 2; i++) {
+    taskButtons.push(
+      <TaskButton
+        text       = {tasks.at(i)?.text ?? "NO TEXT"}
+        lineTypes  = {tasks.at(i)?.lineTypes  ?? []}
+        slotNumber = {i}
+        key        = {i}
+      />
+    );
+  }
+
   return (
-    <div css={style}>
-      {[...Array(boardSize ** 2)].map((_, i) => (
-        <TaskButton
-          text={tasks[i].text}
-          lineTypes={tasks[i].lineTypes}
-          key={i}
-        />
-      ))}
+    <div
+      className={container}
+      style={assignInlineVars({
+        gridTemplateColumns: "1fr ".repeat(boardSize).trim(),
+        gridTemplateRows   : "1fr ".repeat(boardSize).trim()
+      })}
+    >
+      {taskButtons}
     </div>
   );
 };

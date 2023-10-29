@@ -58,24 +58,19 @@ export class TaskField {
     this._field = this._taskFieldStrategy.generateMagicSquare(this._random);
   }
 
-  generateTasks(data: TaskData["data"]): Task[] {
+  generateTasks(data: TaskData["data"]): [Task[], boolean] {
     const taskList = new TaskList(data, this._lang);
 
+    let causedError = false;
+
     const tasks: Task[] = this._field.map((weight, position) => {
-      const task = this._random
-        .shuffleArray(taskList.getTasksByWeight(weight))
-        .find((task) => {
-          return this.checkFilter(task.filter, position);
-        }) ?? {
-        index: -1,
-        difficulty: weight,
-        text: `Error!: A task of difficulty ${
-          weight + 1
-        } cannot be assignable.`,
-        filter: BigInt(0),
-        lineTypes: [],
-        trackers: [],
-      };
+      const task =
+        this.getRandomTask(taskList, weight, position) ??
+        this.generateErrorTask(weight);
+
+      if (task.index === -1) {
+        causedError = true;
+      }
 
       const size = this._taskFieldStrategy.getSize();
 
@@ -85,7 +80,7 @@ export class TaskField {
       return task;
     });
 
-    return tasks;
+    return [tasks, causedError];
   }
 
   private getRowsByPosition = (pos: number): LineType[] => {
@@ -106,6 +101,26 @@ export class TaskField {
 
     return rows;
   };
+
+  private getRandomTask(taskList: TaskList, weight: number, position: number) {
+    return this._random
+      .shuffleArray(taskList.getTasksByWeight(weight))
+      .find((task) => this.checkFilter(task.filter, position));
+  }
+
+  private generateErrorTask(weight: number): Task {
+    const generateErrorMessage = (weight: number) => {
+      return `Error!: A task of difficulty ${weight + 1} cannot be assignable.`;
+    };
+    return {
+      index: -1,
+      difficulty: weight,
+      text: generateErrorMessage(weight),
+      filter: BigInt(0),
+      lineTypes: [],
+      trackers: [],
+    };
+  }
 
   private updateFilter(filter: bigint, position: number) {
     this.getRowsByPosition(position).forEach((v) => {

@@ -1,56 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {
-    createContext, ReactNode, useCallback, useContext, useEffect, useState
-} from 'react';
+  ReactNode,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-import {
-    UnimplementedFunctionCalledException
-} from '@/class/exception/unimplementedFunctionCalled';
-import { useRouterPush } from '@/lib/hooks/useRouterPush';
-import { useTaskData } from '@/lib/hooks/useTaskData';
-import { generateTasks } from '@/lib/taskGenerator/v0.1';
-import { LayoutName } from '@/types/layout';
-import { LineType } from '@/types/lineType';
-import { MainPageQuery } from '@/types/query/mainpage';
-import { Task } from '@/types/task';
+import { useRouterPush } from "@/lib/hooks/useRouterPush";
+import { useTaskData } from "@/lib/hooks/useTaskData";
+import { generateEmptyTasks, generateTasks } from "@/lib/taskGenerator/v0.1";
+import { LayoutName } from "@/types/layout";
+import { LineType } from "@/types/lineType";
+import { MainPageQuery } from "@/types/query/mainpage";
+import { Task } from "@/types/task";
 
-import { useLanguageValue } from '../language';
-import { useThemeValue } from '../theme';
-
-type BoardValuesProps = {
-  seed: number;
-  tasks: Task[];
-  targetedLine?: LineType;
-  layout: LayoutName;
-};
-
-type BoardActionsProps = {
-  setSeed: React.Dispatch<React.SetStateAction<number>>;
-  setLayout: React.Dispatch<React.SetStateAction<LayoutName>>;
-  updateTargetedLine: (lineType?: LineType) => void;
-  updateTasks: (seed: number, lang: string) => void;
-};
-
-const BoardValuesContext = createContext<BoardValuesProps>({
-  seed: 0,
-  tasks: [],
-  layout: "vertical",
-});
-
-const BoardActionsContext = createContext<BoardActionsProps>({
-  setSeed: () => {
-    throw new UnimplementedFunctionCalledException();
-  },
-  updateTargetedLine: () => {
-    throw new UnimplementedFunctionCalledException();
-  },
-  setLayout: () => {
-    throw new UnimplementedFunctionCalledException();
-  },
-  updateTasks: () => {
-    throw new UnimplementedFunctionCalledException();
-  },
-});
+import { useLanguageValue } from "../language";
+import { useThemeValue } from "../theme";
+import { BoardValuesContext } from "./bingoBoardValue";
+import { BoardActionsContext } from "./bingoBoardAction";
 
 type Props = {
   children: ReactNode;
@@ -58,24 +27,24 @@ type Props = {
 
 const DEFAULT_SEED_DIGITS = 1000000;
 
-const BingoBoardProvider = React.memo<Props>(function BingoBoardProvider({
+const BingoBoardProvider = memo<Props>(function BingoBoardProvider({
   children,
 }) {
   const taskData = useTaskData();
   const { languageName } = useLanguageValue();
 
-  const [seed, setSeed] = useState(0);
-  const [tasks, setTasks] = useState<Task[]>(
-    generateTasks(taskData, seed, languageName)
-  );
-  const [layout, setLayout] = useState<LayoutName>("vertical");
+  const [seed, setSeed]                 = useState(0);
+  const [layout, setLayout]             = useState<LayoutName>("vertical");
+  const [tasks, setTasks]               = useState<Task[]>(generateEmptyTasks(taskData));
+  const [targetedLine, setTargetedLine] = useState<LineType | undefined>();
 
-  const updateTasks = useCallback((seed: number, lang: string) => {
-    const tasks = generateTasks(taskData, seed, lang);
+  const updateTasks = useCallback((_seed: number, lang: string) => {
+    if (seed === _seed) return;
+
+    const [tasks] = generateTasks(taskData, _seed, lang);
     setTasks(tasks);
   }, []);
 
-  const [targetedLine, setTargetedLine] = useState<LineType | undefined>();
   const updateTargetedLine = useCallback((lineType?: LineType) => {
     setTargetedLine(lineType);
   }, []);
@@ -128,11 +97,8 @@ const BingoBoardProvider = React.memo<Props>(function BingoBoardProvider({
   );
 });
 
-export const useBingoBoardContext = () => {
-  return {
-    BoardValues: useContext(BoardValuesContext),
-    BoardActions: useContext(BoardActionsContext),
-  };
-};
+export const useBingoBoardValuesContext = () => useContext(BoardValuesContext);
+export const useBingoBoardActionsContext = () =>
+  useContext(BoardActionsContext);
 
 export default BingoBoardProvider;

@@ -1,18 +1,18 @@
 import { ButtonHTMLAttributes, useState } from "react";
 
 import Button from "@/components/ui/button";
-import { css, useTheme } from "@emotion/react";
+import * as style from "./counter.css";
 
 type Props = {
-  max: number;
-  init: number;
+  max  : number;
+  init : number;
   icon?: string;
 };
 
 const Counter: React.FC<Props> = ({ max, init, icon }) => {
   const [count, setCount] = useState(init);
 
-  const countUp = () => setCount(count >= max ? count : count + 1);
+  const countUp   = () => setCount(count >= max ? count : count + 1);
   const countDown = () => setCount(count <= 0 ? count : count - 1);
 
   const customProps: ButtonHTMLAttributes<HTMLButtonElement> = {
@@ -27,44 +27,8 @@ const Counter: React.FC<Props> = ({ max, init, icon }) => {
     },
   };
 
-  const theme = useTheme();
-
-  const customStyle = css({
-    padding: ".3em",
-    paddingInline: ".8em",
-    "&:hover": {
-      backgroundColor: theme.baseVariant,
-      color: theme.baseContent,
-    },
-  });
-
-  const style = {
-    text: css({
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "2em",
-    }),
-    textSub: css({
-      color: theme.neutral,
-    }),
-    textMain: css({
-      padding: "",
-      fontSize: "1.2em",
-    }),
-    textSlash: css({
-      paddingInlineStart: "0.5em",
-    }),
-    image: css({
-      width: "1.5em",
-      height: "1.5em",
-      margin: ".375em",
-    }),
-  };
-
   return (
-    <Button ghost customProps={customProps} customStyle={customStyle}>
+    <Button ghost customProps={customProps} customStyle={style.container}>
       {icon ? <img src={icon} alt="" css={style.image} /> : <></>}
       <div css={style.text}>
         <p css={style.textMain}>{count}</p>
