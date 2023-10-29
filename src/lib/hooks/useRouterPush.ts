@@ -17,13 +17,12 @@ export const useRouterPush = <
     getQuery: () => {
       if (!router.isReady) throw new UnreadyRouterException();
 
+      console.log(router);
+
       return { pathname: router.pathname, query: router.query as FROM };
     },
     updateQuery: (pathname: string, query: TO, shallow?: boolean) => {
       if (!router.isReady) throw new UnreadyRouterException();
-
-      console.log(pathname);
-      console.log(query);
 
       router.push({ pathname, query }, undefined, { shallow });
     },
