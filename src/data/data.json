@@ -266,16 +266,6 @@
       },
       "trackers": []
     },
-
-    {
-      "difficulty": 6,
-      "contents": {
-        "ja": "爆発物の所持禁止",
-        "en": "not available"
-      },
-      "tag": ["restrict", "no_explosives"],
-      "trackers": []
-    },
     {
       "difficulty": 6,
       "contents": { "ja": "ウサギずきん", "en": "not available" },
@@ -404,7 +394,7 @@
     },
     {
       "difficulty": 9,
-      "contents": { "ja": "街の射的場のハートのかけら", "en": "not available" },
+      "contents": { "ja": "町の射的場のハートのかけら", "en": "not available" },
       "trackers": []
     },
     {
@@ -497,10 +487,7 @@
     },
     {
       "difficulty": 10,
-      "contents": {
-        "ja": "残像剣禁止",
-        "en": "not available"
-      },
+      "contents": { "ja": "残像剣禁止", "en": "not available" },
       "tag": ["no_isg", "restrict"],
       "trackers": []
     },
@@ -709,7 +696,10 @@
     },
     {
       "difficulty": 12,
-      "contents": { "ja": "ポストマンの10秒チャレンジクリア", "en": "not available" },
+      "contents": {
+        "ja": "ポストマンの10秒チャレンジクリア",
+        "en": "not available"
+      },
       "trackers": []
     },
     {
@@ -817,7 +807,17 @@
         "ja": "沼と町それぞれの射的場のハートのかけら",
         "en": "not available"
       },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/heartpiece.png",
+              "icons/heartpiece.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 14,
@@ -1540,7 +1540,10 @@
     },
     {
       "difficulty": 25,
-      "contents": { "ja": "クロックタウンのハートのかけらを12個集める", "en": "not available" },
+      "contents": {
+        "ja": "クロックタウンのハートのかけらを12個集める",
+        "en": "not available"
+      },
       "trackers": [
         {
           "type": "counter",
