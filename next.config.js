@@ -8,6 +8,7 @@ const isDevEnv = process.env.NODE_ENV !== "production";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  basePath: isDevEnv ? "" : "/mm-bingo",
   assetPrefix: isDevEnv ? "" : "/mm-bingo",
   output: "export",
   distDir: "out",
@@ -17,9 +18,9 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_KEY: key,
   },
-  // experimental: {
-  //   appDir: true,
-  // },
+  publicRuntimeConfig: {
+    basePath: isDevEnv ? "" : "/mm-bingo",
+  }
 };
 
 module.exports = withVanillaExtract(nextConfig);

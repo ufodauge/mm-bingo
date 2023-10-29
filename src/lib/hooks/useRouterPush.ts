@@ -16,9 +16,7 @@ export const useRouterPush = <
     isReady: router ? router.isReady : false,
     getQuery: () => {
       if (!router.isReady) throw new UnreadyRouterException();
-
-      console.log(router);
-
+      
       return { pathname: router.pathname, query: router.query as FROM };
     },
     updateQuery: (pathname: string, query: TO, shallow?: boolean) => {
