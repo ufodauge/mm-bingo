@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export const useQuery = <T extends { [key in string]: string }>(
-  callback: (v: { [key in keyof T]: string }) => void,
+  callback: (v: T) => void,
   defaultValues: T
 ) => {
   const router = useRouter();
@@ -12,15 +12,15 @@ export const useQuery = <T extends { [key in string]: string }>(
     () => {
       if (Object.keys(defaultValues).length === 0 || !router.isReady) return;
 
-      const values: { [key in keyof T]: string } = Object.assign(
+      const values: T = Object.assign(
         {},
         defaultValues
       );
 
       for (const key in defaultValues) {
         const val = query[key];
-        if (val !== undefined && typeof val === "string") {
-          values[key] = val;
+        if (typeof val === "string") {
+          values[key] = val as T[Extract<keyof T, string>];
         } else {
           values[key] = defaultValues[key];
         }
