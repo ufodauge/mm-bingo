@@ -1,17 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { ChangeEventHandler, useCallback } from 'react';
+import React, { ChangeEventHandler, memo, useCallback } from 'react';
 
 import Selector, { Options } from '@/components/ui/selector';
 import { useLanguageAction, useLanguageValue } from '@/contexts/language';
 import { useTaskData } from '@/lib/hooks/useTaskData';
-import { SerializedStyles } from '@emotion/react';
 
 type Props = {
-  customStyle?: SerializedStyles;
+  customClassName?: string;
 };
 
-const LanguageSelector = React.memo<Props>(function LanguageSelector({
-  customStyle,
+const LanguageSelector = memo<Props>(function LanguageSelector({
+  customClassName,
 }) {
   const taskData = useTaskData();
   const { setLanguage } = useLanguageAction();
@@ -30,10 +29,10 @@ const LanguageSelector = React.memo<Props>(function LanguageSelector({
 
   return (
     <Selector
-      options={languageOptions}
-      customStyle={customStyle}
-      onChange={onSetLanguage}
-      value={languageName}
+      options         = {languageOptions}
+      customClassName = {customClassName}
+      onChange        = {onSetLanguage}
+      value           = {languageName}
     />
   );
 });

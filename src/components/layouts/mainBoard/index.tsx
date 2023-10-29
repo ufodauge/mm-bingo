@@ -1,25 +1,15 @@
 import DashBoard from "@/components/features/dashboard";
 import Description from "@/components/features/description";
-import { css } from "@emotion/react";
+import { container } from "./index.css";
+import { memo } from "react";
 
-type Props = {};
-
-const MainBoard: React.FC<Props> = () => {
-  const style = css({
-    display: "flex",
-    flexDirection: "column",
-    gap: "1em",
-    width: "36em",
-    alignItems: "baseline",
-    padding: "2rem",
-  });
-
+const MainBoard = memo(function MainBoard() {
   return (
-    <div css={style}>
+    <div className={container}>
       <DashBoard />
       <Description />
     </div>
   );
-};
+});
 
 export default MainBoard;

@@ -1,69 +1,78 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import assert from "assert";
-import React, {
-  ChangeEventHandler,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import dayjs, { Dayjs } from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 
-import Button from "@/components/ui/button";
-import DateInput from "@/components/ui/dateinput";
-import Label from "@/components/ui/label";
-import Selector, { Options } from "@/components/ui/selector";
-import TextInput from "@/components/ui/textInput";
-import { SEP } from "@/const/crypto";
-import { useBingoBoardContext } from "@/contexts/bingoBoard";
-import { useThemeValue } from "@/contexts/theme";
-import { encrypt } from "@/lib/encoder";
-import { useRouterPush } from "@/lib/hooks/useRouterPush";
-import { isLayoutName } from "@/types/layout";
-import { CountdownQuery } from "@/types/query/countdown";
-import { MainPageQuery } from "@/types/query/mainpage";
-import { css } from "@emotion/react";
-import { useLanguageValue } from "@/contexts/language";
+import Button from '@/components/ui/button';
+import { SEP } from '@/const/crypto';
+import { useBingoBoardActionsContext, useBingoBoardValuesContext } from '@/contexts/bingoBoard';
+import { useLanguageValue } from '@/contexts/language';
+import { useThemeValue } from '@/contexts/theme';
+import { encrypt } from '@/lib/encoder';
+import { useRouterPush } from '@/lib/hooks/useRouterPush';
+import { CountdownQuery } from '@/types/query/countdown';
+import { MainPageQuery } from '@/types/query/mainpage';
+
+import DistributionForm from './distributionForm';
+import { columnSpanAll, container } from './index.css';
+import LayoutForm from './layoutForm';
+import SeedForm from './seedForm';
 
 const DEFAULT_SEED_DIGITS = 1000000;
-const DEFAULT_MINUTES_OFFSET = 10;
+const DEFAULT_MINUTES_OFFSET = 30;
 
-const DashBoard = React.memo(function DashBoard() {
-  const { BoardValues, BoardActions } = useBingoBoardContext();
-  const { seed } = BoardValues;
-  const { setSeed, updateTasks, setLayout } = BoardActions;
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
+const DashBoard = memo(function DashBoard() {
+  const { seed }         = useBingoBoardValuesContext();
   const { languageName } = useLanguageValue();
+  const { themeName }    = useThemeValue();
+  const MainPage         = useRouterPush<MainPageQuery>();
 
-  const defaultTime = new Date();
-  defaultTime.setSeconds(
-    defaultTime.getSeconds() + DEFAULT_MINUTES_OFFSET * 60
+  const { setSeed, updateTasks } = useBingoBoardActionsContext();
+
+  const currentTime = dayjs();
+  const defaultTime = currentTime.second(
+    currentTime.second() + DEFAULT_MINUTES_OFFSET * 60
   );
 
-  const [releaseTime, setReleaseTime] = useState(defaultTime.getTime());
+  const [distributeTime, setDistributeTime] = useState<Dayjs>(defaultTime);
 
-  const { themeName } = useThemeValue();
-
-  const MainPage = useRouterPush<MainPageQuery>();
-  const randomizeClicked = useCallback(() => {
+  const updateBoard = (seed: number) => {
     if (!MainPage.isReady) {
       return;
     }
-    const _seed = Math.floor(Math.random() * DEFAULT_SEED_DIGITS);
 
-    setSeed(_seed);
+    updateTasks(seed, languageName);
 
     const { pathname, query } = MainPage.getQuery();
     const newQuery = {
       ...query,
-      seed: _seed,
+      seed: seed,
       lang: languageName,
       theme: themeName,
     };
 
     MainPage.updateQuery(pathname, newQuery, true);
-  }, [languageName]);
+  };
+
+  const randomizeClicked = () => {
+    const _seed = Math.floor(Math.random() * DEFAULT_SEED_DIGITS);
+    setSeed(_seed);
+    updateBoard(_seed);
+  };
+
+  const updateClicked = () => {
+    updateBoard(seed);
+  };
+
+  useEffect(() => updateBoard(seed), [languageName]);
 
   const Countdown = useRouterPush<MainPageQuery, CountdownQuery>();
-  const releaseClicked = useCallback(() => {
-    const [code, key] = encrypt([seed, releaseTime].join(SEP));
+  const distributeClicked = useCallback(() => {
+    const [code, key] = encrypt([seed, distributeTime].join(SEP));
 
     const newQuery: CountdownQuery = {
       code,
@@ -72,82 +81,40 @@ const DashBoard = React.memo(function DashBoard() {
       theme: themeName,
     };
     Countdown.updateQuery("/countdown", newQuery);
-  }, [languageName, seed, releaseTime]);
-
-  const onReleaseTimeChanged: ChangeEventHandler<HTMLInputElement> =
-    useCallback(
-      (v) =>
-        setReleaseTime(
-          v.target.valueAsNumber + new Date().getTimezoneOffset() * 60000
-        ),
-      []
-    );
-
-  const onSetSeed: ChangeEventHandler<HTMLInputElement> = useCallback((v) => {
-    setSeed(Number(v.target.value));
-  }, []);
-
-  useEffect(() => {
-    if (!MainPage.isReady) return;
-    updateTasks(seed, languageName);
-
-    const { pathname } = MainPage.getQuery();
-    MainPage.updateQuery(
-      pathname,
-      {
-        seed: seed,
-        lang: languageName,
-        theme: themeName,
-      },
-      true
-    );
-  }, [seed, languageName]);
-
-  const layoutOptions: Options = [
-    { text: "vertical", value: "vertical" },
-    { text: "horizontal", value: "horizontal" },
-  ];
-
-  const onSetLayout: ChangeEventHandler<HTMLSelectElement> = useCallback(
-    (v) => {
-      assert(isLayoutName(v.target.value));
-      setLayout(v.target.value);
-    },
-    []
-  );
-
-  const style = {
-    base: css({
-      display: "grid",
-      gridTemplateColumns: "repeat(2, 1fr)",
-      gridTemplateRows: "repeat(6, 3em)",
-      gap: "0.75em",
-      width: "100%",
-      transitionDuration: ".2s",
-      transitionTimingFunction: "ease-in-out",
-    }),
-    colSpan2: css({
-      gridColumn: "span 2 / span 2",
-    }),
-  };
+  }, [languageName, seed, distributeTime, themeName]);
 
   return (
-    <div css={style.base}>
-      <Label>Seed</Label>
-      <TextInput type="number" value={seed} onChange={onSetSeed} />
+    <div className={container}>
+      <SeedForm />
+      <LayoutForm />
+      <DistributionForm setDistributeTime={setDistributeTime} />
 
-      <Label>Layout</Label>
-      <Selector options={layoutOptions} onChange={onSetLayout} />
-
-      <Label>Releasing</Label>
-      <DateInput defaultTime={defaultTime} onChange={onReleaseTimeChanged} />
-
-      <Button outlined onClick={randomizeClicked}>
+      <Button
+        outlined
+        customProps={{
+          onClick: randomizeClicked,
+        }}
+      >
         Randomize
       </Button>
 
-      <Button outlined onClick={releaseClicked}>
-        Release
+      <Button
+        outlined
+        customProps={{
+          onClick: updateClicked,
+        }}
+      >
+        Update
+      </Button>
+
+      <Button
+        outlined
+        customProps={{
+          onClick: distributeClicked,
+        }}
+        customStyle={columnSpanAll}
+      >
+        Distribute
       </Button>
     </div>
   );

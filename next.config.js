@@ -1,5 +1,7 @@
 require("dotenv").config();
 const key = require("crypto").randomBytes(16).toString("hex");
+const { createVanillaExtractPlugin } = require("@vanilla-extract/next-plugin");
+const withVanillaExtract = createVanillaExtractPlugin();
 
 const isDevEnv = process.env.NODE_ENV !== "production";
 
@@ -15,6 +17,9 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_KEY: key,
   },
+  // experimental: {
+  //   appDir: true,
+  // },
 };
 
-module.exports = nextConfig;
+module.exports = withVanillaExtract(nextConfig);

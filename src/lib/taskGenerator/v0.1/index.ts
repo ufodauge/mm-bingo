@@ -6,10 +6,25 @@ export const generateTasks = (
   taskData: TaskData,
   seed: number,
   lang: string
-): Task[] => {
+): [Task[], boolean] => {
   const taskField = new TaskField(taskData.size, seed, lang);
 
-  const tasks = taskField.generateTasks(taskData.data);
+  const [tasks, causedError] = taskField.generateTasks(taskData.data);
 
-  return tasks;
+  return [tasks, causedError];
+};
+
+const createEmptyTask = () => {
+  return {
+    index     : 0,
+    difficulty: 0,
+    text      : "-",
+    filter    : BigInt(0),
+    lineTypes : [],
+    trackers  : [],
+  };
+};
+
+export const generateEmptyTasks = (taskData: TaskData): Task[] => {
+  return [...new Array<Task>(taskData.size)].map((_) => createEmptyTask());
 };

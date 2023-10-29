@@ -1,19 +1,20 @@
-import { ButtonHTMLAttributes, useState } from 'react';
+import { ButtonHTMLAttributes, useState } from "react";
 
-import Button from '@/components/ui/button';
-import { HighlightColors } from '@/const/highlightColors';
-import { MouseButton } from '@/const/mouseButton';
-import { useBingoBoardContext } from '@/contexts/bingoBoard';
-import { LineType } from '@/types/lineType';
-import { css, keyframes, useTheme } from '@emotion/react';
+import Button from "@/components/ui/button";
+import { HighlightColors } from "@/const/highlightColors";
+import { MouseButton } from "@/const/mouseButton";
+import { useBingoBoardValuesContext } from "@/contexts/bingoBoard";
+import { LineType } from "@/types/lineType";
+import * as style from "./taskButton.css";
 
 type Props = {
-  lineTypes: LineType[];
-  text: string;
+  lineTypes : LineType[];
+  text      : string;
+  slotNumber: number;
 };
 
-export default function TaskButton({ lineTypes, text }: Props) {
-  const { targetedLine } = useBingoBoardContext().BoardValues;
+export default function TaskButton({ lineTypes, text, slotNumber }: Props) {
+  const { targetedLine } = useBingoBoardValuesContext();
 
   const [highlightColorIndex, setHighlightColorIndex] = useState(0);
 
@@ -43,7 +44,6 @@ export default function TaskButton({ lineTypes, text }: Props) {
   > = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
-    // change color by the button
     if (e.button === MouseButton.Primary) {
       highlightColorNext();
     } else if (e.button === MouseButton.Secondary) {
@@ -51,58 +51,38 @@ export default function TaskButton({ lineTypes, text }: Props) {
     }
   };
 
-  const customProps: ButtonHTMLAttributes<HTMLButtonElement> = {
-    onClick: toggleHighlightColorIndex,
-    onContextMenu: toggleHighlightColorIndex,
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const onMouseOver: React.MouseEventHandler<HTMLButtonElement> = (_) => {
+    setIsMouseOver(true);
+  };
+  const onMouseLeave: React.MouseEventHandler<HTMLButtonElement> = (_) => {
+    setIsMouseOver(false);
   };
 
-  const theme = useTheme();
+  const customProps: ButtonHTMLAttributes<HTMLButtonElement> = {
+    onClick      : toggleHighlightColorIndex,
+    onContextMenu: toggleHighlightColorIndex,
+    id           : `slot-${slotNumber}`,
+    onMouseOver,
+    onMouseLeave,
+  };
 
-  const kf = keyframes({
-    "0%": { boxShadow: `0 0 0 0 ${theme.primary}` },
-    "100%": { boxShadow: `0 0 0 8px ${theme.primary}00` },
-  });
+  const isTargeted =
+    isMouseOver ||
+    (targetedLine !== undefined && lineTypes.includes(targetedLine));
 
-  const highlights = [
-    theme.highlightColor1,
-    theme.highlightColor2,
-    theme.highlightColor3,
-    theme.highlightColor4,
-  ];
-
-  const style = css(
-    {
-      backgroundColor: highlights[highlightColorIndex],
-      color: theme.highlightContent,
-      borderColor: "transparent",
-      "&:hover": {
-        borderColor: theme.primary,
-        backgroundColor: highlights[highlightColorIndex],
-        color: theme.highlightContent,
-        backgroundPosition: "right center",
-        backgroundSize: "200% auto",
-        animationName: kf,
-        animationDuration: "1s",
-        zIndex: "10",
-        // height: "fit-content",
-      },
-    },
-    targetedLine !== undefined && lineTypes.includes(targetedLine)
-      ? {
-          borderColor: theme.primary,
-          backgroundColor: highlights[highlightColorIndex],
-          color: theme.highlightContent,
-          backgroundPosition: "right center",
-          backgroundSize: "200% auto",
-          animationName: kf,
-          animationDuration: "1s",
-          zIndex: "10",
-        }
-      : {}
-  );
+  const classNames = [
+    style.base,
+    isTargeted ? style.targeted : "",
+    style.highlights[highlightColorIndex]
+  ].join(" ");
 
   return (
-    <Button customProps={customProps} customStyle={style} outlined>
+    <Button
+      customProps = {customProps}
+      customStyle = {classNames}
+      outlined
+    >
       <p suppressHydrationWarning>{text}</p>
     </Button>
   );

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import BingoBoard from '@/components/features/bingoBoard';
 import LanguageSelector from '@/components/features/modules/languageSelector';
 import ThemeToggler from '@/components/features/modules/themeToggler';
@@ -7,35 +9,20 @@ import BingoBoardWrapper from '@/contexts/bingoBoard';
 import LanguageProvider from '@/contexts/language';
 import ThemeWrapper from '@/contexts/theme';
 import { useTaskData } from '@/lib/hooks/useTaskData';
-import { css } from '@emotion/react';
 
-type Props = {};
+import * as style from './index.css';
 
-const Home: React.FC<Props> = () => {
+const Home = memo(function Home() {
   const taskData = useTaskData();
-
-  const styles = {
-    main: css({
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      gap: "1.5em",
-    }),
-    lang: css({
-      backgroundColor: "inherit",
-      borderStyle: "none",
-      width: "6em",
-    }),
-  };
 
   return (
     <ThemeWrapper>
       <LanguageProvider>
         <Header text={taskData.title}>
-          <LanguageSelector customStyle={styles.lang} />
+          <LanguageSelector customClassName={style.lang} />
           <ThemeToggler />
         </Header>
-        <div css={styles.main}>
+        <div className={style.main}>
           <BingoBoardWrapper>
             <BingoBoard />
             <MainBoard />
@@ -44,6 +31,6 @@ const Home: React.FC<Props> = () => {
       </LanguageProvider>
     </ThemeWrapper>
   );
-};
+});
 
 export default Home;

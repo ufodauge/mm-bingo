@@ -1,45 +1,19 @@
-import { ReactNode } from "react";
-
-import { css } from "@emotion/react";
+import { ReactNode, memo } from "react";
 
 import Title from "./title";
+import { navbar, navbarEnd, navbarStart } from "./index.css";
 
 type Props = { text: string; children?: ReactNode };
 
-const Header: React.FC<Props> = ({ text, children }) => {
-  const navbar = css({
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "0.5em",
-    minHeight: "4em",
-    width: "-webkit-fill-available",
-    transitionProperty: "background-color",
-    transitionDuration: "0.2s",
-    transitionTimingFunction: "ease-in-out",
-  });
-
-  const navbarStart = css({
-    display: "inline-flex",
-    width: "50%",
-    paddingInlineStart: "1em",
-    justifyContent: "flex-start",
-  });
-
-  const navbarEnd = css({
-    display: "inline-flex",
-    width: "50%",
-    justifyContent: "flex-end",
-  });
-
+const Header = memo<Props>(function Header({ text, children }) {
   return (
-    <div css={navbar}>
-      <div css={navbarStart}>
+    <div className={navbar}>
+      <div className={navbarStart}>
         <Title text={text} />
       </div>
-      <div css={navbarEnd}>{children}</div>
+      <div className={navbarEnd}>{children}</div>
     </div>
   );
-};
+});
 
 export default Header;

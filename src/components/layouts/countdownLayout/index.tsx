@@ -1,19 +1,15 @@
-import Countdown from "@/components/features/countdown";
-import { css } from "@emotion/react";
+import React from 'react';
 
-type Props = {};
+import Countdown from '@/components/features/countdown';
 
-const CountdownLayout: React.FC<Props> = () => {
-  const style = css({
-    width: "50vmin",
-    height: "50vmin",
-  });
+import { container } from './index.css';
 
+const CountdownLayout = React.memo(function CountdownLayout() {
   return (
-    <div css={style}>
+    <div className={container}>
       <Countdown />
     </div>
   );
-};
+});
 
 export default CountdownLayout;

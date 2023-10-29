@@ -1,45 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { memo, ReactNode, useContext, useEffect, useState } from 'react';
 
-import { UnimplementedFunctionCalledException } from "@/class/exception/unimplementedFunctionCalled";
-import { useRouterPush } from "@/lib/hooks/useRouterPush";
-import { getTheme } from "@/lib/theme/getTheme";
-import { isThemeName, ThemeName, ThemeNames } from "@/types/theme/theme";
-import { css, ThemeProvider } from "@emotion/react";
+import { darkThemeClass } from '@/const/theme/dark.css';
+import { lightThemeClass } from '@/const/theme/light.css';
+import { useRouterPush } from '@/lib/hooks/useRouterPush';
+import { isThemeName, ThemeName, ThemeNames } from '@/types/theme/theme';
 
-type ThemeActionProps = {
-  toggle: () => void;
-  setTheme: (themeName: ThemeName) => void;
-};
-
-type ThemeValueProps = {
-  themeName: ThemeName;
-};
-
-const ThemeAction = createContext<ThemeActionProps>({
-  toggle: () => {
-    throw new UnimplementedFunctionCalledException();
-  },
-  setTheme: () => {
-    throw new UnimplementedFunctionCalledException();
-  },
-});
-
-const ThemeValue = createContext<ThemeValueProps>({
-  themeName: "light",
-});
+import * as style from './index.css';
+import { ThemeAction, ThemeActionProps } from './themeAction';
+import { ThemeValue, ThemeValueProps } from './themeValue';
 
 type Props = {
   children?: ReactNode;
 };
 
-const ThemeWrapper: React.FC<Props> = ({ children }) => {
+const ThemeWrapper = memo<Props>(function ThemeWrapper({ children }) {
   const [themeName, setThemeName] = useState<ThemeName>("light");
   const { isReady, getQuery, updateQuery } = useRouterPush();
 
@@ -74,28 +49,20 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
     themeName: themeName,
   };
 
-  const theme = getTheme(themeName);
-
-  const style = css({
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: theme.base,
-    transitionDuration: ".2s",
-    transitionTimingFunction: "ease-in-out",
-    minWidth: "100%",
-    minHeight: "100vh",
-  });
+  const theme = themeName === "dark" ? darkThemeClass : lightThemeClass;
 
   return (
-    <ThemeProvider theme={theme}>
+    <div className={theme}>
       <ThemeValue.Provider value={themeValue}>
         <ThemeAction.Provider value={themeAction}>
-          <div css={style}>{children}</div>
+          <div className={style.container}>
+            {children}
+          </div>
         </ThemeAction.Provider>
       </ThemeValue.Provider>
-    </ThemeProvider>
+    </div>
   );
-};
+});
 
 export const useThemeAction = () => useContext(ThemeAction);
 export const useThemeValue = () => useContext(ThemeValue);

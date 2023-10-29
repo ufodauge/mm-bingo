@@ -7,8 +7,8 @@ export abstract class BaseException extends Error {
   constructor(message: ErrorCode, customText?: string, readonly e?: Error) {
     super();
     this.moduleError = e;
-    this.message = message || ErrorCodes.Unexpected;
-    this.customText = customText;
+    this.message     = message || ErrorCodes.Unexpected;
+    this.customText  = customText;
 
     this.describe();
   }
@@ -16,12 +16,11 @@ export abstract class BaseException extends Error {
   public appendText(): void {}
 
   protected describe() {
-    const errorType = this.constructor.name;
+    const errorType          = this.constructor.name;
     const moduleErrorMessage = this.moduleError?.message;
-    const errorMessage = this.message;
+    const errorMessage       = this.message;
 
     const message =
-      // ------------------------------------------
       `ErrorType: ${errorType}
       ${moduleErrorMessage ? `ModuleErrorMessage: ${moduleErrorMessage}` : ""}
       ErrorMessage: ${errorMessage}${

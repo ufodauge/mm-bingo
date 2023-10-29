@@ -1,21 +1,9 @@
-import { css, useTheme } from "@emotion/react";
+import { container } from "./header.css";
 
 type Props = { text: string };
 
-const Header: React.FC<Props> = ({ text }) => {
-  const theme = useTheme();
-  const style = css({
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: theme.neutral,
-    color: theme.neutralContent,
-    fontWeight: "bold",
-    fontSize: "1.2em",
-    userSelect: "none",
-  });
-  
-  return <div css={style}>{text}</div>;
+const Header: React.FC<Props> = ({ text }) => {  
+  return <div className={container}>{text}</div>;
 };
 
 export default Header;
