@@ -507,7 +507,18 @@
     {
       "difficulty": 10,
       "contents": { "ja": "全ての墓をあばく", "en": "not available" },
-      "trackers": []
+      "trackers": [
+        {
+          "type": "toggler",
+          "properties": {
+            "icons": [
+              "icons/captainshat.png",
+              "icons/captainshat.png",
+              "icons/captainshat.png"
+            ]
+          }
+        }
+      ]
     },
     {
       "difficulty": 10,
