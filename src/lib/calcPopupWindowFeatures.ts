@@ -1,27 +1,29 @@
-import { taskData } from "@/const/TaskData";
+import {
+  CARD_CELL_PX,
+  HEADER_PX,
+  HORZ_CELL_WIDTH,
+  HORZ_CELL_HEIGHT,
+  VERT_CELL_WIDTH,
+  VERT_CELL_HEIGHT,
+} from "@/const/popupWindowFeatures";
 import { LayoutName } from "@/types/layout";
 
-const HEADER_SIZE = 40;
-const CARD_CELL_SIZE = 200;
-const VERT_CELL_SIZE = 180;
-const HORZ_CELL_SIZE = 240;
-
-export const CalcPopupWindowFeatures = (layoutName: LayoutName): string => {
-  const cellCount = taskData.size;
+export const CalcPopupWindowFeatures = (
+  layoutName: LayoutName,
+  cellCount: number
+): string => {
   const size = (() => {
     if (layoutName === "card") {
-      return `width=${CARD_CELL_SIZE * cellCount},height=${
-        CARD_CELL_SIZE * cellCount + HEADER_SIZE
+      return `width=${CARD_CELL_PX * cellCount},height=${
+        CARD_CELL_PX * cellCount + HEADER_PX
       }`;
     } else if (layoutName === "horizontal") {
-      return `width=${HORZ_CELL_SIZE * cellCount},height=180`;
+      return `width=${HORZ_CELL_WIDTH * cellCount},height=${HORZ_CELL_HEIGHT + HEADER_PX}`;
     } else if (layoutName === "vertical") {
-      return `width=340,height=${VERT_CELL_SIZE * cellCount}`;
+      return `width=${VERT_CELL_WIDTH},height=${VERT_CELL_HEIGHT * cellCount + HEADER_PX}`;
     }
     throw new Error("Unknown Error.");
   })();
-
-  console.log(size);
 
   return `${size},noOpener,noReferrer`;
 };

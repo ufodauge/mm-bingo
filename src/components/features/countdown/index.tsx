@@ -1,51 +1,54 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import dayjs, { Dayjs } from 'dayjs';
+import React, { useEffect, useState } from 'react';
 
-import CountdownUI from "@/components/ui/countdown";
-import { decrypt } from "@/lib/encoder";
-import { useQuery } from "@/lib/hooks/useQuery";
-import { useRouterPush } from "@/lib/hooks/useRouterPush";
-import { MainPageQuery } from "@/types/query/mainpage";
-import { isThemeName } from "@/types/theme/theme";
-import { CountdownQuery } from "@/types/query/countdown";
-import { SEP } from "@/const/crypto";
+import CountdownUI from '@/components/ui/countdown';
+import { SEP } from '@/const/crypto';
+import { useThemeValue } from '@/contexts/theme';
+import { decrypt } from '@/lib/encoder';
+import useInterval from '@/lib/hooks/useInterval';
+import { useRouterPush } from '@/lib/hooks/useRouterPush';
+import { CountdownQuery } from '@/types/query/countdown';
+import { MainPageQuery } from '@/types/query/mainpage';
 
-type Props = {};
+const Countdown = () => {
+  const { isReady, getQuery, updateQuery } = useRouterPush<
+    CountdownQuery,
+    MainPageQuery
+  >();
 
-const Countdown: React.FC<Props> = () => {
-  const [count, setCount] = useState(0);
-  const [_, pushToMainPage] = useRouterPush<MainPageQuery>();
+  const [count, setCount] = useState<Dayjs | null>(null);
+  const [seed, setSeed]   = useState<number | null>(null);
+  const [lang, setLang]   = useState<string | null>(null);
 
-  useQuery<CountdownQuery>(
-    (v) => {
-      const text = decrypt(v.code, v.key);
-      const [seed, releaseTime] = text.split(SEP);
+  const { themeName } = useThemeValue();
 
-      const targetTime = new Date(Number(releaseTime)).getTime();
+  useInterval(() => {
+    if (count === null) return;
 
-      const timer = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = targetTime - now;
+    if (count.diff(undefined, "seconds", true) < 1) {
+      updateQuery("/", {
+        seed : Number(seed),
+        lang : lang ?? "en",
+        theme: themeName,
+      });
+    }
+  }, 250);
 
-        const themeName = isThemeName(v.theme) ? v.theme : "light";
+  useEffect(() => {
+    if (!isReady) return;
 
-        if (distance <= 0) {
-          clearInterval(timer);
-          pushToMainPage("/", {
-            seed: Number(seed),
-            lang: v.lang,
-            theme: themeName,
-          });
-        } else {
-          setCount(distance);
-        }
-      }, 10);
+    const { query } = getQuery();
 
-      return () => clearInterval(timer);
-    },
-    { code: "", key: "", lang: "ja", theme: "light" }
-  );
+    const decrypted          = decrypt(query.code, query.key);
+    const [seed, targetTime] = decrypted.split(SEP);
 
-  return <CountdownUI remains={count} />;
+    setCount(dayjs(targetTime));
+    setSeed(Number(seed));
+    setLang(query.lang);
+  }, [isReady, themeName]);
+
+  return <CountdownUI target={count} />;
 };
 
 export default Countdown;

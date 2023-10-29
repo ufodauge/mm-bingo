@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Header from "@/components/features/popoutWindow/header";
-import TaskButtons from "@/components/features/popoutWindow/taskButtons";
-import { useThemeAction } from "@/contexts/theme";
-import { useQuery } from "@/lib/hooks/useQuery";
-import { useTaskData } from "@/lib/hooks/useTaskData";
-import { isLayoutName, LayoutName } from "@/types/layout";
-import { PopoutQuery } from "@/types/query/popout";
-import { Task } from "@/types/task";
-import { isThemeName } from "@/types/theme/theme";
-import { css, Global } from "@emotion/react";
+import Header from '@/components/features/popoutWindow/header';
+import TaskButtons from '@/components/features/popoutWindow/taskButtons';
+import { useThemeAction } from '@/contexts/theme';
+import { useQuery } from '@/lib/hooks/useQuery';
+import { useTaskData } from '@/lib/hooks/useTaskData';
+import { isLayoutName, LayoutName } from '@/types/layout';
+import { PopoutQuery } from '@/types/query/popout';
+import { Task } from '@/types/task';
+import { isThemeName } from '@/types/theme/theme';
+import { TASKS_QUERY_DELIMITER } from '@/const/popupWindowFeatures';
+import { container } from './index.css';
 
 type Props = {};
 
@@ -17,25 +18,25 @@ const Home: React.FC<Props> = () => {
   const [header, setHeader] = useState<string>("");
 
   const [layoutName, setLayoutName] = useState<LayoutName>("vertical");
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks]           = useState<Task[]>([]);
 
-  const taskData = useTaskData();
+  const taskData     = useTaskData();
   const { setTheme } = useThemeAction();
 
   useQuery<PopoutQuery>(
     (query) => {
       setHeader(query.header);
       setTasks(
-        query.tasks?.split(";").map((v) => {
+        query.tasks?.split(TASKS_QUERY_DELIMITER).map((v) => {
           const result = taskData.data[Number(v)];
 
           return {
-            index: Number(v),
+            index     : Number(v),
             difficulty: result ? result.difficulty : 0,
-            text: result ? result.contents[query.lang] : "Error!",
-            filter: 0,
-            lineTypes: [],
-            trackers: result ? result.trackers ?? [] : [],
+            text      : result ? result.contents[query.lang] : "Error!",
+            filter    : BigInt(0),
+            lineTypes : [],
+            trackers  : result ? result.trackers: [],
           };
         }) ?? []
       );
@@ -49,23 +50,16 @@ const Home: React.FC<Props> = () => {
       }
     },
     {
-      tasks: "0;0;0;0;0",
-      lang: "en",
+      tasks : "0;0;0;0;0",
+      lang  : "en",
       layout: "vertical",
       header: "col1",
-      theme: "light",
+      theme : "light",
     }
   );
 
-  const headerSize = "2em";
-  const style = css({
-    display: "grid",
-    gridTemplateRows: header === "" ? "1fr" : `${headerSize} 1fr`,
-    minHeight: "100vh",
-  });
-
   return (
-    <div css={style}>
+    <div className={container}>
       <Header text={header} />
       <TaskButtons tasks={tasks} layout={layoutName} />
     </div>

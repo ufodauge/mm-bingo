@@ -4,24 +4,24 @@ import { HighlightColors } from "@/const/highlightColors";
 import { MouseButton } from "@/const/mouseButton";
 import { Task } from "@/types/task";
 import { isCounterTrackerProps, isTogglerTrackerProps } from "@/types/tracker";
-import { css, keyframes, useTheme } from "@emotion/react";
 
 import Counter from "./tracker/counter";
 import Toggler from "./tracker/toggler";
+import * as style from "./taskButton.css";
 
 type Props = {
   task: Task;
+  disableTrackers: boolean;
 };
 
-const TaskButton: React.FC<Props> = ({ task }) => {
+const TaskButton: React.FC<Props> = ({ task, disableTrackers }) => {
   const [highlightColorIndex, setHighlightColorIndex] = useState(0);
-  const theme = useTheme();
 
-  const htNext = () => {
+  const highlightNext = () => {
     setHighlightColorIndex((highlightColorIndex + 1) % HighlightColors.length);
   };
 
-  const htPrev = () => {
+  const highlightPrev = () => {
     setHighlightColorIndex(
       (highlightColorIndex + HighlightColors.length - 1) %
         HighlightColors.length
@@ -33,97 +33,39 @@ const TaskButton: React.FC<Props> = ({ task }) => {
   ) => {
     e.preventDefault();
     if (e.button === MouseButton.Primary) {
-      htNext();
+      highlightNext();
     } else if (e.button === MouseButton.Secondary) {
-      htPrev();
+      highlightPrev();
     }
   };
 
-  const trackerElements = task.trackers?.map((v, i) => {
-    switch (v.type) {
-      case "toggler":
-        if (isTogglerTrackerProps(v.properties)) {
-          return <Toggler key={i} icons={v.properties.icons} />;
-        }
-
-      case "counter":
-        if (isCounterTrackerProps(v.properties)) {
-          return (
-            <Counter
-              key={i}
-              max={v.properties.max}
-              init={v.properties.init ?? 0}
-              icon={v.properties.icon}
-            />
-          );
-        }
-
-      default:
-        return <p key={i}>???</p>;
+  const trackerElements = task.trackers.map((v, i) => {
+    if (v.type === "toggler" && isTogglerTrackerProps(v.properties)) {
+      return <Toggler key={i} icons={v.properties.icons} />;
+    } else if (v.type === "counter" && isCounterTrackerProps(v.properties)) {
+      return (
+        <Counter
+          key={i}
+          max={v.properties.max}
+          init={v.properties.init ?? 0}
+          icon={v.properties.icon}
+        />
+      );
+    } else {
+      return <p key={i}>???</p>;
     }
   });
-
-  const highlights = [
-    theme.highlightColor1,
-    theme.highlightColor2,
-    theme.highlightColor3,
-    theme.highlightColor4,
-  ];
-
-  // const highlightVariants = [
-  //   theme.highlightColor1Variant,
-  //   theme.highlightColor2Variant,
-  //   theme.highlightColor3Variant,
-  //   theme.highlightColor4Variant,
-  // ];
-
-  const kf = keyframes({
-    "0%": { boxShadow: `0 0 0 0 ${theme.primary}` },
-    "100%": { boxShadow: `0 0 0 8px ${theme.primary}00` },
-  });
-
-  const style = {
-    base: css({
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "column",
-      cursor: "pointer",
-      backgroundColor: highlights[highlightColorIndex],
-      color: theme.highlightContent,
-      transitionDuration: ".2s",
-      userSelect: "none",
-      padding: ".8em",
-      "&:hover": {
-        borderColor: theme.primary,
-        backgroundColor: highlights[highlightColorIndex],
-        color: theme.highlightContent,
-        backgroundPosition: "right center",
-        backgroundSize: "auto",
-        animationName: kf,
-        animationDuration: "1s",
-        zIndex: "10",
-      },
-    }),
-    taskText: css({
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-      margin: ".3em",
-      fontWeight: "bold",
-      fontSize: "1.2em",
-    }),
-  };
 
   return (
     <div
-      css={style.base}
+      className={`${style.base} ${
+        style.highlights.at(highlightColorIndex) ?? ""
+      }`}
       onClick={toggleHighlightTypeIndex}
       onContextMenu={toggleHighlightTypeIndex}
     >
-      <div css={style.taskText}>{task.text}</div>
-      <div>{trackerElements}</div>
+      <div className={style.taskText}>{task.text}</div>
+      {disableTrackers ? <></> : <section>{trackerElements}</section>}
     </div>
   );
 };

@@ -1,37 +1,36 @@
-import BingoBoard from "@/components/features/bingoBoard";
-import ThemeToggler from "@/components/features/modules/themeToggler";
-import MainBoard from "@/components/layouts/mainBoard";
-import Header from "@/components/ui/header";
-import BingoBoardWrapper from "@/contexts/bingoBoard";
-import ThemeWrapper from "@/contexts/theme";
-import { useTaskData } from "@/lib/hooks/useTaskData";
-import { css } from "@emotion/react";
+import { memo } from 'react';
 
-type Props = {};
+import BingoBoard from '@/components/features/bingoBoard';
+import LanguageSelector from '@/components/features/modules/languageSelector';
+import ThemeToggler from '@/components/features/modules/themeToggler';
+import MainBoard from '@/components/layouts/mainBoard';
+import Header from '@/components/ui/header';
+import BingoBoardWrapper from '@/contexts/bingoBoard';
+import LanguageProvider from '@/contexts/language';
+import ThemeWrapper from '@/contexts/theme';
+import { useTaskData } from '@/lib/hooks/useTaskData';
 
-const Home: React.FC<Props> = () => {
+import * as style from './index.css';
+
+const Home = memo(function Home() {
   const taskData = useTaskData();
-
-  const style = css({
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    gap: "1.5em",
-  });
 
   return (
     <ThemeWrapper>
-      <Header text={taskData.title}>
-        <ThemeToggler />
-      </Header>
-      <div css={style}>
-        <BingoBoardWrapper>
-          <BingoBoard />
-          <MainBoard />
-        </BingoBoardWrapper>
-      </div>
+      <LanguageProvider>
+        <Header text={taskData.title}>
+          <LanguageSelector customClassName={style.lang} />
+          <ThemeToggler />
+        </Header>
+        <div className={style.main}>
+          <BingoBoardWrapper>
+            <BingoBoard />
+            <MainBoard />
+          </BingoBoardWrapper>
+        </div>
+      </LanguageProvider>
     </ThemeWrapper>
   );
-};
+});
 
 export default Home;
