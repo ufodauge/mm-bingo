@@ -34,8 +34,8 @@ export const taskText = style({
   alignItems    : "center",
   width         : "100%",
   margin        : ".2em",
-  // fontWeight    : "bold",
   fontSize      : ".9em",
+  textAlign     : "center"
 });
 
 export const highlights = [

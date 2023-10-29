@@ -19,3 +19,7 @@ globalStyle("*", {
 globalStyle("body", {
   margin: "0",
 });
+
+globalStyle("html", {
+  minWidth: "fit-content",
+});
