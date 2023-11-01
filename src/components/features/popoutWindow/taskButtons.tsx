@@ -1,7 +1,7 @@
 import { LayoutName } from "@/types/layout";
 import { Task } from "@/types/task";
 
-import TaskButton from "./taskButton";
+import TaskButton from "./button/taskButton";
 import { container } from "./taskButtons.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import {
@@ -11,6 +11,7 @@ import {
   HORZ_CELL_HEIGHT,
   HORZ_CELL_WIDTH,
 } from "@/const/popupWindowFeatures";
+import { useTaskData } from "@/lib/hooks/useTaskData";
 
 type Props = {
   tasks: Task[];
@@ -18,15 +19,17 @@ type Props = {
 };
 
 const TaskButtons: React.FC<Props> = ({ tasks, layout }) => {
+  const taskData   = useTaskData();
+  const edgeLength = taskData.size;
+
   const [cols, rows] = (() => {
     switch (layout) {
       case "card":
-        const size = Math.floor(Math.sqrt(tasks.length));
-        return [size, size];
+        return [edgeLength, edgeLength];
       case "horizontal":
-        return [tasks.length, 1];
+        return [edgeLength, 1];
       case "vertical":
-        return [1, tasks.length];
+        return [1, edgeLength];
       default:
         throw new Error("Unreachable");
     }
@@ -34,14 +37,12 @@ const TaskButtons: React.FC<Props> = ({ tasks, layout }) => {
 
   const disableTrackers = layout === "card";
 
-  const [width, height] = getCellPxSizes(layout);
-
   return (
     <div
       className={container}
       style={assignInlineVars({
-        gridTemplateColumns: `repeat(${cols}, minmax(${width}px, 1fr))`,
-        gridTemplateRows   : `repeat(${rows}, minmax(${height}px, 1fr))`,
+        gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        gridTemplateRows   : `repeat(${rows}, 1fr)`,
       })}
     >
       {tasks.map((v, i) => (
