@@ -12,7 +12,7 @@ export default function Home() {
       setTitle(query.header === "card" ? "Card" : "Popout");
     },
     {
-      tasks : "0;0;0;0;0",
+      seed  : "0",
       lang  : "en",
       layout: "vertical",
       header: "col1",
