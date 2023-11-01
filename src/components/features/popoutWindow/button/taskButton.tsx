@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { HighlightColors } from "@/const/highlightColors";
-import { MouseButton } from "@/const/mouseButton";
-import { Task } from "@/types/task";
-import { isCounterTrackerProps, isTogglerTrackerProps } from "@/types/tracker";
+import { HighlightColors } from '@/const/highlightColors';
+import { MouseButton } from '@/const/mouseButton';
+import { Task } from '@/types/task';
+import { isCounterTrackerProps, isTogglerTrackerProps } from '@/types/tracker';
 
-import Counter from "./tracker/counter";
-import Toggler from "./tracker/toggler";
-import * as style from "./taskButton.css";
+import Counter from '../tracker/counter';
+import Toggler from '../tracker/toggler';
+import * as style from './taskButton.css';
 
 type Props = {
   task: Task;
@@ -56,13 +56,16 @@ const TaskButton: React.FC<Props> = ({ task, disableTrackers }) => {
     }
   });
 
+  const container = [
+    style.base,
+    style.highlights.at(highlightColorIndex) ?? "",
+  ].join(" ");
+
   return (
     <div
-      className={`${style.base} ${
-        style.highlights.at(highlightColorIndex) ?? ""
-      }`}
-      onClick={toggleHighlightTypeIndex}
-      onContextMenu={toggleHighlightTypeIndex}
+      className     = {container}
+      onClick       = {toggleHighlightTypeIndex}
+      onContextMenu = {toggleHighlightTypeIndex}
     >
       <div className={style.taskText}>{task.text}</div>
       {disableTrackers ? <></> : <section>{trackerElements}</section>}
