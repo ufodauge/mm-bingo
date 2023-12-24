@@ -42,6 +42,15 @@
       "trackers": []
     },
     {
+      "difficulty": 1,
+      "contents": {
+        "jp": "月の落下に怯えている剣道場の先生を撮る",
+        "en": "not available"
+      },
+      "tag": ["camera"],
+      "trackers": []
+    },
+    {
       "difficulty": 2,
       "contents": { "jp": "キータンのお面", "en": "not available" },
       "tag": ["mask"],
@@ -72,7 +81,7 @@
     {
       "difficulty": 2,
       "contents": {
-        "jp": "3日目のやぐらの最上階に上る",
+        "jp": "3日目のやぐらの上の50ルピー",
         "en": "not available"
       },
       "tag": ["no_explosives", "no_isg"],
@@ -192,7 +201,7 @@
     {
       "difficulty": 5,
       "contents": {
-        "jp": "異なるスタルチュラを5体倒す",
+        "jp": "異なる通常のスタルチュラを5体倒す",
         "en": "not available"
       },
       "trackers": [
@@ -208,7 +217,7 @@
     {
       "difficulty": 5,
       "contents": {
-        "jp": "取得済みアイテムの所持数をすべて最大値（緑）にする",
+        "jp": "取得済みCアイテムの所持数をすべて最大値（緑）にする",
         "en": "not available"
       },
       "trackers": []
@@ -286,6 +295,11 @@
     {
       "difficulty": 6,
       "contents": { "jp": "宝箱屋のハートのかけら", "en": "not available" },
+      "trackers": []
+    },
+    {
+      "difficulty": 6,
+      "contents": { "jp": "人間リンクで宝箱屋クリア", "en": "not available" },
       "trackers": []
     },
     {
@@ -969,7 +983,7 @@
     },
     {
       "difficulty": 17,
-      "contents": { "jp": "ダンペイのハートのかけら", "en": "not available" },
+      "contents": { "jp": "ダンペイの墓場の空き瓶", "en": "not available" },
       "trackers": []
     },
     {
