@@ -26,11 +26,11 @@ const PopoutButton = memo<Props>(function PopoutButton({ lineType }) {
 
   const url = `${isDevEnv ? "" : repoName}/popout`;
   const params: PopoutQuery = {
-    seed    : seed.toString(),
-    header  : lineType,
-    layout  : lineType === "card" ? "card": layout,
-    lang    : languageName,
-    theme   : themeName,
+    seed  : seed.toString(),
+    header: lineType,
+    layout: lineType === "card" ? "card": layout,
+    lang  : languageName,
+    theme : themeName,
   };
 
   const onClick = () => {

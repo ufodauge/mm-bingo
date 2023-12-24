@@ -44,8 +44,8 @@ const PopoutButton = memo<Props>(function PopoutButton({ lineType }) {
       .join("&");
 
     console.log(`
-    - url   : ${url}
-    - params: ${params}
+    - url     : ${url}
+    - repoName: ${repoName}
     `);
 
     window.open(`${url}?${paramString}`, "_blank", features);
