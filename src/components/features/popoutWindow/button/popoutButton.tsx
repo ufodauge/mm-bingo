@@ -25,8 +25,6 @@ const PopoutButton = memo<Props>(function PopoutButton({ lineType }) {
   const { seed, layout } = useBingoBoardValuesContext();
   const { updateTargetedLine } = useBingoBoardActionsContext();
 
-  const repoName = taskData.repoName;
-
   const url = window.location.pathname;
   // const url = `${isDevEnv ? "" : repoName}/popout`;
   const params: PopoutQuery = {
@@ -62,8 +60,6 @@ const PopoutButton = memo<Props>(function PopoutButton({ lineType }) {
     </Button>
   );
 });
-
-const isDevEnv = process.env.NODE_ENV === "development";
 
 const innerTextFormatter = (lineType: LineType) => {
   if (["bltr", "tlbr", "card"].includes(lineType)) {

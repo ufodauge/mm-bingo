@@ -458,13 +458,13 @@
     },
     {
       "difficulty": 10,
-      "contents": { "jp": "手帳のリボンを6個つける", "en": "not available" },
+      "contents": { "jp": "しあわせシールを6個つける", "en": "not available" },
       "tag": ["collect_ribbons"],
       "trackers": [
         {
           "type": "counter",
           "properties": {
-            "max": 5,
+            "max": 6,
             "icon": "icons/ribbon.png"
           }
         }
@@ -622,7 +622,7 @@
     },
     {
       "difficulty": 12,
-      "contents": { "jp": "手帳のリボンを8個つける", "en": "not available" },
+      "contents": { "jp": "しあわせシールを8個つける", "en": "not available" },
       "tag": ["collect_ribbons"],
       "trackers": [
         {
@@ -645,7 +645,7 @@
         {
           "type": "counter",
           "properties": {
-            "max": 10
+            "max": 11
           }
         }
       ]
@@ -882,7 +882,7 @@
     },
     {
       "difficulty": 15,
-      "contents": { "jp": "手帳のリボンを10個つける", "en": "not available" },
+      "contents": { "jp": "しあわせシールを10個つける", "en": "not available" },
       "tag": ["collect_ribbons"],
       "trackers": [
         {
