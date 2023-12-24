@@ -27,7 +27,8 @@ const PopoutButton = memo<Props>(function PopoutButton({ lineType }) {
 
   const repoName = taskData.repoName;
 
-  const url = `${isDevEnv ? "" : repoName}/popout`;
+  const url = window.location.pathname;
+  // const url = `${isDevEnv ? "" : repoName}/popout`;
   const params: PopoutQuery = {
     seed: seed.toString(),
     header: lineType,
@@ -42,11 +43,6 @@ const PopoutButton = memo<Props>(function PopoutButton({ lineType }) {
     const paramString = Object.entries(params)
       .map(([k, v]) => `${k}=${v}`)
       .join("&");
-
-    console.log(`
-    - url     : ${url}
-    - repoName: ${repoName}
-    `);
 
     window.open(`${url}?${paramString}`, "_blank", features);
   };
