@@ -42,6 +42,12 @@ const PopoutButton = memo<Props>(function PopoutButton({ lineType }) {
     const paramString = Object.entries(params)
       .map(([k, v]) => `${k}=${v}`)
       .join("&");
+
+    console.log(`
+    - url   : ${url}
+    - params: ${params}
+    `);
+
     window.open(`${url}?${paramString}`, "_blank", features);
   };
 
