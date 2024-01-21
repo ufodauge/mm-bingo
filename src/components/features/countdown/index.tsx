@@ -17,14 +17,14 @@ const Countdown = () => {
     MainPageQuery
   >();
 
-  const [count, setCount] = useState<Dayjs | null>(null);
-  const [seed, setSeed]   = useState<number | null>(null);
-  const [lang, setLang]   = useState<string | null>(null);
+  const [count, setCount] = useState<Dayjs | undefined>();
+  const [seed, setSeed]   = useState<number | undefined>();
+  const [lang, setLang]   = useState<string | undefined>();
 
   const { themeName } = useThemeValue();
 
   useInterval(() => {
-    if (count === null) return;
+    if (count === undefined) return;
 
     if (count.diff(undefined, "seconds", true) < 1) {
       updateQuery("/", {

@@ -6,16 +6,16 @@ import dayjs, { Dayjs } from "dayjs";
 import { CountdownTemplate } from "./CountdownTemplate";
 import useInterval from "@/lib/hooks/useInterval";
 
-type Props = { target: Dayjs | null };
+type Props = { target: Dayjs | undefined };
 
 const Countdown: React.FC<Props> = ({ target }) => {
-  const [remains, setRemains] = useState<Dayjs | null>(null);
+  const [remains, setRemains] = useState<Dayjs | undefined>();
   useInterval(() => {
-    if (target === null) return;
+    if (target === undefined) return;
     setRemains(dayjs(target.diff()));
   }, 250);
 
-  if (target === null || remains === null) {
+  if (target === undefined || remains === undefined) {
     return <CountdownTemplate seconds={0} text="--:--:--" />;
   }
 

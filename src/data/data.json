@@ -108,7 +108,8 @@
         {
           "type": "counter",
           "properties": {
-            "max": 2
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -190,7 +191,7 @@
     {
       "difficulty": "3",
       "contents": {
-        "jp": "アンジュとアンジュのおばあさんの会話を盗み聞きする",
+        "jp": "アンジュとアンジュの母親の会話を盗み聞きする",
         "en": "Listen Secretly to Anju and Grandma Conversation"
       },
       "tag": [],
@@ -315,7 +316,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/skulltula.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -613,7 +615,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -786,7 +789,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/ribbon.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -836,11 +840,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/tombstone.png",
-              "icons/tombstone.png",
-              "icons/tombstone.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -915,7 +916,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/goldenskulltulatoken.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1011,7 +1013,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/ribbon.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1029,7 +1032,8 @@
         {
           "type": "counter",
           "properties": {
-            "max": 11
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1045,7 +1049,8 @@
         {
           "type": "counter",
           "properties": {
-            "max": 6
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1087,7 +1092,8 @@
         {
           "type": "counter",
           "properties": {
-            "icons": "icons/zoraegg.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1117,7 +1123,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1136,7 +1143,8 @@
         {
           "type": "counte",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1165,6 +1173,7 @@
         {
           "type": "counter",
           "properties": {
+            "max": 8,
             "icon": "icons/keatonmask.png"
           }
         }
@@ -1203,11 +1212,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/redpotion.png",
-              "icons/greenpotion.png",
-              "icons/bluepotion.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1247,7 +1253,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/bombersnotebook.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1263,7 +1270,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/dongerosmask.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1303,12 +1311,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/heartpiece.png",
-              "icons/heartpiece.png",
-              "icons/heartpiece.png",
-              "icons/heartpiece.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1326,7 +1330,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/ribbon.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1366,7 +1371,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/milk.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1424,7 +1430,8 @@
         {
           "type": "counter",
           "properties": {
-            "max": 10
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1472,6 +1479,7 @@
         {
           "type": "counter",
           "properties": {
+            "max": 8,
             "icon": "icons/keatonmask.png"
           }
         }
@@ -1491,7 +1499,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1510,7 +1519,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1529,7 +1539,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1547,7 +1558,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/milk.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1565,25 +1577,15 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/songnormal.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         },
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/sonataofawakening.png",
-              "icons/goronlullaby.png",
-              "icons/newwavebossanova.png",
-              "icons/elegyofemptiness.png",
-              "icons/oathoforder.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1601,11 +1603,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/postmanshat.png",
-              "icons/bunnyhood.png",
-              "icons/captainshat.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1623,21 +1622,15 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/keatonmask.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         },
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/keatonmask.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1667,7 +1660,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/goldenskulltulatoken.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1685,6 +1679,7 @@
         {
           "type": "counter",
           "properties": {
+            "max": 8,
             "icon": "icons/keatonmask.png"
           }
         }
@@ -1724,23 +1719,15 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/dungeonmap.png",
-              "icons/dungeonmap.png",
-              "icons/dungeonmap.png",
-              "icons/dungeonmap.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         },
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/dungeoncompass.png",
-              "icons/dungeoncompass.png",
-              "icons/dungeoncompass.png",
-              "icons/dungeoncompass.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1758,7 +1745,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1776,25 +1764,15 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/songnormal.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         },
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/sonataofawakening.png",
-              "icons/goronlullaby.png",
-              "icons/newwavebossanova.png",
-              "icons/elegyofemptiness.png",
-              "icons/oathoforder.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1813,7 +1791,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1831,7 +1810,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/heartpiece.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1849,7 +1829,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/goldenskulltulatoken.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1868,7 +1849,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1886,7 +1868,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/bottle.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1924,12 +1907,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/bosskey.png",
-              "icons/bosskey.png",
-              "icons/bosskey.png",
-              "icons/bosskey.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1945,7 +1924,8 @@
         {
           "type": "counter",
           "properties": {
-            "max": 10
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1963,6 +1943,7 @@
         {
           "type": "counter",
           "properties": {
+            "max": 8,
             "icon": "icons/keatonmask.png"
           }
         }
@@ -1981,7 +1962,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/heartpiece.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -1999,12 +1981,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/dongerosmask.png",
-              "icons/dongerosmask.png",
-              "icons/dongerosmask.png",
-              "icons/dongerosmask.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -2023,23 +2001,15 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/dungeonmap.png",
-              "icons/dungeonmap.png",
-              "icons/dungeonmap.png",
-              "icons/dungeonmap.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         },
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/dungeoncompass.png",
-              "icons/dungeoncompass.png",
-              "icons/dungeoncompass.png",
-              "icons/dungeoncompass.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -2057,11 +2027,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/firearrow.png",
-              "icons/icearrow.png",
-              "icons/lightarrow.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -2079,6 +2046,7 @@
         {
           "type": "counter",
           "properties": {
+            "max": 8,
             "icon": "icons/keatonmask.png"
           }
         }
@@ -2097,12 +2065,8 @@
         {
           "type": "toggler",
           "properties": {
-            "icons": [
-              "icons/bosskey.png",
-              "icons/bosskey.png",
-              "icons/bosskey.png",
-              "icons/bosskey.png"
-            ]
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -2120,7 +2084,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/strayfairy.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -2138,7 +2103,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/heartpiece.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
@@ -2157,7 +2123,8 @@
         {
           "type": "counter",
           "properties": {
-            "icon": "icons/bottle.png"
+            "max": 8,
+            "icon": "icons/keatonmask.png"
           }
         }
       ]
