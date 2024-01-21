@@ -35,13 +35,18 @@ const BingoBoardProvider = memo<Props>(function BingoBoardProvider({
 
   const [seed, setSeed]                 = useState(0);
   const [layout, setLayout]             = useState<LayoutName>("vertical");
-  const [tasks, setTasks]               = useState<Task[]>(generateEmptyTasks(taskData));
+  {/* 
+    // TODO 
+  */}
+  const [tasks, setTasks]               = useState<Task[]>(generateEmptyTasks(taskData as never));
   const [targetedLine, setTargetedLine] = useState<LineType | undefined>();
 
   const updateTasks = useCallback((_seed: number, lang: string) => {
     if (seed === _seed) return;
-
-    const [tasks] = generateTasks(taskData, _seed, lang);
+    {/* 
+      // TODO 
+    */}
+    const [tasks] = generateTasks(taskData as never, _seed, lang);
     setTasks(tasks);
   }, []);
 

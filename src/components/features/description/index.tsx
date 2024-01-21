@@ -12,7 +12,10 @@ const Description: React.FC<Props> = () => {
 
   return (
     <div className={container}>
-      <ReactMarkdown>{description[languageName]}</ReactMarkdown>
+      {/* 
+        // TODO 
+      */}
+      <ReactMarkdown>{description[languageName as never]}</ReactMarkdown>
     </div>
   );
 };
