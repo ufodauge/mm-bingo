@@ -77,7 +77,7 @@ const BingoBoardProvider = memo<Props>(function BingoBoardProvider({
     };
 
     updateQuery(pathname, newQuery, true);
-  }, [isReady]);
+  }, [isReady, languageName]);
 
   const boardValues = {
     seed,
