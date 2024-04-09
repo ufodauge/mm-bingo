@@ -19,7 +19,7 @@ type Props = {};
 
 const Home: React.FC<Props> = () => {
   const [header, setHeader] = useState<LineType | undefined>();
-  const [layoutName, setLayoutName] = useState<LayoutName>("vertical");
+  const [layoutName, setLayoutName] = useState<LayoutName>('vertical');
 
   const { setTheme } = useThemeAction();
   const { tasks } = useBingoBoardValuesContext();
@@ -29,15 +29,15 @@ const Home: React.FC<Props> = () => {
 
   const deriveTasks = (tasks: Task[], lineType: LineType): Task[] => {
     switch (lineType) {
-      case "tlbr":
+      case 'tlbr':
         return tasks.filter((_, i) => i % (edgeLength + 1) === 0);
-      case "bltr":
+      case 'bltr':
         return tasks.filter(
           (_, i) =>
             i % (edgeLength - 1) === 0 &&
             !(i === 0 || i === edgeLength ** 2 - 1)
         );
-      case "tlbr":
+      case 'tlbr':
         return tasks.filter((_, i) => i % (edgeLength + 1) === 0);
     }
 
@@ -46,23 +46,23 @@ const Home: React.FC<Props> = () => {
     const indexStr = matched?.at(2);
 
     if (matched === null || direction === undefined || indexStr === undefined) {
-      throw new Error("ParseLineTypeError");
+      throw new Error('ParseLineTypeError');
     } else if (
-      !["row", "col"].includes(direction) ||
+      !['row', 'col'].includes(direction) ||
       Number.isNaN(Number(indexStr))
     ) {
-      throw new Error("ParseLineTypeError");
+      throw new Error('ParseLineTypeError');
     }
 
     const index = Number(indexStr);
 
-    if (direction === "row") {
+    if (direction === 'row') {
       return tasks.slice((index - 1) * edgeLength, index * edgeLength);
-    } else if (direction === "col") {
+    } else if (direction === 'col') {
       return tasks.filter((_, i) => i % edgeLength === index - 1);
     }
 
-    throw new Error("Unreachable")
+    throw new Error('Unreachable');
   };
 
   useQuery<PopoutQuery>(
@@ -78,18 +78,18 @@ const Home: React.FC<Props> = () => {
       }
     },
     {
-      seed: "0",
-      lang: "en",
-      layout: "vertical",
-      header: "row1",
-      theme: "light",
+      seed: '0',
+      lang: 'en',
+      layout: 'vertical',
+      header: 'row1',
+      theme: 'light',
     }
   );
 
   const innerElements = header ? (
     <div className={container}>
       <Header text={header} />
-      {layoutName === "card" ? (
+      {layoutName === 'card' ? (
         <PopoutButtons>
           <TaskButtons tasks={tasks} layout={layoutName} />
         </PopoutButtons>

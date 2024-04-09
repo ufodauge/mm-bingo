@@ -40,9 +40,9 @@ const TaskButton: React.FC<Props> = ({ task, disableTrackers }) => {
   };
 
   const trackerElements = task.trackers.map((v, i) => {
-    if (v.type === "toggler" && isTogglerTrackerProps(v.properties)) {
+    if (v.type === 'toggler' && isTogglerTrackerProps(v.properties)) {
       return <Toggler key={i} icons={v.properties.icons} />;
-    } else if (v.type === "counter" && isCounterTrackerProps(v.properties)) {
+    } else if (v.type === 'counter' && isCounterTrackerProps(v.properties)) {
       return (
         <Counter
           key={i}
@@ -58,14 +58,14 @@ const TaskButton: React.FC<Props> = ({ task, disableTrackers }) => {
 
   const container = [
     style.base,
-    style.highlights.at(highlightColorIndex) ?? "",
-  ].join(" ");
+    style.highlights.at(highlightColorIndex) ?? '',
+  ].join(' ');
 
   return (
     <div
-      className     = {container}
-      onClick       = {toggleHighlightTypeIndex}
-      onContextMenu = {toggleHighlightTypeIndex}
+      className={container}
+      onClick={toggleHighlightTypeIndex}
+      onContextMenu={toggleHighlightTypeIndex}
     >
       <div className={style.taskText}>{task.text}</div>
       {disableTrackers ? <></> : <section>{trackerElements}</section>}
