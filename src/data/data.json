@@ -735,7 +735,7 @@
     {
       "difficulty": "9",
       "contents": {
-        "jp": "ビックポウ",
+        "jp": "ビッグポウ",
         "en": "Big Poe"
       },
       "tag": [
@@ -1662,8 +1662,8 @@
           "properties": {
             "icons": [
               "icons/keatonmask.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png"
+              "icons/bremenmask.png",
+              "icons/bunnyhood.png"
             ]
           }
         },
@@ -1671,9 +1671,9 @@
           "type": "toggler",
           "properties": {
             "icons": [
-              "icons/keatonmask.png",
-              "icons/songnormal.png",
-              "icons/songnormal.png"
+              "icons/dongerosmask.png",
+              "icons/maskofscents.png",
+              "icons/romanismask.png"
             ]
           }
         }
