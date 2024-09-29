@@ -2,10 +2,7 @@
   "repoName": "mm-bingo",
   "title": "Majora's Mask Bingo",
   "size": 5,
-  "lang": [
-    "jp",
-    "en"
-  ],
+  "lang": ["jp", "en"],
   "description": {
     "jp": "* ハートのかけら増殖禁止\n* 増殖ビンはタスクの要件としてカウントしない\n* 牛からミルクを絞るやつは飲んでしまっても構わない（あくまで貰うことが条件）\n* あとは（今のところ）適当\n\n 当サイトは任天堂株式会社様とは一切関係ございません。",
     "en": "English version is currently not supported"
@@ -18,64 +15,38 @@
   "data": [
     {
       "difficulty": "1",
-      "contents": {
-        "jp": "宿のカギ",
-        "en": "Room Key"
-      },
+      "contents": { "jp": "宿のカギ", "en": "Room Key" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "1",
-      "contents": {
-        "jp": "ブレー面",
-        "en": "Bremen Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "ブレー面", "en": "Bremen Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
       "difficulty": "1",
-      "contents": {
-        "jp": "カーフェイのお面",
-        "en": "Kafei's Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "カーフェイのお面", "en": "Kafei's Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
       "difficulty": "1",
-      "contents": {
-        "jp": "月の涙",
-        "en": "Moon's Tear"
-      },
+      "contents": { "jp": "月の涙", "en": "Moon's Tear" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "1",
-      "contents": {
-        "jp": "バクレツのお面",
-        "en": "Blast Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "バクレツのお面", "en": "Blast Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
       "difficulty": "2",
-      "contents": {
-        "jp": "キータンのお面",
-        "en": "Keaton Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "キータンのお面", "en": "Keaton Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
@@ -84,20 +55,13 @@
         "jp": "母への速達をトイレの手に渡す",
         "en": "Give Special Delivery to ???"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "2",
-      "contents": {
-        "jp": "赤いクスリ",
-        "en": "Red Potion"
-      },
-      "tag": [
-        "bottle"
-      ],
+      "contents": { "jp": "赤いクスリ", "en": "Red Potion" },
+      "tag": ["bottle"],
       "trackers": []
     },
     {
@@ -107,14 +71,7 @@
         "en": "Break All Majora Balloons"
       },
       "tag": [],
-      "trackers": [
-        {
-          "type": "counter",
-          "properties": {
-            "max": 2
-          }
-        }
-      ]
+      "trackers": [{ "type": "counter", "properties": { "max": 2 } }]
     },
     {
       "difficulty": "2",
@@ -122,21 +79,13 @@
         "jp": "南クロックタウン3日目の50ルピーの宝箱",
         "en": "50 Rupee Chest in Day 3 South Clock Town"
       },
-      "tag": [
-        "no_explosives",
-        "no_isg"
-      ],
+      "tag": ["no_explosives", "no_isg"],
       "trackers": []
     },
     {
       "difficulty": "2",
-      "contents": {
-        "jp": "写し絵の箱",
-        "en": "Pictograph Box"
-      },
-      "tag": [
-        "camera"
-      ],
+      "contents": { "jp": "写し絵の箱", "en": "Pictograph Box" },
+      "tag": ["camera"],
       "trackers": []
     },
     {
@@ -145,49 +94,31 @@
         "jp": "ロマニーがお化けに連れ去られるシーンを見る",
         "en": "Watch Romani Abduction Cutscene"
       },
-      "tag": [
-        "ranch"
-      ],
+      "tag": ["ranch"],
       "trackers": []
     },
     {
       "difficulty": "3",
-      "contents": {
-        "jp": "月を落とす",
-        "en": "Moon Crash"
-      },
+      "contents": { "jp": "月を落とす", "en": "Moon Crash" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "3",
-      "contents": {
-        "jp": "サコンを爆破する",
-        "en": "Blow Up Sakon"
-      },
+      "contents": { "jp": "サコンを爆破する", "en": "Blow Up Sakon" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "3",
-      "contents": {
-        "jp": "エポナの歌",
-        "en": "Epona's Song"
-      },
-      "tag": [
-        "song"
-      ],
+      "contents": { "jp": "エポナの歌", "en": "Epona's Song" },
+      "tag": ["song"],
       "trackers": []
     },
     {
       "difficulty": "3",
-      "contents": {
-        "jp": "シャトーロマーニ",
-        "en": "Chateau Romani"
-      },
-      "tag": [
-        "bottle"
-      ],
+      "contents": { "jp": "シャトーロマーニ", "en": "Chateau Romani" },
+      "tag": ["bottle"],
       "trackers": []
     },
     {
@@ -205,33 +136,19 @@
         "jp": "時計台地下のデクの実の宝箱を開ける",
         "en": "Open a Chest Containing Deku Nut under the Clock Tower"
       },
-      "tag": [
-        "no_explosives",
-        "no_isg"
-      ],
+      "tag": ["no_explosives", "no_isg"],
       "trackers": []
     },
     {
       "difficulty": "4",
-      "contents": {
-        "jp": "500ルピーを保持する",
-        "en": "500 Rupees"
-      },
-      "tag": [
-        "rupees"
-      ],
+      "contents": { "jp": "500ルピーを保持する", "en": "500 Rupees" },
+      "tag": ["rupees"],
       "trackers": []
     },
     {
       "difficulty": "4",
-      "contents": {
-        "jp": "あきビン増殖禁止",
-        "en": "No Duping Bottles"
-      },
-      "tag": [
-        "restrict",
-        "no_bottle_dupe"
-      ],
+      "contents": { "jp": "あきビン増殖禁止", "en": "No Duping Bottles" },
+      "tag": ["restrict", "no_bottle_dupe"],
       "trackers": []
     },
     {
@@ -240,9 +157,7 @@
         "jp": "キータンクイズのハートのかけら",
         "en": "Keaton Quiz HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -251,31 +166,19 @@
         "jp": "預金も所持金も空にする",
         "en": "0 Rupees in Wallet and Bank"
       },
-      "tag": [
-        "rupees"
-      ],
+      "tag": ["rupees"],
       "trackers": []
     },
     {
       "difficulty": "4",
-      "contents": {
-        "jp": "時の逆さ歌禁止",
-        "en": "No Inverted Song of Time"
-      },
-      "tag": [
-        "restrict"
-      ],
+      "contents": { "jp": "時の逆さ歌禁止", "en": "No Inverted Song of Time" },
+      "tag": ["restrict"],
       "trackers": []
     },
     {
       "difficulty": "4",
-      "contents": {
-        "jp": "時の重ね歌禁止",
-        "en": "No Song of Double Time"
-      },
-      "tag": [
-        "restrict"
-      ],
+      "contents": { "jp": "時の重ね歌禁止", "en": "No Song of Double Time" },
+      "tag": ["restrict"],
       "trackers": []
     },
     {
@@ -302,9 +205,7 @@
         "jp": "ロマニーの寝顔を撮影する",
         "en": "Pictgraph of Romani's Sleeping Face"
       },
-      "tag": [
-        "camera"
-      ],
+      "tag": ["camera"],
       "trackers": []
     },
     {
@@ -317,10 +218,7 @@
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 5,
-            "icon": "icons/skulltula.png"
-          }
+          "properties": { "max": 5, "icon": "icons/skulltula.png" }
         }
       ]
     },
@@ -339,43 +237,25 @@
         "jp": "写し絵コンテストのハートのかけら",
         "en": "Pictograph Contest HP"
       },
-      "tag": [
-        "camera",
-        "heart_piece"
-      ],
+      "tag": ["camera", "heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "5",
-      "contents": {
-        "jp": "石ころのお面",
-        "en": "Stone Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "石ころのお面", "en": "Stone Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
       "difficulty": "5",
-      "contents": {
-        "jp": "勇者の弓",
-        "en": "Hero's Bow"
-      },
-      "tag": [
-        "woodfall"
-      ],
+      "contents": { "jp": "勇者の弓", "en": "Hero's Bow" },
+      "tag": ["woodfall"],
       "trackers": []
     },
     {
       "difficulty": "5",
-      "contents": {
-        "jp": "ギブドのお面",
-        "en": "Gibdo Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "ギブドのお面", "en": "Gibdo Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
@@ -384,9 +264,7 @@
         "jp": "踊っているリーデッドの写真を撮る",
         "en": "Pictgraph of Dancing Redead"
       },
-      "tag": [
-        "camera"
-      ],
+      "tag": ["camera"],
       "trackers": []
     },
     {
@@ -395,10 +273,7 @@
         "jp": "フックショットのウィアードショット禁止",
         "en": "No Weird Shot of Hookshot"
       },
-      "tag": [
-        "restrict",
-        "fortress"
-      ],
+      "tag": ["restrict", "fortress"],
       "trackers": []
     },
     {
@@ -407,32 +282,19 @@
         "jp": "ロックビルの神殿への大翼の歌禁止",
         "en": "No SoS to Stone Tower"
       },
-      "tag": [
-        "restrict"
-      ],
+      "tag": ["restrict"],
       "trackers": []
     },
     {
       "difficulty": "6",
-      "contents": {
-        "jp": "爆発物の所持禁止",
-        "en": "No Explosives"
-      },
-      "tag": [
-        "restrict",
-        "no_explosives"
-      ],
+      "contents": { "jp": "爆発物の所持禁止", "en": "No Explosives" },
+      "tag": ["restrict", "no_explosives"],
       "trackers": []
     },
     {
       "difficulty": "6",
-      "contents": {
-        "jp": "ウサギずきん",
-        "en": "Bunny Hood"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "ウサギずきん", "en": "Bunny Hood" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
@@ -441,20 +303,13 @@
         "jp": "ゴロンの里のハートのかけら",
         "en": "Goron Village HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "6",
-      "contents": {
-        "jp": "ゴロンの仮面",
-        "en": "Goron Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "ゴロンの仮面", "en": "Goron Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
@@ -463,22 +318,13 @@
         "jp": "宝箱屋のハートのかけら",
         "en": "Treasure Chest Shop HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "7",
-      "contents": {
-        "jp": "タツノオトシゴ",
-        "en": "Seahorse"
-      },
-      "tag": [
-        "bottle",
-        "fortress",
-        "camera"
-      ],
+      "contents": { "jp": "タツノオトシゴ", "en": "Seahorse" },
+      "tag": ["bottle", "fortress", "camera"],
       "trackers": []
     },
     {
@@ -487,9 +333,7 @@
         "jp": "沼の射的場のハートのかけら",
         "en": "Swamp Shooting Gallery HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -498,9 +342,7 @@
         "jp": "漁師のジャンプゲームのハートのかけら",
         "en": "Fisherman's Jumping Game HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -509,20 +351,13 @@
         "jp": "コウメの的当てを強制終了させる",
         "en": "Interrupt Koume's Target Shooting"
       },
-      "tag": [
-        "woodfall"
-      ],
+      "tag": ["woodfall"],
       "trackers": []
     },
     {
       "difficulty": "7",
-      "contents": {
-        "jp": "フェザーソード",
-        "en": "Razor Sword"
-      },
-      "tag": [
-        "sword"
-      ],
+      "contents": { "jp": "フェザーソード", "en": "Razor Sword" },
+      "tag": ["sword"],
       "trackers": []
     },
     {
@@ -531,9 +366,7 @@
         "jp": "ビーバーレースの空き瓶",
         "en": "Beaver Race Bottle"
       },
-      "tag": [
-        "bottle"
-      ],
+      "tag": ["bottle"],
       "trackers": []
     },
     {
@@ -542,33 +375,19 @@
         "jp": "海洋研究所のハートのかけら",
         "en": "Marine Research Lab HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "8",
-      "contents": {
-        "jp": "嵐の歌",
-        "en": "Song of Storms"
-      },
-      "tag": [
-        "song",
-        "song_of_storms"
-      ],
+      "contents": { "jp": "嵐の歌", "en": "Song of Storms" },
+      "tag": ["song", "song_of_storms"],
       "trackers": []
     },
     {
       "difficulty": "8",
-      "contents": {
-        "jp": "デク姫",
-        "en": "Bottled Deku Princess"
-      },
-      "tag": [
-        "song",
-        "woodfall"
-      ],
+      "contents": { "jp": "デク姫", "en": "Bottled Deku Princess" },
+      "tag": ["song", "woodfall"],
       "trackers": []
     },
     {
@@ -586,9 +405,7 @@
         "jp": "海のクモ館のハートのかけら",
         "en": "Oceanside Spider House HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -597,29 +414,17 @@
         "jp": "海賊の砦のハートのかけら",
         "en": "Pirates' Fortress HP"
       },
-      "tag": [
-        "heart_piece",
-        "fortress"
-      ],
+      "tag": ["heart_piece", "fortress"],
       "trackers": []
     },
     {
       "difficulty": "8",
-      "contents": {
-        "jp": "ロックビルのはぐれ妖精5匹",
-        "en": "5 STT Fairies"
-      },
-      "tag": [
-        "stray_fairy",
-        "stone_tower"
-      ],
+      "contents": { "jp": "ロックビルのはぐれ妖精5匹", "en": "5 STT Fairies" },
+      "tag": ["stray_fairy", "stone_tower"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 5,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 5, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -629,20 +434,13 @@
         "jp": "トンガリ岩のハートのかけら",
         "en": "Pinnacle Rock HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "8",
-      "contents": {
-        "jp": "大バクダン",
-        "en": "Powder Keg"
-      },
-      "tag": [
-        "no_explosives"
-      ],
+      "contents": { "jp": "大バクダン", "en": "Powder Keg" },
+      "tag": ["no_explosives"],
       "trackers": []
     },
     {
@@ -651,9 +449,7 @@
         "jp": "大バクダンで爆死する",
         "en": "Die with Poweder Keg"
       },
-      "tag": [
-        "no_explosives"
-      ],
+      "tag": ["no_explosives"],
       "trackers": []
     },
     {
@@ -662,51 +458,30 @@
         "jp": "街の射的場のハートのかけら",
         "en": "Town Shooting Gallery HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "幽霊小屋のハートのかけら",
-        "en": "Ghost Hut HP"
-      },
-      "tag": [
-        "heart_piece"
-      ],
+      "contents": { "jp": "幽霊小屋のハートのかけら", "en": "Ghost Hut HP" },
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "隊長のボウシ",
-        "en": "Captain's Hut"
-      },
-      "tag": [
-        "mask",
-        "keeta"
-      ],
+      "contents": { "jp": "隊長のボウシ", "en": "Captain's Hut" },
+      "tag": ["mask", "keeta"],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "スタルキータを倒す",
-        "en": "Defeat Captain Keeta"
-      },
-      "tag": [
-        "keeta"
-      ],
+      "contents": { "jp": "スタルキータを倒す", "en": "Defeat Captain Keeta" },
+      "tag": ["keeta"],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "アイアンナックを倒す",
-        "en": "Defeat Iron Knuckle"
-      },
+      "contents": { "jp": "アイアンナックを倒す", "en": "Defeat Iron Knuckle" },
       "tag": [],
       "trackers": []
     },
@@ -716,31 +491,19 @@
         "jp": "デク王とデク姫を一緒に撮る",
         "en": "Take a Picture of Deku King and Princess Together"
       },
-      "tag": [
-        "camera",
-        "bottle",
-        "woodfall"
-      ],
+      "tag": ["camera", "bottle", "woodfall"],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "最大のボム袋",
-        "en": "Biggest Bomb Bag"
-      },
+      "contents": { "jp": "最大のボム袋", "en": "Biggest Bomb Bag" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "ビッグポウ",
-        "en": "Big Poe"
-      },
-      "tag": [
-        "bottle"
-      ],
+      "contents": { "jp": "ビッグポウ", "en": "Big Poe" },
+      "tag": ["bottle"],
       "trackers": []
     },
     {
@@ -749,33 +512,19 @@
         "jp": "ゾーラホールのハートのかけら2つ",
         "en": "Both HP in Zora Hall"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "光の矢",
-        "en": "Light Arrow"
-      },
-      "tag": [
-        "stone_tower",
-        "magic_arrow"
-      ],
+      "contents": { "jp": "光の矢", "en": "Light Arrow" },
+      "tag": ["stone_tower", "magic_arrow"],
       "trackers": []
     },
     {
       "difficulty": "9",
-      "contents": {
-        "jp": "炎の矢",
-        "en": "Fire Arrow"
-      },
-      "tag": [
-        "snowhead",
-        "magic_arrow"
-      ],
+      "contents": { "jp": "炎の矢", "en": "Fire Arrow" },
+      "tag": ["snowhead", "magic_arrow"],
       "trackers": []
     },
     {
@@ -784,28 +533,18 @@
         "jp": "手帳のしあわせシールを6枚",
         "en": "6 Happiness Seals"
       },
-      "tag": [
-        "collect_ribbons"
-      ],
+      "tag": ["collect_ribbons"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 6,
-            "icon": "icons/ribbon.png"
-          }
+          "properties": { "max": 6, "icon": "icons/ribbon.png" }
         }
       ]
     },
     {
       "difficulty": "10",
-      "contents": {
-        "jp": "太陽のお面を奪取",
-        "en": "Save Sun Mask"
-      },
-      "tag": [
-        "kafei_event"
-      ],
+      "contents": { "jp": "太陽のお面を奪取", "en": "Save Sun Mask" },
+      "tag": ["kafei_event"],
       "trackers": []
     },
     {
@@ -814,38 +553,27 @@
         "jp": "ゴシップストーンに魔法の矢を当てる",
         "en": "Shoot Magic Arrow to Gossip Stone"
       },
-      "tag": [
-        "magic_arrow"
-      ],
+      "tag": ["magic_arrow"],
       "trackers": []
     },
     {
       "difficulty": "10",
-      "contents": {
-        "jp": "残像剣禁止",
-        "en": "No ISG"
-      },
-      "tag": [
-        "no_isg",
-        "restrict"
-      ],
+      "contents": { "jp": "残像剣禁止", "en": "No ISG" },
+      "tag": ["no_isg", "restrict"],
       "trackers": []
     },
     {
       "difficulty": "10",
-      "contents": {
-        "jp": "全ての墓をあばく",
-        "en": "Open All 3 Graves"
-      },
+      "contents": { "jp": "全ての墓をあばく", "en": "Open All 3 Graves" },
       "tag": [],
       "trackers": [
         {
           "type": "toggler",
           "properties": {
             "icons": [
-              "icons/tombstone.png",
-              "icons/tombstone.png",
-              "icons/tombstone.png"
+              "icons/captainshat.png",
+              "icons/captainshat.png",
+              "icons/captainshat.png"
             ]
           }
         }
@@ -853,13 +581,8 @@
     },
     {
       "difficulty": "10",
-      "contents": {
-        "jp": "ドッグレースのハートのかけら",
-        "en": "Dog Race HP"
-      },
-      "tag": [
-        "heart_piece"
-      ],
+      "contents": { "jp": "ドッグレースのハートのかけら", "en": "Dog Race HP" },
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -868,41 +591,24 @@
         "jp": "ウッドフォールのはぐれ妖精10匹",
         "en": "10 WFT Fairies"
       },
-      "tag": [
-        "stray_fairy",
-        "woodfall"
-      ],
+      "tag": ["stray_fairy", "woodfall"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 10,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 10, "icon": "icons/strayfairy.png" }
         }
       ]
     },
     {
       "difficulty": "10",
-      "contents": {
-        "jp": "座長のお面",
-        "en": "Circus Leader's Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "座長のお面", "en": "Circus Leader's Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
       "difficulty": "10",
-      "contents": {
-        "jp": "ガロのお面",
-        "en": "Garo's Mask"
-      },
-      "tag": [
-        "mask",
-        "garo"
-      ],
+      "contents": { "jp": "ガロのお面", "en": "Garo's Mask" },
+      "tag": ["mask", "garo"],
       "trackers": []
     },
     {
@@ -911,9 +617,7 @@
         "jp": "ハニーとダーリンの店のハートのかけら",
         "en": "Honey & Darling's Shop HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -922,16 +626,11 @@
         "jp": "黄金のスタルチュラの魂を15個集める",
         "en": "15 Skulltulas Tokens"
       },
-      "tag": [
-        "golden_skulltula"
-      ],
+      "tag": ["golden_skulltula"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 15,
-            "icon": "icons/goldenskulltulatoken.png"
-          }
+          "properties": { "max": 15, "icon": "icons/goldenskulltulatoken.png" }
         }
       ]
     },
@@ -941,53 +640,31 @@
         "jp": "イカーナ川を復活させる",
         "en": "Recover Ikana River"
       },
-      "tag": [
-        "song_of_storms"
-      ],
+      "tag": ["song_of_storms"],
       "trackers": []
     },
     {
       "difficulty": "11",
-      "contents": {
-        "jp": "ミラーシールド",
-        "en": "Mirror Shield"
-      },
+      "contents": { "jp": "ミラーシールド", "en": "Mirror Shield" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "11",
-      "contents": {
-        "jp": "氷の矢",
-        "en": "Ice Arrow"
-      },
-      "tag": [
-        "magic_arrow"
-      ],
+      "contents": { "jp": "氷の矢", "en": "Ice Arrow" },
+      "tag": ["magic_arrow"],
       "trackers": []
     },
     {
       "difficulty": "11",
-      "contents": {
-        "jp": "ロマーニのお面",
-        "en": "Romani's Mask"
-      },
-      "tag": [
-        "mask",
-        "ranch"
-      ],
+      "contents": { "jp": "ロマーニのお面", "en": "Romani's Mask" },
+      "tag": ["mask", "ranch"],
       "trackers": []
     },
     {
       "difficulty": "11",
-      "contents": {
-        "jp": "ブーさんのお面",
-        "en": "Mask of Scents"
-      },
-      "tag": [
-        "mask",
-        "woodfall"
-      ],
+      "contents": { "jp": "ブーさんのお面", "en": "Mask of Scents" },
+      "tag": ["mask", "woodfall"],
       "trackers": []
     },
     {
@@ -996,29 +673,18 @@
         "jp": "グレートベイのはぐれ妖精5匹",
         "en": "5 GBT Fairies"
       },
-      "tag": [
-        "stray_fairy",
-        "great_bay"
-      ],
+      "tag": ["stray_fairy", "great_bay"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 5,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 5, "icon": "icons/strayfairy.png" }
         }
       ]
     },
     {
       "difficulty": "11",
-      "contents": {
-        "jp": "ゾーラの卵を売る",
-        "en": "Sell Zora Egg"
-      },
-      "tag": [
-        "bottle"
-      ],
+      "contents": { "jp": "ゾーラの卵を売る", "en": "Sell Zora Egg" },
+      "tag": ["bottle"],
       "trackers": []
     },
     {
@@ -1027,16 +693,11 @@
         "jp": "手帳のしあわせシールを8枚",
         "en": "8 Happiness Seals"
       },
-      "tag": [
-        "collect_ribbons"
-      ],
+      "tag": ["collect_ribbons"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 8,
-            "icon": "icons/ribbon.png"
-          }
+          "properties": { "max": 8, "icon": "icons/ribbon.png" }
         }
       ]
     },
@@ -1046,17 +707,8 @@
         "jp": "海賊の砦の宝箱をすべて開ける",
         "en": "Open All Pirates' Fortress Chests"
       },
-      "tag": [
-        "fortress"
-      ],
-      "trackers": [
-        {
-          "type": "counter",
-          "properties": {
-            "max": 11
-          }
-        }
-      ]
+      "tag": ["fortress"],
+      "trackers": [{ "type": "counter", "properties": { "max": 11 } }]
     },
     {
       "difficulty": "12",
@@ -1065,36 +717,18 @@
         "en": "All Maps from Tingle"
       },
       "tag": [],
-      "trackers": [
-        {
-          "type": "counter",
-          "properties": {
-            "max": 6
-          }
-        }
-      ]
+      "trackers": [{ "type": "counter", "properties": { "max": 6 } }]
     },
     {
       "difficulty": "12",
-      "contents": {
-        "jp": "ぬけがらのエレジー",
-        "en": "Elegy of Emptiness"
-      },
-      "tag": [
-        "song",
-        "ikana_castle"
-      ],
+      "contents": { "jp": "ぬけがらのエレジー", "en": "Elegy of Emptiness" },
+      "tag": ["song", "ikana_castle"],
       "trackers": []
     },
     {
       "difficulty": "12",
-      "contents": {
-        "jp": "ガロを5体倒す",
-        "en": "Defeat 5 Garo Ninjas"
-      },
-      "tag": [
-        "garo"
-      ],
+      "contents": { "jp": "ガロを5体倒す", "en": "Defeat 5 Garo Ninjas" },
+      "tag": ["garo"],
       "trackers": []
     },
     {
@@ -1103,17 +737,11 @@
         "jp": "海賊の砦の卵をすべて回収する",
         "en": "Correct All Eggs in Pirates' Fortress"
       },
-      "tag": [
-        "bottle",
-        "no_bottle_dupe"
-      ],
+      "tag": ["bottle", "no_bottle_dupe"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 4,
-            "icons": "icons/zoraegg.png"
-          }
+          "properties": { "max": 4, "icons": "icons/zoraegg.png" }
         }
       ]
     },
@@ -1123,9 +751,7 @@
         "jp": "ポストマンの10秒チャレンジクリア",
         "en": "Postman's 10 Secs Challenge"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -1134,17 +760,11 @@
         "jp": "ウッドフォールの大妖精を復活させる",
         "en": "Revive Woodfall Great Fairy"
       },
-      "tag": [
-        "stray_fairy",
-        "woodfall"
-      ],
+      "tag": ["stray_fairy", "woodfall"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 15,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 15, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -1154,17 +774,11 @@
         "jp": "スノーヘッドのはぐれ妖精10匹",
         "en": "10 SHT Fairies"
       },
-      "tag": [
-        "stray_fairy",
-        "snowhead"
-      ],
+      "tag": ["stray_fairy", "snowhead"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 10,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 10, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -1174,27 +788,17 @@
         "jp": "デクナッツのプレイスポットのハートのかけら",
         "en": "Deku Playground HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
       "difficulty": "13",
-      "contents": {
-        "jp": "お面を6種類集める",
-        "en": "6 Masks"
-      },
-      "tag": [
-        "collect_masks"
-      ],
+      "contents": { "jp": "お面を6種類集める", "en": "6 Masks" },
+      "tag": ["collect_masks"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 6,
-            "icon": "icons/keatonmask.png"
-          }
+          "properties": { "max": 6, "icon": "icons/keatonmask.png" }
         }
       ]
     },
@@ -1209,13 +813,8 @@
     },
     {
       "difficulty": "13",
-      "contents": {
-        "jp": "ワートを倒す",
-        "en": "Defeat Wart"
-      },
-      "tag": [
-        "great_bay"
-      ],
+      "contents": { "jp": "ワートを倒す", "en": "Defeat Wart" },
+      "tag": ["great_bay"],
       "trackers": []
     },
     {
@@ -1224,9 +823,7 @@
         "jp": "赤・緑・青のクスリを保持する",
         "en": "Red, Green and Blue Potion"
       },
-      "tag": [
-        "bottle"
-      ],
+      "tag": ["bottle"],
       "trackers": [
         {
           "type": "toggler",
@@ -1246,9 +843,7 @@
         "jp": "グレートベイの神殿の水流を逆向きにする",
         "en": "Change GBT Water Direction"
       },
-      "tag": [
-        "great_bay"
-      ],
+      "tag": ["great_bay"],
       "trackers": []
     },
     {
@@ -1257,9 +852,7 @@
         "jp": "沼と町それぞれの射的場のハートのかけら",
         "en": "Both Swamp and Town Shooting Gallery HPs"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -1268,45 +861,29 @@
         "jp": "手帳の写真をすべて埋める",
         "en": "All Notebook Pictures"
       },
-      "tag": [
-        "notebook"
-      ],
+      "tag": ["notebook"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 20,
-            "icon": "icons/bombersnotebook.png"
-          }
+          "properties": { "max": 20, "icon": "icons/bombersnotebook.png" }
         }
       ]
     },
     {
       "difficulty": "14",
-      "contents": {
-        "jp": "ゲッコーを2体倒す",
-        "en": "Defeat Both Gekkoes"
-      },
+      "contents": { "jp": "ゲッコーを2体倒す", "en": "Defeat Both Gekkoes" },
       "tag": [],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 2,
-            "icon": "icons/dongerosmask.png"
-          }
+          "properties": { "max": 2, "icon": "icons/dongerosmask.png" }
         }
       ]
     },
     {
       "difficulty": "14",
-      "contents": {
-        "jp": "ゴメスを倒す",
-        "en": "Defeat Gomess"
-      },
-      "tag": [
-        "stone_tower"
-      ],
+      "contents": { "jp": "ゴメスを倒す", "en": "Defeat Gomess" },
+      "tag": ["stone_tower"],
       "trackers": []
     },
     {
@@ -1315,9 +892,7 @@
         "jp": "黄色以外の犬でドッグレースのハートのかけら入手",
         "en": "Dog Race HP without Yellow Dog"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": []
     },
     {
@@ -1326,9 +901,7 @@
         "jp": "各アキンドナッツ近辺にあるハートのかけら4つすべて",
         "en": "All 4 Business Scrub HPs"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": [
         {
           "type": "toggler",
@@ -1349,39 +922,24 @@
         "jp": "手帳のしあわせシールを10枚",
         "en": "10 Happiness Seals"
       },
-      "tag": [
-        "collect_ribbons"
-      ],
+      "tag": ["collect_ribbons"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 10,
-            "icon": "icons/ribbon.png"
-          }
+          "properties": { "max": 10, "icon": "icons/ribbon.png" }
         }
       ]
     },
     {
       "difficulty": "15",
-      "contents": {
-        "jp": "隠しフクロウ像禁止",
-        "en": "No Hidden Owl"
-      },
-      "tag": [
-        "restrict"
-      ],
+      "contents": { "jp": "隠しフクロウ像禁止", "en": "No Hidden Owl" },
+      "tag": ["restrict"],
       "trackers": []
     },
     {
       "difficulty": "15",
-      "contents": {
-        "jp": "まことのお面",
-        "en": "Mask of Truth"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "まことのお面", "en": "Mask of Truth" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
@@ -1390,16 +948,11 @@
         "jp": "異なるウシ3頭からミルクをもらう",
         "en": "Get Milk from Different 3 Cows"
       },
-      "tag": [
-        "bottle"
-      ],
+      "tag": ["bottle"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 3,
-            "icon": "icons/milk.png"
-          }
+          "properties": { "max": 3, "icon": "icons/milk.png" }
         }
       ]
     },
@@ -1414,35 +967,20 @@
     },
     {
       "difficulty": "16",
-      "contents": {
-        "jp": "夜更かしのお面",
-        "en": "All-Night Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "夜更かしのお面", "en": "All-Night Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
       "difficulty": "16",
-      "contents": {
-        "jp": "めおとのお面",
-        "en": "Couple's Mask"
-      },
-      "tag": [
-        "mask"
-      ],
+      "contents": { "jp": "めおとのお面", "en": "Couple's Mask" },
+      "tag": ["mask"],
       "trackers": []
     },
     {
       "difficulty": "16",
-      "contents": {
-        "jp": "砂金",
-        "en": "Gold Dust"
-      },
-      "tag": [
-        "bottle"
-      ],
+      "contents": { "jp": "砂金", "en": "Gold Dust" },
+      "tag": ["bottle"],
       "trackers": []
     },
     {
@@ -1452,61 +990,34 @@
         "en": "Hit All Owl Statues"
       },
       "tag": [],
-      "trackers": [
-        {
-          "type": "counter",
-          "properties": {
-            "max": 10
-          }
-        }
-      ]
+      "trackers": [{ "type": "counter", "properties": { "max": 10 } }]
     },
     {
       "difficulty": "17",
-      "contents": {
-        "jp": "魔法のキノコ",
-        "en": "Magic Mushroom"
-      },
-      "tag": [
-        "woodfall",
-        "bottle"
-      ],
+      "contents": { "jp": "魔法のキノコ", "en": "Magic Mushroom" },
+      "tag": ["woodfall", "bottle"],
       "trackers": []
     },
     {
       "difficulty": "17",
-      "contents": {
-        "jp": "ダンペイの空き瓶",
-        "en": "Dampe's Bottle"
-      },
+      "contents": { "jp": "ダンペイの空き瓶", "en": "Dampe's Bottle" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "17",
-      "contents": {
-        "jp": "ゴートの亡骸",
-        "en": "Goht's Remain"
-      },
+      "contents": { "jp": "ゴートの亡骸", "en": "Goht's Remain" },
       "tag": [],
       "trackers": []
     },
     {
       "difficulty": "17",
-      "contents": {
-        "jp": "お面を8種類集める",
-        "en": "8 Masks"
-      },
-      "tag": [
-        "collect_masks"
-      ],
+      "contents": { "jp": "お面を8種類集める", "en": "8 Masks" },
+      "tag": ["collect_masks"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 8,
-            "icon": "icons/keatonmask.png"
-          }
+          "properties": { "max": 8, "icon": "icons/keatonmask.png" }
         }
       ]
     },
@@ -1516,17 +1027,11 @@
         "jp": "グレートベイのはぐれ妖精10匹",
         "en": "10 GBT Fairies"
       },
-      "tag": [
-        "stray_fairy",
-        "great_bay"
-      ],
+      "tag": ["stray_fairy", "great_bay"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 10,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 10, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -1536,17 +1041,11 @@
         "jp": "スノーヘッドの大妖精を復活させる",
         "en": "Revive Snowhead Great Fairy"
       },
-      "tag": [
-        "stray_fairy",
-        "snowhead"
-      ],
+      "tag": ["stray_fairy", "snowhead"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 15,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 15, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -1556,17 +1055,11 @@
         "jp": "ロックビルのはぐれ妖精10匹",
         "en": "10 STT Fairies"
       },
-      "tag": [
-        "stray_fairy",
-        "stone_tower"
-      ],
+      "tag": ["stray_fairy", "stone_tower"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 10,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 10, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -1576,28 +1069,18 @@
         "jp": "異なるウシ5頭からミルクをもらう",
         "en": "Get Milk from Different 5 Cows"
       },
-      "tag": [
-        "bottle"
-      ],
+      "tag": ["bottle"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 5,
-            "icon": "icons/milk.png"
-          }
+          "properties": { "max": 5, "icon": "icons/milk.png" }
         }
       ]
     },
     {
       "difficulty": "18",
-      "contents": {
-        "jp": "歌7つ",
-        "en": "7 Songs"
-      },
-      "tag": [
-        "collect_songs"
-      ],
+      "contents": { "jp": "歌7つ", "en": "7 Songs" },
+      "tag": ["collect_songs"],
       "trackers": [
         {
           "type": "toggler",
@@ -1627,13 +1110,8 @@
     },
     {
       "difficulty": "18",
-      "contents": {
-        "jp": "帽子系のお面を3つ集める",
-        "en": "3 Hat Type Masks"
-      },
-      "tag": [
-        "collect_masks"
-      ],
+      "contents": { "jp": "帽子系のお面を3つ集める", "en": "3 Hat Type Masks" },
+      "tag": ["collect_masks"],
       "trackers": [
         {
           "type": "toggler",
@@ -1653,9 +1131,7 @@
         "jp": "動物由来のお面を4種集める",
         "en": "4 Animal Based Masks"
       },
-      "tag": [
-        "collect_masks"
-      ],
+      "tag": ["collect_masks"],
       "trackers": [
         {
           "type": "toggler",
@@ -1681,14 +1157,8 @@
     },
     {
       "difficulty": "19",
-      "contents": {
-        "jp": "金剛の剣",
-        "en": "Gilded Sword"
-      },
-      "tag": [
-        "sword",
-        "snowhead"
-      ],
+      "contents": { "jp": "金剛の剣", "en": "Gilded Sword" },
+      "tag": ["sword", "snowhead"],
       "trackers": []
     },
     {
@@ -1697,35 +1167,22 @@
         "jp": "黄金のスタルチュラの魂を30個集める",
         "en": "30 Skulltula Tokens"
       },
-      "tag": [
-        "golden_skulltula"
-      ],
+      "tag": ["golden_skulltula"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 30,
-            "icon": "icons/goldenskulltulatoken.png"
-          }
+          "properties": { "max": 30, "icon": "icons/goldenskulltulatoken.png" }
         }
       ]
     },
     {
       "difficulty": "20",
-      "contents": {
-        "jp": "お面を10種類集める",
-        "en": "10 Masks"
-      },
-      "tag": [
-        "collect_masks"
-      ],
+      "contents": { "jp": "お面を10種類集める", "en": "10 Masks" },
+      "tag": ["collect_masks"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 10,
-            "icon": "icons/keatonmask.png"
-          }
+          "properties": { "max": 10, "icon": "icons/keatonmask.png" }
         }
       ]
     },
@@ -1735,9 +1192,7 @@
         "jp": "手帳のマニ屋のおじさんのしあわせシール",
         "en": "Curiosity Shop Owner Happiness Seal"
       },
-      "tag": [
-        "notebook"
-      ],
+      "tag": ["notebook"],
       "trackers": []
     },
     {
@@ -1755,10 +1210,7 @@
         "jp": "神殿のマップとコンパスをそれぞれ3つ集める",
         "en": "3 Temple Maps and Compasses"
       },
-      "tag": [
-        "dungeon_map",
-        "compass"
-      ],
+      "tag": ["dungeon_map", "compass"],
       "trackers": [
         {
           "type": "toggler",
@@ -1790,28 +1242,18 @@
         "jp": "任意のはぐれ妖精20匹",
         "en": "20 Total Stray Fairies"
       },
-      "tag": [
-        "stray_fairy"
-      ],
+      "tag": ["stray_fairy"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 20,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 20, "icon": "icons/strayfairy.png" }
         }
       ]
     },
     {
       "difficulty": "21",
-      "contents": {
-        "jp": "歌8つ",
-        "en": "8 Songs"
-      },
-      "tag": [
-        "collect_songs"
-      ],
+      "contents": { "jp": "歌8つ", "en": "8 Songs" },
+      "tag": ["collect_songs"],
       "trackers": [
         {
           "type": "toggler",
@@ -1845,36 +1287,22 @@
         "jp": "グレートベイの大妖精を復活させる",
         "en": "Revive Great Bay Great Fairy"
       },
-      "tag": [
-        "stray_fairy",
-        "great_bay"
-      ],
+      "tag": ["stray_fairy", "great_bay"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 15,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 15, "icon": "icons/strayfairy.png" }
         }
       ]
     },
     {
       "difficulty": "21",
-      "contents": {
-        "jp": "ハート7つ",
-        "en": "7 Hearts"
-      },
-      "tag": [
-        "collect_heart_pieces"
-      ],
+      "contents": { "jp": "ハート7つ", "en": "7 Hearts" },
+      "tag": ["collect_heart_pieces"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 7,
-            "icon": "icons/heartpiece.png"
-          }
+          "properties": { "max": 7, "icon": "icons/heartpiece.png" }
         }
       ]
     },
@@ -1884,16 +1312,11 @@
         "jp": "黄金のスタルチュラの魂40個",
         "en": "40 Skulltula Tokens"
       },
-      "tag": [
-        "golden_skulltula"
-      ],
+      "tag": ["golden_skulltula"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 15,
-            "icon": "icons/goldenskulltulatoken.png"
-          }
+          "properties": { "max": 15, "icon": "icons/goldenskulltulatoken.png" }
         }
       ]
     },
@@ -1903,17 +1326,11 @@
         "jp": "ロックビルの大妖精を復活させる",
         "en": "Revive Stone Tower Great Fairy"
       },
-      "tag": [
-        "stray_fairy",
-        "stone_tower"
-      ],
+      "tag": ["stray_fairy", "stone_tower"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 15,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 15, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -1923,16 +1340,11 @@
         "jp": "ビン4つ(増殖禁止)",
         "en": "4 Different Real Bottles"
       },
-      "tag": [
-        "bottle"
-      ],
+      "tag": ["bottle"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 4,
-            "icon": "icons/bottle.png"
-          }
+          "properties": { "max": 4, "icon": "icons/bottle.png" }
         }
       ]
     },
@@ -1951,9 +1363,7 @@
         "jp": "異なるウシ8頭からミルクをもらう",
         "en": "Get Milk from Different 8 Cows"
       },
-      "tag": [
-        "bottle"
-      ],
+      "tag": ["bottle"],
       "trackers": []
     },
     {
@@ -1962,9 +1372,7 @@
         "jp": "神殿のボス鍵を3つ集める",
         "en": "3 Temple Boss Keys"
       },
-      "tag": [
-        "boss_key"
-      ],
+      "tag": ["boss_key"],
       "trackers": [
         {
           "type": "toggler",
@@ -1986,31 +1394,16 @@
         "en": "Call Scarecrow at 10 Different Spots"
       },
       "tag": [],
-      "trackers": [
-        {
-          "type": "counter",
-          "properties": {
-            "max": 10
-          }
-        }
-      ]
+      "trackers": [{ "type": "counter", "properties": { "max": 10 } }]
     },
     {
       "difficulty": "23",
-      "contents": {
-        "jp": "お面を12種類集める",
-        "en": "12 Masks"
-      },
-      "tag": [
-        "collect_masks"
-      ],
+      "contents": { "jp": "お面を12種類集める", "en": "12 Masks" },
+      "tag": ["collect_masks"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 12,
-            "icon": "icons/keatonmask.png"
-          }
+          "properties": { "max": 12, "icon": "icons/keatonmask.png" }
         }
       ]
     },
@@ -2020,16 +1413,11 @@
         "jp": "秘密のほこらのウィズローブを倒す",
         "en": "Defeat Wizrobe in Secret Shrine"
       },
-      "tag": [
-        "collect_heart_pieces"
-      ],
+      "tag": ["collect_heart_pieces"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 20,
-            "icon": "icons/heartpiece.png"
-          }
+          "properties": { "max": 20, "icon": "icons/heartpiece.png" }
         }
       ]
     },
@@ -2039,9 +1427,7 @@
         "jp": "カエルの合唱団のハートのかけら",
         "en": "Frog Choir HP"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": [
         {
           "type": "toggler",
@@ -2062,10 +1448,7 @@
         "jp": "神殿のマップとコンパスをすべて集める",
         "en": "All Temple Maps and Compasses"
       },
-      "tag": [
-        "dungeon_map",
-        "compass"
-      ],
+      "tag": ["dungeon_map", "compass"],
       "trackers": [
         {
           "type": "toggler",
@@ -2093,13 +1476,8 @@
     },
     {
       "difficulty": "24",
-      "contents": {
-        "jp": "魔法の矢をすべて集める",
-        "en": "All Magic Arrows"
-      },
-      "tag": [
-        "magic_arrow"
-      ],
+      "contents": { "jp": "魔法の矢をすべて集める", "en": "All Magic Arrows" },
+      "tag": ["magic_arrow"],
       "trackers": [
         {
           "type": "toggler",
@@ -2115,20 +1493,12 @@
     },
     {
       "difficulty": "25",
-      "contents": {
-        "jp": "お面を14種類集める",
-        "en": "14 Masks"
-      },
-      "tag": [
-        "collect_masks"
-      ],
+      "contents": { "jp": "お面を14種類集める", "en": "14 Masks" },
+      "tag": ["collect_masks"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 14,
-            "icon": "icons/keatonmask.png"
-          }
+          "properties": { "max": 14, "icon": "icons/keatonmask.png" }
         }
       ]
     },
@@ -2138,9 +1508,7 @@
         "jp": "神殿のボス鍵をすべて集める",
         "en": "All Temple Boss Keys"
       },
-      "tag": [
-        "boss_key"
-      ],
+      "tag": ["boss_key"],
       "trackers": [
         {
           "type": "toggler",
@@ -2161,16 +1529,11 @@
         "jp": "任意のはぐれ妖精30匹",
         "en": "30 Total Stray Fairies"
       },
-      "tag": [
-        "stray_fairy"
-      ],
+      "tag": ["stray_fairy"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 30,
-            "icon": "icons/strayfairy.png"
-          }
+          "properties": { "max": 30, "icon": "icons/strayfairy.png" }
         }
       ]
     },
@@ -2180,16 +1543,11 @@
         "jp": "クロックタウンのハートのかけらを12個集める",
         "en": "12 Clock Town HPs"
       },
-      "tag": [
-        "heart_piece"
-      ],
+      "tag": ["heart_piece"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 12,
-            "icon": "icons/heartpiece.png"
-          }
+          "properties": { "max": 12, "icon": "icons/heartpiece.png" }
         }
       ]
     },
@@ -2199,17 +1557,11 @@
         "jp": "あきびんに入るアイテムを10種類確保",
         "en": "10 Unique Bottle Contents"
       },
-      "tag": [
-        "no_bottle_dupe",
-        "bottle"
-      ],
+      "tag": ["no_bottle_dupe", "bottle"],
       "trackers": [
         {
           "type": "counter",
-          "properties": {
-            "max": 10,
-            "icon": "icons/bottle.png"
-          }
+          "properties": { "max": 10, "icon": "icons/bottle.png" }
         }
       ]
     }
