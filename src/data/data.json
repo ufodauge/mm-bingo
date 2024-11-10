@@ -624,7 +624,7 @@
       "difficulty": "11",
       "contents": {
         "jp": "黄金のスタルチュラの魂を15個集める",
-        "en": "15 Skulltulas Tokens"
+        "en": "15 Skulltula Tokens"
       },
       "tag": ["golden_skulltula"],
       "trackers": [
@@ -1309,7 +1309,7 @@
     {
       "difficulty": "21",
       "contents": {
-        "jp": "黄金のスタルチュラの魂40個",
+        "jp": "黄金のスタルチュラの魂を40個集める",
         "en": "40 Skulltula Tokens"
       },
       "tag": ["golden_skulltula"],
