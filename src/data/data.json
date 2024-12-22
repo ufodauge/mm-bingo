@@ -1364,7 +1364,12 @@
         "en": "Get Milk from Different 8 Cows"
       },
       "tag": ["bottle"],
-      "trackers": []
+      "trackers": [
+        {
+          "type": "counter",
+          "properties": { "max": 8, "icon": "icons/milk.png" }
+        }
+      ]
     },
     {
       "difficulty": "22",
