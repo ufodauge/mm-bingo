@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@types/node": "18.15.11",
@@ -40,6 +41,6 @@
     "ts-jest": "^29.1.1"
   },
   "volta": {
-    "node": "22.14.0"
+    "node": "24.1.0"
   }
 }
