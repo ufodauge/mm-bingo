@@ -1,14 +1,14 @@
 {
-    "cSpell.words": [
-        "bltr",
-        "nowarp",
-        "Popout",
-        "snowhead",
-        "tlbr"
-    ],
-    "todo-tree.tree.showBadges": true,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
-    },
-    "python.formatting.provider": "none"
+  "cSpell.words": [
+    "bltr",
+    "daisyui",
+    "dedupe",
+    "nowarp",
+    "Popout",
+    "snowhead",
+    "tlbr"
+  ],
+  "files.associations": {
+    "index.css": "tailwindcss"
+  }
 }
