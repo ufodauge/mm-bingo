@@ -1,14 +1,32 @@
 {
-    "cSpell.words": [
-        "bltr",
-        "nowarp",
-        "Popout",
-        "snowhead",
-        "tlbr"
-    ],
-    "todo-tree.tree.showBadges": true,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
-    },
-    "python.formatting.provider": "none"
+  "cSpell.words": [
+    "anju",
+    "bltr",
+    "cutscene",
+    "daisyui",
+    "dedupe",
+    "deku",
+    "epona",
+    "kafei",
+    "nowarp",
+    "oklch",
+    "pictgraph",
+    "popout",
+    "prefersdark",
+    "sakon",
+    "skulltula",
+    "skulltulas",
+    "snowhead",
+    "termina",
+    "tlbr",
+    "webp"
+  ],
+  "files.associations": {
+    "index.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "class.+?",
+  ],
 }

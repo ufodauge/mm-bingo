@@ -1,0 +1,21 @@
+{
+  "title": "Majora's Mask - Bingo",
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "title": "Language",
+      "ja": "日本語",
+      "en": "English"
+    },
+    "colorTheme": {
+      "title": "Theme",
+      "system": "system",
+      "light": "light",
+      "dark": "dark"
+    },
+    "markerColors": {
+      "title": "marker - colors"
+    }
+  },
+  "description": "<p>Currently, there are no strict rules, but essentially, you should adhere to the following:</p><ul><li>Do not duplicate Heart Pieces.</li><li>Duplication bottles do not count as a task requirement.</li><li>If performing an action is a task condition, that state is not reset.</li></ul><p>This site is not affiliated with Nintendo Co., Ltd. in any way.</p>"
+}

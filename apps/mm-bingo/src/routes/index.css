@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-primary {
+  scrollbar-color: var(--color-primary) var(--color-base-100);
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.reset-input-color {
+  &::-webkit-color-swatch,
+  &::-webkit-color-swatch-wrapper {
+    border: none;
+    padding: 0;
+  }
+}
+
+html {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.fade-inline {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.visibility-auto {
+  content-visibility: auto;
+}
