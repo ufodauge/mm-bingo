@@ -2,7 +2,7 @@ import { atomWithStorage } from "jotai/utils";
 import { createRandomColor } from "../../libs/color";
 
 export const colorThemeAtom = atomWithStorage<"light" | "dark" | "system">(
-  "page:theme",
+  "ufodauge/mm-bingo/page-theme",
   "system",
   undefined,
   { getOnInit: true },
@@ -60,7 +60,7 @@ export type ThemeColorVars = {
 };
 
 export const customThemeColorVarsAtom = atomWithStorage<ThemeColorVars>(
-  "page:custom-theme",
+  "ufodauge/mm-bingo/page-custom-theme",
   {
     ["--color-primary"]: {
       enabled: false,

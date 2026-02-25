@@ -5,16 +5,16 @@ import { Suspense, useDeferredValue } from "react";
 import { BoardCells } from "./BoardCells";
 import { BoardColumn } from "./BoardColumn";
 import { createLineTypeNames, type LineType } from "./lineTypes";
-import { OpenSettingsButton } from "../OpenSettingsButton";
-import { IconRefresh } from "../../libs/icons/Refresh";
+import { useSetColorIndices } from "../store/colors/indices";
+import { IconRemoveSelection } from "../../libs/icons/RemoveSelection";
 
 const popupButtons = createLineTypeNames(BOARD_SIZE)
   .filter((v) => v !== "card")
   .map((target, i) => {
     const className = target.startsWith("row") ? "text-vertical" : "";
 
-    const width = 360;
-    const height = 700;
+    const width = 450;
+    const height = 900;
 
     return (
       <PopupButton
@@ -35,6 +35,7 @@ type Props = {
 
 export const PopupBoard = ({ target }: Props) => {
   const cells = useDeferredValue(useAtomValue(cellsAtom));
+  const setColor = useSetColorIndices();
 
   if (target === "card") {
     return (
@@ -66,15 +67,21 @@ export const PopupBoard = ({ target }: Props) => {
         gridTemplateRows: `2em repeat(${BOARD_SIZE}, minmax(100px, 7fr))`,
       }}
     >
-      <PopupButton target={target} inert className="grid grid-cols-3 pointer-events-none">
+      <PopupButton
+        target={target}
+        clickable={false}
+        className="grid grid-cols-3"
+      >
         <span className="col-start-2">{target.toUpperCase()}</span>
-        <div className="col-start-3">
-          <button className="btn btn-ghost">
+        <div className="col-start-3 grid justify-end">
+          <button
+            className="btn btn-ghost btn-circle btn-sm"
+            onClick={() => setColor({ action: "clear" })}
+          >
             <span className="size-4 fill-current">
-              <IconRefresh />
+              <IconRemoveSelection />
             </span>
           </button>
-          <OpenSettingsButton className="btn-ghost" />
         </div>
       </PopupButton>
       <Suspense

@@ -12,10 +12,10 @@ type Props = {
   className?: string;
 } & (
   | {
-      inert: true;
+      clickable: false;
     }
   | {
-      inert?: false;
+      clickable?: true;
       width: number;
       height: number;
     }
@@ -31,8 +31,9 @@ export const PopupButton = ({
 
   return (
     <CellButton
+      role={rest.clickable === false ? undefined : "button"}
       onClick={async () => {
-        if (rest.inert === true) {
+        if (rest.clickable === false) {
           return;
         }
 
@@ -52,7 +53,6 @@ export const PopupButton = ({
         );
       }}
       className={`${classNameBase} ${className}`}
-      inert={rest.inert}
     >
       {children}
     </CellButton>

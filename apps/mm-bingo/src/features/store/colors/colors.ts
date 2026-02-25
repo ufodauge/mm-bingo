@@ -28,7 +28,7 @@ const COLORS_MAX = 8;
 // export const useSetDefaultMarkerColor = () => useSetAtom(defaultColorAtom);
 
 export const markerColorsAtom = atomWithStorage(
-  "board:marker-colors",
+  "ufodauge/mm-bingo/board-marker-colors",
   ["#422ad5", "#f43198", "#00d3bb"],
   undefined,
 );

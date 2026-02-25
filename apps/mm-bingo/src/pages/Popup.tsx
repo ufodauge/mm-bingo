@@ -1,5 +1,6 @@
 import { isLineType, type LineType } from "../features/board/lineTypes";
 import { PopupBoard } from "../features/board/PopupBoard";
+import { OpenSettingsButton } from "../features/OpenSettingsButton";
 import { getCurrentQueryParams } from "../libs/getCurrentQueryParams";
 
 const queryParams = getCurrentQueryParams();
@@ -20,5 +21,10 @@ const target = (() => {
 })();
 
 export const Popup = () => {
-  return <PopupBoard target={target} />;
+  return (
+    <>
+      <OpenSettingsButton className="hidden" />
+      <PopupBoard target={target} />
+    </>
+  );
 };

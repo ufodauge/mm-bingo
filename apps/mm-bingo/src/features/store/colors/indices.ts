@@ -5,7 +5,7 @@ import { markerColorsAtom } from "./colors";
 import { CELLS_COUNT } from "../board";
 
 const colorIndicesPrimitiveAtom = atomWithStorage<number[]>(
-  "bingo:color-indices",
+  "ufodauge/mm-bingo/bingo-color-indices",
   [],
   undefined,
   {
