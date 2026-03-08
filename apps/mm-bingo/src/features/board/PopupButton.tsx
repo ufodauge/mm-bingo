@@ -42,7 +42,9 @@ export const PopupButton = ({
         const left = ((width - rest.width) / 2) * ratio;
         const top = ((height - rest.height) / 2) * ratio;
 
-        const url = nav.getNavLink("popup");
+        const url = nav.getNavLink(
+          `popup-${target === "card" ? "card" : "row"}`,
+        );
         url.searchParams.append("seed", `${seed}`);
         url.searchParams.append("target", `${target}`);
 
