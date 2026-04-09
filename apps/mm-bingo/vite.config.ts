@@ -13,7 +13,8 @@ export default defineConfig(({ command }) => ({
     rollupOptions: {
       input: {
         index: resolve(__dirname, "index.html"),
-        popup: resolve(__dirname, 'popup.html'),
+        ["popup-card"]: resolve(__dirname, 'popup-card.html'),
+        ["popup-row"]: resolve(__dirname, 'popup-row.html'),
       },
     },
   },
