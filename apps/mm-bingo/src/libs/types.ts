@@ -1,5 +1,7 @@
-import type { LineType } from "./lineTypes";
-import { type Tracker } from "../tracker/tracker";
+import type { Tracker } from "./tasks/tracker/tracker";
+
+type LineTypeColOrRow = `${"row" | "col"}${number}`;
+export type LineType = `${"card" | "tlbr" | "bltr" | LineTypeColOrRow}`;
 
 export type TaskSource = {
   difficulty: number;
@@ -14,15 +16,4 @@ export type Task = {
   tags: Set<string>;
   lineTypes: LineType[];
   trackers: Tracker[];
-};
-
-export const emptyTask: Task = {
-  difficulty: 0,
-  tags: new Set(),
-  text: {
-    ja: "(空のタスク)",
-    en: "(Empty Task)",
-  },
-  lineTypes: [],
-  trackers: [],
 };

@@ -5,9 +5,9 @@ import type { Rect } from "../../libs/forms";
 import type { LineType } from "../board/lineTypes";
 import type { Tracker } from "../../libs/tasks/tracker/tracker";
 import type { Result } from "../../libs/result";
-import type { Task } from "../../libs/tasks/v20260208/task";
 import { taskVersionAtom } from "./taskVersion";
-import { isTaskVersion, type TaskVersion } from "./versions/taskVersion";
+import { isTaskVersion, latestTaskVersion, type TaskVersion } from "./versions/taskVersion";
+import type { Task } from "../../libs/types";
 
 export const BOARD_SIZE = 5;
 export const CELLS_COUNT = BOARD_SIZE ** 2;
@@ -76,7 +76,7 @@ export const cellsAtom = atom<CellsAtomResult | Promise<CellsAtomResult>>(
     const versionStr = version.toString();
     return generateTasksAsync(
       seed,
-      isTaskVersion(versionStr) ? versionStr : "v20260409",
+      isTaskVersion(versionStr) ? versionStr : latestTaskVersion,
     ).then((tasksResult) => {
       if (!tasksResult.ok) {
         console.debug(`Failed to generate tasks: ${tasksResult.error.message}`);
