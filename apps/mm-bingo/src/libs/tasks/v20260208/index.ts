@@ -1,10 +1,20 @@
 import * as vb from "valibot";
 import { shuffleArray, SplitMix64 } from "./random";
-import { type Task, type TaskSource, emptyTask } from "./task";
 import dataUrl from "./data.json?url";
 import { err, ok, type Result } from "../../result";
 import { taskSourceListSchema } from "./schema";
-import type { LineType } from "./lineTypes";
+import type { TaskSource, Task, LineType } from "../../types";
+
+const emptyTask: Task = {
+  difficulty: 0,
+  tags: new Set(),
+  text: {
+    ja: "(空のタスク)",
+    en: "(Empty Task)",
+  },
+  lineTypes: [],
+  trackers: [],
+};
 
 const taskSourcePromise: Promise<Result<Map<number, TaskSource[]>, Error>> =
   fetch(dataUrl)

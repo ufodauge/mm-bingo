@@ -4,6 +4,7 @@ import { CellButton } from "./CellButton";
 import { useAtomValue } from "jotai";
 import { seedNumberAtom } from "../store/seed";
 import { nav } from "../../routes/nav";
+import { taskVersionAtom } from "../store/taskVersion";
 
 const classNameBase = `bg-base-200 text-xs`;
 
@@ -28,6 +29,7 @@ export const PopupButton = ({
   ...rest
 }: PropsWithChildren<Props>): ReactNode => {
   const seed = useAtomValue(seedNumberAtom);
+  const version = useAtomValue(taskVersionAtom);
 
   return (
     <CellButton
@@ -46,6 +48,7 @@ export const PopupButton = ({
           `popup-${target === "card" ? "card" : "row"}`,
         );
         url.searchParams.append("seed", `${seed}`);
+        url.searchParams.append("version", version.toString());
         url.searchParams.append("target", `${target}`);
 
         window.open(

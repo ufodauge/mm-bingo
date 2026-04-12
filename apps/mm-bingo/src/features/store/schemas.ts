@@ -1,5 +1,5 @@
 import * as vb from "valibot";
-import { taskVersions } from "./versions/taskVersion";
+import { latestTaskVersion, taskVersions } from "./versions/taskVersion";
 
 export const boardSizeSchema = vb.fallback(
   vb.pipe(vb.number(), vb.minValue(3), vb.maxValue(9)),
@@ -24,7 +24,10 @@ export type BoardSize = vb.InferOutput<typeof boardSizeSchema>;
 
 export const gameStatusSchema = vb.looseObject({
   seed: vb.fallback(vb.number(), () => Math.trunc(Math.random() * 1000000)),
-  version: vb.fallback(vb.union(taskVersions.map(vb.literal)), "v20260409"),
+  version: vb.fallback(
+    vb.union(taskVersions.map(vb.literal)),
+    latestTaskVersion,
+  ),
 });
 
 export type GameStatus = vb.InferOutput<typeof gameStatusSchema>;
