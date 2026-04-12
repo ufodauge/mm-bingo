@@ -7,20 +7,24 @@ export const queryParamsAtom = atom(
   (get) => {
     const primitive = get(queryParamsPrimitiveAtom);
     const queryParams = getCurrentQueryParams();
-    const raw = queryParams.get("seed");
+    const rawSeed = queryParams.get("seed");
+    const rawVersion = queryParams.get("version");
 
-    if (raw === null) {
+    if (rawSeed === null) {
       return primitive ?? defaultGameStatus;
     }
 
     return {
-      seed: Number.parseInt(raw),
+      seed: Number.parseInt(rawSeed),
+      version: rawVersion ?? defaultGameStatus.version,
     };
   },
   (_get, set, gameStatus: GameStatus) => {
     const queryParams = getCurrentQueryParams();
     for (const key in gameStatus) {
       if (key === "seed") {
+        queryParams.set(key, gameStatus[key].toString());
+      } else if (key === "version") {
         queryParams.set(key, gameStatus[key].toString());
       }
     }

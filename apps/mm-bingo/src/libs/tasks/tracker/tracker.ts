@@ -1,4 +1,4 @@
-import { err, ok, type Result } from "../v20260208/result";
+import { err, ok, type Result } from "../../result";
 import {
   type TrackerCounterParams,
   trackerCounterParamsSchema,
