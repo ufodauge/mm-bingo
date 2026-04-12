@@ -1,6 +1,7 @@
 import * as vb from "valibot";
 import { trackerCounterParamsSchema } from "../tracker/counter";
 import { trackerTogglerParamsSchema } from "../tracker/toggler";
+import { trackerHeartPieceParamsSchema } from "../tracker/heartPiece";
 
 export const taskSourceListSchema = vb.array(
   vb.object({
@@ -12,6 +13,10 @@ export const taskSourceListSchema = vb.array(
         vb.object({
           type: vb.literal("counter"),
           properties: trackerCounterParamsSchema,
+        }),
+        vb.object({
+          type: vb.literal("heart-piece"),
+          properties: trackerHeartPieceParamsSchema,
         }),
         vb.object({
           type: vb.literal("toggler"),

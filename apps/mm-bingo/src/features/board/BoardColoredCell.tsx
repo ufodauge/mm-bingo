@@ -5,6 +5,7 @@ import { useColorIndices, useSetColorIndices } from "../store/colors/indices";
 import { CellButton } from "./CellButton";
 import type { Cell } from "../store/board";
 import { Counter } from "./tracker/Counter";
+import { HeartPieces } from "./tracker/HeartPieces";
 import { Toggler } from "./tracker/Toggler";
 import { useTranslation } from "react-i18next";
 
@@ -95,6 +96,20 @@ export const BoardColoredCell = ({
                   <Toggler icons={icons ?? []} />
                 </div>
               );
+            }
+
+            case "heart-piece": {
+              const { max, init } = v.properties;
+              return (
+                <div className="grid justify-center" key={i}>
+                  <HeartPieces max={max} init={init} textColor={textColor} />
+                </div>
+              );
+            }
+
+            default: {
+              v satisfies never;
+              return <></>;
             }
           }
         })
