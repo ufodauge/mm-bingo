@@ -24,6 +24,10 @@ const taskGeneratorMap: Record<
     const module = await import("../../libs/tasks/v20260409");
     return await module.generateTasksAsync(seed);
   },
+  v20260419: async (seed: number) => {
+    const module = await import("../../libs/tasks/v20260419");
+    return await module.generateTasksAsync(seed);
+  },
 } as const;
 
 const generateTasksAsync = async (
