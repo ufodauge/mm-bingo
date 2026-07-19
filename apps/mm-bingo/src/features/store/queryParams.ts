@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+
 import { getCurrentQueryParams } from "../../libs/getCurrentQueryParams";
 import { defaultGameStatus, type GameStatus } from "./schemas";
 
@@ -14,8 +15,9 @@ export const queryParamsAtom = atom(
       return primitive ?? defaultGameStatus;
     }
 
+    const parsedSeed = Number.parseInt(rawSeed);
     return {
-      seed: Number.parseInt(rawSeed),
+      seed: Number.isFinite(parsedSeed) ? parsedSeed : defaultGameStatus.seed,
       version: rawVersion ?? defaultGameStatus.version,
     };
   },

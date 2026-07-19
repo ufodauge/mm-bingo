@@ -1,10 +1,11 @@
-import type { PropsWithChildren, ReactNode } from "react";
-import type { LineType } from "./lineTypes";
-import { CellButton } from "./CellButton";
 import { useAtomValue } from "jotai";
-import { seedNumberAtom } from "../store/seed";
+import type { PropsWithChildren, ReactNode } from "react";
+
 import { nav } from "../../routes/nav";
+import { seedNumberAtom } from "../store/seed";
 import { taskVersionAtom } from "../store/taskVersion";
+import { CellButton } from "./cell/CellButton";
+import type { LineType } from "./lineTypes";
 
 const classNameBase = `bg-base-200 text-xs`;
 

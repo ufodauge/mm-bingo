@@ -1,12 +1,15 @@
 import { useAtomValue } from "jotai";
-import { BOARD_SIZE, cellsAtom } from "../store/board";
-import { PopupButton } from "../board/PopupButton";
 import { Suspense, useDeferredValue } from "react";
+
+import { IconRemoveSelection } from "../../libs/icons/RemoveSelection";
+import { PopupButton } from "../board/PopupButton";
+import { useClearRoomClaims } from "../room/useClearRoomClaims";
+import { BOARD_SIZE, cellsAtom } from "../store/board";
+import { useSetColorIndices } from "../store/colors/indices";
+import { roomStateAtom } from "../store/room";
 import { BoardCells } from "./BoardCells";
 import { BoardColumn } from "./BoardColumn";
 import { createLineTypeNames, type LineType } from "./lineTypes";
-import { useSetColorIndices } from "../store/colors/indices";
-import { IconRemoveSelection } from "../../libs/icons/RemoveSelection";
 
 const popupButtons = createLineTypeNames(BOARD_SIZE)
   .filter((v) => v !== "card")
@@ -36,6 +39,8 @@ type Props = {
 export const PopupBoard = ({ target }: Props) => {
   const cells = useDeferredValue(useAtomValue(cellsAtom));
   const setColor = useSetColorIndices();
+  const roomState = useAtomValue(roomStateAtom);
+  const clearRoomClaims = useClearRoomClaims();
 
   if (target === "card") {
     return (
@@ -76,7 +81,11 @@ export const PopupBoard = ({ target }: Props) => {
         <div className="col-start-3 grid justify-end">
           <button
             className="btn btn-ghost btn-circle btn-sm"
-            onClick={() => setColor({ action: "clear" })}
+            onClick={() =>
+              roomState
+                ? clearRoomClaims(targetCells?.map((c) => c.index) ?? [])
+                : setColor({ action: "clear" })
+            }
           >
             <span className="size-4 fill-current">
               <IconRemoveSelection />

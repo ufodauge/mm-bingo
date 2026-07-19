@@ -1,9 +1,10 @@
 import { useAtom } from "jotai";
-import { colorThemeAtom } from "../store/theme";
+import { useTranslation } from "react-i18next";
+
+import { IconAdjust } from "../../libs/icons/Adjust";
 import { IconDark } from "../../libs/icons/Dark";
 import { IconLight } from "../../libs/icons/Light";
-import { IconAdjust } from "../../libs/icons/Adjust";
-import { useTranslation } from "react-i18next";
+import { colorThemeAtom } from "../store/theme";
 
 export const ThemeToggler = () => {
   const [colorTheme, setColorTheme] = useAtom(colorThemeAtom);

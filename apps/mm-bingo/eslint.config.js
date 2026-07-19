@@ -1,21 +1,23 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import reactHooks from "eslint-plugin-react-hooks";
+import { defineConfig, globalIgnores } from "eslint/config";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
+// oxlint already covers general JS/TS correctness rules (`@eslint/js` recommended,
+// `typescript-eslint` recommended) and `react/only-export-components`
+// (`eslint-plugin-react-refresh`'s vite config). This config only adds the
+// react-compiler-oriented rules from `eslint-plugin-react-hooks` that oxlint's
+// react plugin doesn't have yet.
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    root: true,
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
+    files: ["**/*.{ts,tsx}"],
+    extends: [tseslint.configs.base, reactHooks.configs.flat.recommended],
+    rules: {
+      // Already enforced by oxlint's react/rules-of-hooks and react/exhaustive-deps.
+      "react-hooks/rules-of-hooks": "off",
+      "react-hooks/exhaustive-deps": "off",
+    },
     languageOptions: {
       ecmaVersion: 2026,
       globals: globals.browser,

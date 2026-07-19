@@ -51,3 +51,74 @@ html {
 .visibility-auto {
   content-visibility: auto;
 }
+
+/* CellClaimMenu (src/features/room/cell/CellClaimMenu.tsx): a native
+   popover, positioned next to the cell that opened it entirely by
+   CellClaimMenu's own JS (see menuPosition.ts) via an inline `top`/`left`/
+   `transform` — this rule only clears the UA stylesheet's default
+   `margin: auto` (which centers `[popover]` elements) out of the way. */
+[popover] {
+  position: fixed;
+  margin: 0;
+}
+
+.cell-claim-popover {
+  /* Keeps the menu inside the viewport by scrolling instead of
+     overflowing when there isn't room for it on either side of the
+     cell (e.g. a tall team list in a short popup window) — menuPosition.ts
+     measures this element's actual (post-max-height) size to decide where
+     to place it, so bounding it here is what keeps that measurement (and
+     so the placement) sane in the first place. */
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+/* RoomStatsDrawer (src/features/room/stats/RoomStatsDrawer.tsx): slides in
+   from the right on open/close. Stays mounted in React the whole time
+   (unlike CellClaimMenu, which mounts/unmounts per open state) so the
+   `popovertarget` button always has something to reference and the slide
+   transition below has continuity to animate across — so `display` has to
+   be driven entirely from here rather than from a Tailwind utility class:
+   `grid`/`hidden` etc. are unconditional (`.grid { display: grid }`, full
+   stop) and, being an ordinary author rule, would override the UA
+   stylesheet's `display: none` default for a closed `[popover]` — the
+   panel would render (and be interactable) even while "closed" per
+   `:popover-open`. Gating `display` on `:popover-open` here is what
+   actually keeps it hidden.
+
+   A `popover="auto"` element is toggled at the `display` level, which a
+   plain `transition: transform` can't animate across (there's nothing to
+   interpolate from once display:none has already removed it) —
+   `@starting-style` plus `allow-discrete` is the standard way to animate a
+   property across that jump: the starting-style block supplies the
+   "before" frame for the entry transition, and `allow-discrete` lets
+   `display`/`overlay` participate in the transition long enough to keep
+   the element rendered (off-screen) for the exit transition instead of
+   vanishing instantly.
+
+   `left: auto` clears the UA popover stylesheet's own default `inset: 0`
+   (the same default that gives an unstyled popover its centered starting
+   position) — left over, it fought the `right-0` Tailwind class below:
+   with both `left: 0` and `right: 0` plus an explicit width all set at
+   once, `left` wins and `right` is ignored, which pinned this to the left
+   edge of the screen instead of the right. */
+.room-stats-panel {
+  display: none;
+  left: auto;
+  transform: translateX(100%);
+  transition:
+    transform 0.2s ease,
+    overlay 0.2s ease allow-discrete,
+    display 0.2s ease allow-discrete;
+}
+
+.room-stats-panel:popover-open {
+  display: grid;
+  transform: translateX(0);
+}
+
+@starting-style {
+  .room-stats-panel:popover-open {
+    transform: translateX(100%);
+  }
+}

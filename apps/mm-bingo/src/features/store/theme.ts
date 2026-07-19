@@ -1,4 +1,5 @@
 import { atomWithStorage } from "jotai/utils";
+
 import { createRandomColor } from "../../libs/color";
 
 export const colorThemeAtom = atomWithStorage<"light" | "dark" | "system">(

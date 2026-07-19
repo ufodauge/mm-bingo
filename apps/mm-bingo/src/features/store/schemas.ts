@@ -1,4 +1,5 @@
 import * as vb from "valibot";
+
 import { latestTaskVersion, taskVersions } from "./versions/taskVersion";
 
 export const boardSizeSchema = vb.fallback(

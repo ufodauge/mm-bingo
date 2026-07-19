@@ -15,6 +15,89 @@
     },
     "markerColors": {
       "title": "マーカーの配色"
+    },
+    "taskVersion": {
+      "title": "タスクバージョン"
+    }
+  },
+  "board": {
+    "emptyTaskWarning": {
+      "message": "このシードでは一部のマスにタスクを割り当てられませんでした。「(空のタスク)」と表示されているマスがあります。",
+      "reroll": "シードを変更"
+    },
+    "fallbackTaskWarning": {
+      "message": "一部のマスは本来の難易度にタスクが見つからず、近い難易度のタスクで代用されています。",
+      "reroll": "シードを変更"
+    }
+  },
+  "room": {
+    "title": "マルチプレイ（Experimental）",
+    "host": "ホスト",
+    "guest": "ゲスト",
+    "becomeHost": "ホストになる",
+    "join": "参加する",
+    "namePlaceholder": "表示名",
+    "leave": "退室する",
+    "connecting": "ホストに接続しています...",
+    "disconnected": "ルームとの接続が切れました。",
+    "reconnect": "再接続する",
+    "reveal": "公開する",
+    "startHidden": "盤面を隠した状態で開始する",
+    "boardHidden": "盤面を隠す",
+    "endsRoomOnReveal": "公開したらルームを終了する",
+    "confirmBoardReset": "この操作を行うと、この盤面の全員の進捗がリセットされます。続けますか?",
+    "hostChanged": "{{name}}さんがホストになりました",
+    "youBecameHost": "あなたがホストになりました",
+    "joinTimedOut": "ルームに接続できませんでした。ルームが存在しないか、ネットワークに問題がある可能性があります。",
+    "connectingIndicator": "接続中...",
+    "mode": {
+      "title": "モード",
+      "classic": "ノーマル",
+      "hidden": "めんこ",
+      "othello": "オセロ",
+      "advancedToggle": "詳細設定",
+      "simple": {
+        "teamBlackout": "ブラックアウト",
+        "lockout": "ロックアウト"
+      }
+    },
+    "players": {
+      "title": "参加者",
+      "host": "ホスト",
+      "you": "あなた",
+      "noTeam": "チーム未設定"
+    },
+    "role": {
+      "host": "ホスト",
+      "guest": "参加者",
+      "hostBadge": "H"
+    },
+    "invite": {
+      "title": "招待",
+      "copyLink": "招待リンク",
+      "copyCode": "コピー",
+      "copied": "コピーしました!",
+      "roomCode": "ルームコード",
+      "roomCodeRequired": "ルームコードを入力してください。"
+    },
+    "yourName": "表示名",
+    "claimSharing": {
+      "title": "セルの共有",
+      "exclusive": "盤面を共有する",
+      "shared": "盤面を分ける",
+      "forcedOthelloNote": "オセロは常に盤面を共有します。"
+    },
+    "claimMenu": {
+      "clear": "解除",
+      "clearAll": "すべて解除",
+      "locked": "{{team}}は現在変更できません",
+      "memoPlaceholder": "🙂"
+    },
+    "stats": {
+      "title": "接続状況",
+      "open": "接続状況を開く",
+      "close": "接続状況を閉じる",
+      "popout": "別ウィンドウで開く"
     }
   },
   "description": "<p>現状、厳密なルールはありませんが、基本的には以下を守っていただければ良いはずです。</p><ul><li>ハートのかけら増殖禁止（ハートのかけらの個数を目的としたタスクがある場合のみ）</li><li>増殖ビンはタスクの要件としてカウントしない</li><li>実行することがタスクの条件であれば、その状態はリセットされない</li></ul><p>当サイトは任天堂株式会社様とは一切関係ございません。</p>"
