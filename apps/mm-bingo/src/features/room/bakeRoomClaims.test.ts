@@ -22,6 +22,8 @@ const makeState = (cellClaims: Record<number, string[]>): RoomState => ({
   cellMemos: Array.from({ length: CELLS_COUNT }, () => ({})),
   claimSharing: "shared",
   revealedCells: "all",
+  boardRevealed: true,
+  endsRoomOnReveal: false,
   seed: 1,
   taskVersion: latestTaskVersion,
 });

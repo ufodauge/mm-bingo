@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+
+concurrency:
+  group: 'ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm i
+      - name: Lint
+        run: pnpm lint
+      - name: Test
+        run: pnpm test
+      - name: Build
+        run: pnpm build
+
+  # A separate, non-blocking job: these tests drive two real browser
+  # contexts over Trystero's public Nostr relays (see
+  # apps/mm-bingo/playwright.config.ts) — no signaling server of our own to
+  # mock, so they're a genuine black-box check of the deployed multiplayer
+  # path, but also at the mercy of public relay availability/rate-limits.
+  # Kept out of the required `ci` job so that flakiness doesn't block merges.
+  e2e:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm i
+      - name: Install Playwright browsers
+        run: pnpm -F @mm-bingo/app exec playwright install --with-deps chromium
+      - name: E2E test
+        run: pnpm -F @mm-bingo/app test:e2e
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: apps/mm-bingo/playwright-report/
+          retention-days: 7
