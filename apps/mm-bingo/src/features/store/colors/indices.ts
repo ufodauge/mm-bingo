@@ -1,8 +1,9 @@
 import { atom, useAtomValue } from "jotai";
 import { atomWithStorage, useAtomCallback } from "jotai/utils";
 import { useCallback } from "react";
-import { markerColorsAtom } from "./colors";
+
 import { CELLS_COUNT } from "../board";
+import { markerColorsAtom } from "./colors";
 
 const colorIndicesPrimitiveAtom = atomWithStorage<number[]>(
   "ufodauge/mm-bingo/bingo-color-indices",

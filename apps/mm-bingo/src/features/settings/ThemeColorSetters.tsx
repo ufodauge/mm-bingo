@@ -1,10 +1,11 @@
 import { useAtom } from "jotai";
+import { memo, useCallback } from "react";
+
 import {
   customThemeColorVarsAtom as customThemeColorVarsAtom,
   themeColorVarKeys,
   type ThemeColorVars,
 } from "../store/theme";
-import { memo, useCallback } from "react";
 
 type Props = {
   name: keyof ThemeColorVars;
@@ -64,18 +65,21 @@ export const ThemeColorSetters = () => {
         },
       }));
     },
-    [],
+    [setThemeColorVars],
   );
 
-  const setColor = useCallback((key: keyof ThemeColorVars, value: string) => {
-    setThemeColorVars((p) => ({
-      ...p,
-      [key]: {
-        enabled: p[key].enabled,
-        value,
-      },
-    }));
-  }, []);
+  const setColor = useCallback(
+    (key: keyof ThemeColorVars, value: string) => {
+      setThemeColorVars((p) => ({
+        ...p,
+        [key]: {
+          enabled: p[key].enabled,
+          value,
+        },
+      }));
+    },
+    [setThemeColorVars],
+  );
 
   return (
     <fieldset className="fieldset grid max-h-48 gap-2 overflow-y-auto">

@@ -1,6 +1,7 @@
 import { memo } from "react";
+
 import { type Cell } from "../store/board";
-import { BoardColoredCell } from "./BoardColoredCell";
+import { BoardColoredCell } from "./cell/BoardColoredCell";
 
 type Props = {
   cells: Cell[] | undefined;
@@ -31,7 +32,7 @@ export const BoardCells = memo(function MainBoard({ cells }: Props) {
             <BoardColoredCell
               cell={cell}
               key={`cell-${i}`}
-              className="place-self-stretch p-2"
+              className="size-full"
             />
           </div>
         );

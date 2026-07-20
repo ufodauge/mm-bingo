@@ -1,4 +1,4 @@
-type NavLinkTarget = "index" | "popup-card" | "popup-row";
+type NavLinkTarget = "index" | "popup-card" | "popup-row" | "popup-room-stats";
 
 const getNavLink = (target: NavLinkTarget): URL => {
   return new URL(

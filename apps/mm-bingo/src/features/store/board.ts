@@ -1,42 +1,20 @@
 import { atom } from "jotai";
-import { seedNumberAtom } from "./seed";
-import { colorIndicesAtom } from "./colors/indices";
+
 import type { Rect } from "../../libs/forms";
+import {
+  generateTasksAsync,
+  isEmptyTask,
+  isFallbackTask,
+} from "../../libs/tasks/index";
+import type { Tracker } from "../../libs/tracker/tracker";
 import type { LineType } from "../board/lineTypes";
-import type { Tracker } from "../../libs/tasks/tracker/tracker";
-import type { Result } from "../../libs/result";
+import { colorIndicesAtom } from "./colors/indices";
+import { seedNumberAtom } from "./seed";
 import { taskVersionAtom } from "./taskVersion";
-import { isTaskVersion, latestTaskVersion, type TaskVersion } from "./versions/taskVersion";
-import type { Task } from "../../libs/types";
+import { isTaskVersion, latestTaskVersion } from "./versions/taskVersion";
 
 export const BOARD_SIZE = 5;
 export const CELLS_COUNT = BOARD_SIZE ** 2;
-
-const taskGeneratorMap: Record<
-  TaskVersion,
-  (seed: number) => Promise<Result<Task[], Error>>
-> = {
-  v20260208: async (seed: number) => {
-    const module = await import("../../libs/tasks/v20260208");
-    return await module.generateTasksAsync(seed);
-  },
-  v20260409: async (seed: number) => {
-    const module = await import("../../libs/tasks/v20260409");
-    return await module.generateTasksAsync(seed);
-  },
-  v20260419: async (seed: number) => {
-    const module = await import("../../libs/tasks/v20260419");
-    return await module.generateTasksAsync(seed);
-  },
-} as const;
-
-const generateTasksAsync = async (
-  seed: number,
-  version: TaskVersion,
-): Promise<Result<Task[], Error>> => {
-  const generator = taskGeneratorMap[version];
-  return await generator(seed);
-};
 
 export type Cell = {
   text: Partial<Record<string, string>> & { en: string };
@@ -45,6 +23,8 @@ export type Cell = {
   lineTypes: LineType[];
   trackers: Tracker[];
   rect: Rect;
+  isEmpty: boolean;
+  isFallback: boolean;
 };
 
 type CellsAtomResult = Cell[] | undefined;
@@ -52,6 +32,12 @@ type CellsAtomResult = Cell[] | undefined;
 let lastCellsAtomResult:
   | {
       seed: number;
+      // The generated tasks depend on (seed, version) together — a version
+      // change with the same seed (e.g. switching task versions in
+      // Settings, or rejoining a room whose seed happens to match what was
+      // last cached locally) must still invalidate this cache. Keying it on
+      // seed alone previously let a stale, wrong-version board survive.
+      version: string;
       result: CellsAtomResult;
     }
   | undefined = undefined;
@@ -62,9 +48,13 @@ export const cellsAtom = atom<CellsAtomResult | Promise<CellsAtomResult>>(
     const cellsCount = 25;
     const seed = get(seedNumberAtom);
     const colorIndices = get(colorIndicesAtom);
-    const version = get(taskVersionAtom);
+    const versionRaw = get(taskVersionAtom).toString();
+    const version = isTaskVersion(versionRaw) ? versionRaw : latestTaskVersion;
 
-    if (lastCellsAtomResult?.seed === seed) {
+    if (
+      lastCellsAtomResult?.seed === seed &&
+      lastCellsAtomResult?.version === version
+    ) {
       return lastCellsAtomResult.result;
     }
 
@@ -77,11 +67,7 @@ export const cellsAtom = atom<CellsAtomResult | Promise<CellsAtomResult>>(
       return undefined;
     }
 
-    const versionStr = version.toString();
-    return generateTasksAsync(
-      seed,
-      isTaskVersion(versionStr) ? versionStr : latestTaskVersion,
-    ).then((tasksResult) => {
+    return generateTasksAsync(seed, version).then((tasksResult) => {
       if (!tasksResult.ok) {
         console.debug(`Failed to generate tasks: ${tasksResult.error.message}`);
         return undefined;
@@ -101,9 +87,11 @@ export const cellsAtom = atom<CellsAtomResult | Promise<CellsAtomResult>>(
           width: 1,
           height: 1,
         },
+        isEmpty: isEmptyTask(v),
+        isFallback: isFallbackTask(v),
       }));
 
-      lastCellsAtomResult = { seed, result };
+      lastCellsAtomResult = { seed, version, result };
       return result;
     });
   },

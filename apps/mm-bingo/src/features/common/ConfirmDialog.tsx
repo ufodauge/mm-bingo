@@ -1,11 +1,11 @@
-import type { PropsWithChildren, ReactNode } from 'react';
+import type { PropsWithChildren, ReactNode } from "react";
 
 type Props<T extends string> = {
   selective: [ReactNode, T][];
   onConfirmed: (result: T) => void;
 };
 
-export const ConfirmDialog = <T extends string = 'ok' | 'cancel'>({
+export const ConfirmDialog = <T extends string = "ok" | "cancel">({
   children,
   onConfirmed,
   selective,

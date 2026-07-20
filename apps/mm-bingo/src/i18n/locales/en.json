@@ -15,6 +15,89 @@
     },
     "markerColors": {
       "title": "marker - colors"
+    },
+    "taskVersion": {
+      "title": "Task version"
+    }
+  },
+  "board": {
+    "emptyTaskWarning": {
+      "message": "This seed could not assign a task to every cell. Some cells show \"(Empty Task)\".",
+      "reroll": "Reroll seed"
+    },
+    "fallbackTaskWarning": {
+      "message": "Some cells couldn't get a task at their exact difficulty and used a nearby one instead.",
+      "reroll": "Reroll seed"
+    }
+  },
+  "room": {
+    "title": "Room (Experimental)",
+    "host": "host",
+    "guest": "guest",
+    "becomeHost": "Host a room",
+    "join": "Join a room",
+    "namePlaceholder": "Your name",
+    "leave": "Leave room",
+    "connecting": "Connecting to the host...",
+    "disconnected": "This room's connection was lost.",
+    "reconnect": "Reconnect",
+    "reveal": "Reveal board to everyone",
+    "startHidden": "Start with the board hidden",
+    "boardHidden": "Hide the board",
+    "endsRoomOnReveal": "End the room once revealed",
+    "confirmBoardReset": "This resets everyone's progress on this board. Continue?",
+    "hostChanged": "{{name}} is now the host",
+    "youBecameHost": "You are now the host",
+    "joinTimedOut": "Couldn't connect to the room. It may no longer exist, or there may be a network problem.",
+    "connectingIndicator": "Connecting...",
+    "mode": {
+      "title": "Mode",
+      "classic": "Classic",
+      "hidden": "Hidden start",
+      "othello": "Othello",
+      "advancedToggle": "Use advanced mode settings",
+      "simple": {
+        "teamBlackout": "Blackout",
+        "lockout": "Lockout"
+      }
+    },
+    "players": {
+      "title": "Players",
+      "host": "Host",
+      "you": "You",
+      "noTeam": "No team"
+    },
+    "role": {
+      "host": "Host",
+      "guest": "Guest",
+      "hostBadge": "H"
+    },
+    "invite": {
+      "title": "Invite",
+      "copyLink": "Copy invite link",
+      "copyCode": "Copy",
+      "copied": "Copied!",
+      "roomCode": "Room code (share this with other players)",
+      "roomCodeRequired": "Enter a room code."
+    },
+    "yourName": "Your name",
+    "claimSharing": {
+      "title": "Claim sharing",
+      "exclusive": "Exclusive (one team per cell)",
+      "shared": "Shared (multiple teams per cell)",
+      "forcedOthelloNote": "Pseudo-Othello always requires exclusive claims."
+    },
+    "claimMenu": {
+      "clear": "Clear",
+      "clearAll": "Clear all",
+      "locked": "{{team}} can't be changed right now",
+      "memoPlaceholder": "🙂"
+    },
+    "stats": {
+      "title": "Connection status",
+      "open": "Open connection status",
+      "close": "Close connection status",
+      "popout": "Open in a new window"
     }
   },
   "description": "<p>Currently, there are no strict rules, but essentially, you should adhere to the following:</p><ul><li>Do not duplicate Heart Pieces (only when there is a task focused on the number of Heart Pieces.)</li><li>Duplication bottles do not count as a task requirement.</li><li>If performing an action is a task condition, that state is not reset.</li></ul><p>This site is not affiliated with Nintendo Co., Ltd. in any way.</p>"
