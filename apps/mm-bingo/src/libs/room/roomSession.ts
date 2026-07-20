@@ -29,6 +29,7 @@ import {
   PEER_TO_HOST_ACTION,
   STATE_SYNC_ACTION,
   TRYSTERO_APP_ID,
+  TRYSTERO_RELAY_REDUNDANCY,
 } from "./trysteroConfig";
 import type {
   BoardSettings,
@@ -130,7 +131,13 @@ export class RoomSession {
     this.phase = initialPhase;
     this.myName = myName;
     this.callbacks = callbacks;
-    this.room = joinRoom({ appId: TRYSTERO_APP_ID }, roomId);
+    this.room = joinRoom(
+      {
+        appId: TRYSTERO_APP_ID,
+        relayConfig: { redundancy: TRYSTERO_RELAY_REDUNDANCY },
+      },
+      roomId,
+    );
 
     this.peerToHost =
       this.room.makeAction<PeerToHostMessage>(PEER_TO_HOST_ACTION);

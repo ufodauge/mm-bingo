@@ -22,7 +22,7 @@ export const getTaskSourcePromise = (
     return taskSource;
   }
 
-  const dataUrl = `/tasks/${version}.json`;
+  const dataUrl = `${import.meta.env.BASE_URL}/tasks/${version}.json`;
   const result = fetch(dataUrl).then(
     async (v) => {
       if (!v.ok) {

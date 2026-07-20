@@ -21,6 +21,9 @@
   ```powershell
   New-NetFirewallRule -DisplayName "Node.js (dev)" -Direction Inbound -Program "$(where.exe node)" -Action Allow
   ```
+- `room.spec.ts` / `room-random.spec.ts` が `Test timeout of 90000ms exceeded` で失敗し、コンソールに `Trystero: relay failure from wss://relay.damus.io/ - rate-limited: you are noting too much` が繰り返し出ているケースの根本原因を特定済み: Trystero の Nostr strategy はデフォルトリレー（約40件）から `redundancy` 件を選ぶ際、セッションごとのランダム選択ではなく **`appId` のハッシュ値で決定的に**選ぶ（`getRelays(config, defaults, defaultN, deriveFromAppId=true)`、`@trystero-p2p/core` の `utils.ts` 参照）。そのため `TRYSTERO_APP_ID`（`trysteroConfig.ts`）が同じ限り、このアプリの全ピークが常に同じ固定リレー集合に当たり続ける。同じ端末で e2e を連投すると、その固定集合の中の1つ（`relay.damus.io`）が rate-limit を返すようになり、P2P 接続そのものが確立できなくなる。
+  - 緩和策として `roomSession.ts` の `joinRoom()` に `relayConfig: { redundancy: TRYSTERO_RELAY_REDUNDANCY }`（`trysteroConfig.ts` で 15 に設定、デフォルトの 5 から拡大）を渡し、固定集合を広げて単一リレー障害の影響を減らしている。ただし手元での再現テストでは、拡大後も多くのデフォルトリレーが TLS ハンドシェイクで失敗（`net_error -100` ／ 生きていない自前ホスト relay が多いためと見られる）しており、`redundancy` を上げるだけでは公開リレーの可用性自体は改善しない。
+  - つまりこれは実装のバグではなく公開インフラ（Nostr リレー）の可用性・rate limit に起因する既知の事象で、`e2e` ジョブが `continue-on-error: true` になっているのはまさにこのため。再現しても慌てて他の箇所を疑わないこと。
 
 ## React Compiler の有効化方法（@vitejs/plugin-react v6 以降）
 
