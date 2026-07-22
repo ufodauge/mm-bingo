@@ -65,7 +65,12 @@
       "title": "参加者",
       "host": "ホスト",
       "you": "あなた",
-      "noTeam": "チーム未設定"
+      "noTeam": "チーム未設定",
+      "makeHost": "ホストにする",
+      "randomizeTeams": "チームをランダムに分配",
+      "teamCount": "チーム数",
+      "addTeam": "チームを追加",
+      "removeTeam": "チームを削除"
     },
     "role": {
       "host": "ホスト",

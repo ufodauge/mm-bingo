@@ -421,6 +421,59 @@ export const withHostHandover = (
   };
 };
 
+// The host's own voluntary "make someone else the host" action (see
+// RoomSession.transferHostTo) — unlike withHostHandover, this isn't a
+// reaction to a disconnect: the caller already knows exactly which peer
+// should take over, so there's no successor to compute, just an epoch bump
+// so the change is recognized as newer than anything already in flight.
+// Rejects a target that isn't (or is no longer) an actual player, and a
+// same-peer "transfer" (nothing would actually change).
+export const withHostTransfer = (
+  state: RoomState,
+  targetPeerId: PeerId,
+): RoomState | null => {
+  if (
+    targetPeerId === state.hostId ||
+    !state.players.some((p) => p.peerId === targetPeerId)
+  ) {
+    return null;
+  }
+  return { ...state, hostId: targetPeerId, epoch: state.epoch + 1 };
+};
+
+// The host's "shuffle everyone onto a team" action (see
+// RoomSession.randomizeTeams). Players already sitting out with no team
+// (teamId === null — e.g. a spectator the host deliberately unassigned) are
+// left alone rather than forced onto one; every other player, host
+// included, is shuffled and handed out round-robin across the existing
+// teams, same distribution shape as withJoinRequest's round-robin but for
+// everyone in the room at once instead of one new joiner. A plain
+// Math.random() shuffle is fine here (unlike the board's own seeded
+// shuffleArray in libs/random.ts) — only the host ever computes this, once,
+// and broadcasts the result, so nothing needs it to be reproducible by
+// anyone else.
+export const withRandomTeams = (state: RoomState): RoomState | null => {
+  if (state.teams.length === 0) {
+    return null;
+  }
+  const toAssign = state.players.filter((p) => p.teamId !== null);
+  const shuffled = [...toAssign];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  const nextTeamIdByPeerId = new Map(
+    shuffled.map((p, i) => [p.peerId, state.teams[i % state.teams.length].id]),
+  );
+  return {
+    ...state,
+    players: state.players.map((p) => {
+      const nextTeamId = nextTeamIdByPeerId.get(p.peerId);
+      return nextTeamId === undefined ? p : { ...p, teamId: nextTeamId };
+    }),
+  };
+};
+
 // Compares two RoomStates received over the wire to decide whether
 // `candidate` should replace `current`. Within one host's tenure (same
 // epoch, same hostId) this always says yes — there's only one legitimate

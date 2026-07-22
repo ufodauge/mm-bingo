@@ -3,7 +3,13 @@ import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
 import { getCurrentQueryParams } from "../../libs/getCurrentQueryParams";
 import type { RoomRole, RoomSession } from "../../libs/room/roomSession";
-import type { PeerId, RoomState } from "../../libs/room/types";
+import type {
+  ClaimSharing,
+  GameModeId,
+  PeerId,
+  RevealSettings,
+  RoomState,
+} from "../../libs/room/types";
 import { queryParamsAtom } from "./queryParams";
 import { isTaskVersion, latestTaskVersion } from "./versions/taskVersion";
 
@@ -86,6 +92,22 @@ export const roomStateAtom = atomWithStorage<RoomState | null>(
   ignoringOtherLiveTabs(),
   { getOnInit: true },
 );
+
+// A genuinely dead room (every peer gone) can never be rejoined — there's
+// no signaling server, and its roomId/invite code die with it (see
+// RoomState's own comment on hostId/epoch). The closest thing to "returning"
+// is starting a brand new hosting session pre-filled with whatever was last
+// in use, so the host doesn't have to re-pick mode/claim-sharing/curtain
+// settings from scratch every time. Updated on every synced RoomState (see
+// applyRoomStateAtom), from either role, so it always reflects the most
+// recent room regardless of whether this window was host or guest in it.
+// Team colors/count need no equivalent here — markerColorsAtom (colors.ts)
+// already persists independently of any room.
+export const lastRoomSettingsAtom = atomWithStorage<{
+  mode: GameModeId;
+  claimSharing: ClaimSharing;
+  revealSettings: RevealSettings;
+} | null>("ufodauge/mm-bingo/last-room-settings", null);
 
 // `role` is a live snapshot, not fixed for the connection's lifetime — a
 // guest's RoomSession can promote itself to host after the previous host

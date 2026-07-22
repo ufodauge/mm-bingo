@@ -444,6 +444,38 @@ describe("team management", () => {
   });
 });
 
+describe("randomizeTeams", () => {
+  it("reassigns every player with a team, but leaves unassigned players alone", async () => {
+    const hostCallbacks = makeCallbacks();
+    const host = hostAs("host", makeTeams(2), hostCallbacks);
+    const guestCallbacks = makeCallbacks();
+    const guest = joinAs("guest-1", host.roomId, guestCallbacks);
+    await flushAsync();
+    // Deliberately benched: randomizeTeams must not force this one onto a
+    // team just because a shuffle happened.
+    host.setPlayerTeam(guest.peerId, null);
+
+    host.randomizeTeams();
+
+    const state = hostCallbacks.states.at(-1);
+    const hostPlayer = state?.players.find((p) => p.peerId === "host");
+    const guestPlayer = state?.players.find((p) => p.peerId === "guest-1");
+    expect(guestPlayer?.teamId).toBeNull();
+    expect(hostPlayer?.teamId).not.toBeNull();
+    expect(state?.teams.map((t) => t.id)).toContain(hostPlayer?.teamId);
+  });
+
+  it("is a no-op when the room has no teams at all", () => {
+    const hostCallbacks = makeCallbacks();
+    const host = hostAs("host", [], hostCallbacks);
+
+    const statesBefore = hostCallbacks.states.length;
+    host.randomizeTeams();
+
+    expect(hostCallbacks.states.length).toBe(statesBefore);
+  });
+});
+
 describe("setMode / updateBoardSettings", () => {
   it("resets claims, memos, and reveal state when the mode changes", () => {
     const hostCallbacks = makeCallbacks();
@@ -654,6 +686,54 @@ describe("host handover", () => {
     const loserState = guestBCallbacks.states.at(-1);
     expect(loserState?.hostId).toBe("guest-a");
     expect(loserState?.epoch).toBe(1);
+  });
+});
+
+describe("host transfer", () => {
+  it("lets the host voluntarily hand authority to a specific guest", async () => {
+    const hostCallbacks = makeCallbacks();
+    const host = hostAs("host", makeTeams(2), hostCallbacks);
+    const guestACallbacks = makeCallbacks();
+    joinAs("guest-a", host.roomId, guestACallbacks);
+    const guestBCallbacks = makeCallbacks();
+    joinAs("guest-b", host.roomId, guestBCallbacks);
+    await flushAsync();
+
+    host.transferHostTo("guest-b");
+    await flushAsync();
+
+    // The old host demotes itself immediately (no round trip needed, see
+    // transferHostTo's own comment) — no onRoleChange("host") call for it.
+    expect(hostCallbacks.roles).toEqual(["guest"]);
+    expect(guestBCallbacks.roles).toEqual(["host"]);
+    expect(guestACallbacks.roles).toEqual([]);
+
+    const newHostState = guestBCallbacks.states.at(-1);
+    expect(newHostState?.hostId).toBe("guest-b");
+    expect(newHostState?.epoch).toBe(1);
+
+    // The old host and the untouched bystander both converge on the same
+    // new hostId/epoch — the old host via its own local demotion, guest-a
+    // via the new host's re-broadcast.
+    expect(hostCallbacks.states.at(-1)?.hostId).toBe("guest-b");
+    expect(guestACallbacks.states.at(-1)?.hostId).toBe("guest-b");
+    expect(guestACallbacks.states.at(-1)?.epoch).toBe(1);
+  });
+
+  it("is a no-op for a peer that isn't actually the host, or a target that isn't a real player", async () => {
+    const hostCallbacks = makeCallbacks();
+    const host = hostAs("host", makeTeams(1), hostCallbacks);
+    const guestCallbacks = makeCallbacks();
+    const guest = joinAs("guest-1", host.roomId, guestCallbacks);
+    await flushAsync();
+
+    const statesBefore = hostCallbacks.states.length;
+    host.transferHostTo("no-such-peer");
+    expect(hostCallbacks.states.length).toBe(statesBefore);
+
+    // A guest calling transferHostTo has no host state to act on at all.
+    expect(() => guest.transferHostTo("host")).not.toThrow();
+    expect(guestCallbacks.roles).toEqual([]);
   });
 });
 

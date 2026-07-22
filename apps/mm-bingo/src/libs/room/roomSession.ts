@@ -12,6 +12,7 @@ import {
   withCurtain,
   withEndsRoomOnReveal,
   withHostHandover,
+  withHostTransfer,
   withJoinRequest,
   withMode,
   withNewTeam,
@@ -20,12 +21,14 @@ import {
   withoutTeamAt,
   withPlayerName,
   withPlayerTeam,
+  withRandomTeams,
   withTeamClaim,
   withTeamColor,
   withTeamMemo,
   withUnclaimAttempt,
 } from "./roomStateTransitions";
 import {
+  HOST_TRANSFER_ACTION,
   PEER_TO_HOST_ACTION,
   STATE_SYNC_ACTION,
   TRYSTERO_APP_ID,
@@ -116,6 +119,7 @@ export class RoomSession {
   private readonly room: Room;
   private readonly peerToHost: MessageAction<PeerToHostMessage>;
   private readonly stateSync: MessageAction<RoomState>;
+  private readonly hostTransfer: MessageAction<RoomState>;
   private readonly callbacks: RoomSessionCallbacks;
   private phase: SessionPhase;
   private myName: string;
@@ -142,6 +146,7 @@ export class RoomSession {
     this.peerToHost =
       this.room.makeAction<PeerToHostMessage>(PEER_TO_HOST_ACTION);
     this.stateSync = this.room.makeAction<RoomState>(STATE_SYNC_ACTION);
+    this.hostTransfer = this.room.makeAction<RoomState>(HOST_TRANSFER_ACTION);
 
     this.peerToHost.onMessage = (message, { peerId }) => {
       if (this.phase.kind !== "host") {
@@ -193,6 +198,31 @@ export class RoomSession {
       if (!wasOpen && incoming.boardRevealed && incoming.endsRoomOnReveal) {
         this.leave();
       }
+    };
+    // A dedicated, host -> one-specific-guest channel for transferHostTo
+    // below, kept entirely separate from stateSync's own anti-spoof check
+    // (senderPeerId === incoming.hostId) rather than trying to loosen that
+    // check to also allow "the CURRENT host reassigns hostId to someone
+    // else" — that would mean trusting every peer's own possibly-stale idea
+    // of "current host" to validate a message, whereas this only needs the
+    // one specific peer being promoted to trust it, and only from whoever
+    // it currently believes holds host authority (or unconditionally if it
+    // has no state yet at all, i.e. it hasn't really joined anything to
+    // compare against). Once accepted, the promoted peer re-broadcasts via
+    // the ordinary emitState() below, which is a self-declared broadcast
+    // and so passes the unmodified stateSync check for everyone else,
+    // exactly like a disconnect-triggered handover winner's own broadcast.
+    this.hostTransfer.onMessage = (incoming, { peerId: senderPeerId }) => {
+      if (this.phase.kind === "left") {
+        return;
+      }
+      const recognizedHostId = this.phase.state?.hostId;
+      if (recognizedHostId !== undefined && senderPeerId !== recognizedHostId) {
+        return;
+      }
+      this.phase = { kind: "host", state: incoming };
+      this.callbacks.onRoleChange("host");
+      this.emitState();
     };
     // There's no way to tell which peer currently holds host authority up
     // front (Trystero treats every room member the same, and authority can
@@ -328,6 +358,37 @@ export class RoomSession {
 
   setPlayerTeam(peerId: PeerId, teamId: string | null): void {
     this.updateHostState((state) => withPlayerTeam(state, peerId, teamId));
+  }
+
+  // The host's own voluntary handover, as opposed to withHostHandover's
+  // automatic one (triggered only by a disconnect, successor picked by
+  // lowest peerId, no say in the matter). Demotes THIS session to guest
+  // immediately and locally: Trystero never delivers a peer's own send()
+  // back to itself, so there is no round trip to wait on before this
+  // session can stop believing it's still the host. Sent to targetPeerId
+  // alone (see hostTransfer.onMessage above for why this can't just go
+  // through stateSync directly) — if that specific peer has already
+  // disconnected by the time this arrives, nobody ends up host until the
+  // next state change, a small unavoidable race also present in the
+  // disconnect-triggered handover this deliberately mirrors.
+  transferHostTo(targetPeerId: PeerId): void {
+    if (this.phase.kind !== "host") {
+      return;
+    }
+    const nextState = withHostTransfer(this.phase.state, targetPeerId);
+    if (!nextState) {
+      return;
+    }
+    this.phase = { kind: "guest", state: nextState };
+    this.callbacks.onRoleChange("guest");
+    void this.hostTransfer.send(nextState, { target: targetPeerId });
+  }
+
+  // Host-only: shuffles every player who currently has a team onto one,
+  // possibly a different one — see withRandomTeams for why players sitting
+  // out with no team are left alone.
+  randomizeTeams(): void {
+    this.updateHostState(withRandomTeams);
   }
 
   rename(name: string): void {

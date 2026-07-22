@@ -12,6 +12,10 @@ export const TRYSTERO_APP_ID = "mm-bingo-room";
 // string literals throughout RoomSession.
 export const PEER_TO_HOST_ACTION = "peer-to-host";
 export const STATE_SYNC_ACTION = "state-sync";
+// Host -> one specific guest only, never broadcast: see RoomSession's own
+// comment on transferHostTo for why a voluntary handover needs its own
+// channel instead of going through stateSync directly.
+export const HOST_TRANSFER_ACTION = "host-transfer";
 
 // Trystero's Nostr strategy picks its relay subset deterministically from
 // its ~40 public defaults, seeded by a hash of `appId` (not randomized per

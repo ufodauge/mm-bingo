@@ -18,9 +18,15 @@ export const SeedInput = () => {
             className={`input input-sm join-item col-end-1 row-end-1 transition-[width] ease-out`}
             placeholder="seed? (123456)"
             value={seed}
-            onChange={(e) =>
-              setSeed({ action: "set", value: e.currentTarget.valueAsNumber })
-            }
+            onChange={(e) => {
+              if (!confirmBoardReset()) {
+                return;
+              }
+              return setSeed({
+                action: "set",
+                value: e.currentTarget.valueAsNumber,
+              });
+            }}
           />
         </div>
       </div>
