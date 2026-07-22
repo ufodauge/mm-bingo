@@ -65,7 +65,12 @@
       "title": "Players",
       "host": "Host",
       "you": "You",
-      "noTeam": "No team"
+      "noTeam": "No team",
+      "makeHost": "Make host",
+      "randomizeTeams": "Randomize teams",
+      "teamCount": "Teams",
+      "addTeam": "Add team",
+      "removeTeam": "Remove team"
     },
     "role": {
       "host": "Host",

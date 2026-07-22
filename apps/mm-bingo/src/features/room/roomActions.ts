@@ -3,7 +3,7 @@ import { atom } from "jotai";
 
 import type { RoomRole } from "../../libs/room/roomSession";
 import { RoomSession } from "../../libs/room/roomSession";
-import type { RoomState } from "../../libs/room/types";
+import { effectiveClaimSharing, type RoomState } from "../../libs/room/types";
 import { markerColorsAtom } from "../store/colors/colors";
 import { colorIndicesAtom } from "../store/colors/indices";
 import { pushNotificationAtom } from "../store/notifications";
@@ -11,6 +11,7 @@ import { queryParamsAtom } from "../store/queryParams";
 import {
   displayNameAtom,
   lastOwnPeerIdAtom,
+  lastRoomSettingsAtom,
   roomConnectionAtom,
   roomIdentityAtom,
   roomStateAtom,
@@ -37,6 +38,20 @@ export const applyRoomStateAtom = atom(null, (get, set, state: RoomState) => {
   // for a fresh join and right after reconnectToRoomAtom's own reset (see
   // its comment on why it clears roomStateAtom first).
   const previous = get(roomStateAtom);
+
+  // Kept up to date on every synced state, from either role, regardless of
+  // which branch below this ends up taking (including the room-ends-on-
+  // reveal teardown) — see lastRoomSettingsAtom's own comment on why this is
+  // the closest thing to "resuming" a room that's genuinely gone for good.
+  set(lastRoomSettingsAtom, {
+    mode: state.mode,
+    claimSharing: effectiveClaimSharing(state),
+    revealSettings: {
+      startHidden: !state.boardRevealed,
+      endsRoomOnReveal: state.endsRoomOnReveal,
+    },
+  });
+
   if (previous && previous.hostId !== state.hostId) {
     const myPeerId = get(roomIdentityAtom)?.peerId;
     const newHost = state.players.find((p) => p.peerId === state.hostId);

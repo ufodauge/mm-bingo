@@ -19,7 +19,7 @@ type MarkerColorsAction =
       index: number;
     };
 
-const COLORS_MAX = 8;
+export const COLORS_MAX = 8;
 
 // const defaultColorAtom = atomWithStorage(
 //   "board:default-color",

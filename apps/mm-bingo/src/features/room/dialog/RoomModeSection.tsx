@@ -70,30 +70,26 @@ export const RoomModeSection = ({ connection, roomState }: Props) => {
           />
           {t("room.boardHidden")}
         </label>
-        <label className="fieldset-label">
+        <label className="fieldset-label" hidden>
           <input
             type="checkbox"
             className="checkbox checkbox-sm"
             checked={roomState.endsRoomOnReveal}
+            readOnly
             onChange={(e) =>
               connection.session.setEndsRoomOnReveal(e.currentTarget.checked)
             }
           />
           {t("room.endsRoomOnReveal")}
         </label>
-        {/* Shown whenever there's anything left for revealBoard() to do:
-            either the curtain is still closed (boardRevealed false — see
-            RoomState's own comment), or the mode's own rule-mandated
-            progress isn't finished (revealedCells). classic/othello with no
-            curtain never show this: they start both already "revealed". */}
-        {(!roomState.boardRevealed || roomState.revealedCells !== "all") && (
+        {/* {(!roomState.boardRevealed || roomState.revealedCells !== "all") && (
           <button
             className="btn btn-sm btn-primary"
             onClick={() => connection.session.revealBoard()}
           >
             {t("room.reveal")}
           </button>
-        )}
+        )} */}
       </div>
     </fieldset>
   );

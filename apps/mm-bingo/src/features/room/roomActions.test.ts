@@ -10,6 +10,7 @@ import { notificationsAtom } from "../store/notifications";
 import {
   displayNameAtom,
   lastOwnPeerIdAtom,
+  lastRoomSettingsAtom,
   roomConnectionAtom,
   roomIdentityAtom,
   roomStateAtom,
@@ -99,6 +100,39 @@ describe("applyRoomStateAtom — host handover notifications", () => {
     );
 
     expect(store.get(notificationsAtom)).toEqual([]);
+  });
+});
+
+describe("applyRoomStateAtom — lastRoomSettingsAtom", () => {
+  let store: ReturnType<typeof createStore>;
+
+  beforeEach(() => {
+    store = createStore();
+  });
+
+  it("records mode/claimSharing/revealSettings from every synced state, regardless of role", () => {
+    store.set(
+      applyRoomStateAtom,
+      makeState({
+        mode: "hidden",
+        claimSharing: "shared",
+        boardRevealed: false,
+        endsRoomOnReveal: true,
+      }),
+    );
+
+    expect(store.get(lastRoomSettingsAtom)).toEqual({
+      mode: "hidden",
+      claimSharing: "shared",
+      revealSettings: { startHidden: true, endsRoomOnReveal: true },
+    });
+  });
+
+  it("keeps updating on later syncs, overwriting whatever was recorded before", () => {
+    store.set(applyRoomStateAtom, makeState({ mode: "classic" }));
+    store.set(applyRoomStateAtom, makeState({ mode: "hidden" }));
+
+    expect(store.get(lastRoomSettingsAtom)?.mode).toBe("hidden");
   });
 });
 
