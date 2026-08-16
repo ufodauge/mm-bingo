@@ -7,7 +7,7 @@ import { taskVersions } from "../../features/store/versions/taskVersion";
 import { generate5x5MagicSquare } from "./generate/magicSquare";
 import { generateTasksResilient } from "./generate/resilient";
 import { ALGORITHM_BY_VERSION, generateTasksAsync, isEmptyTask } from "./index";
-import { getTaskSourcePromise } from "./taskSource";
+import { getTaskSourcePromise, setTasksBaseUrl } from "./taskSource";
 
 // Versions using the "legacy" algorithm are closed/frozen (changing them
 // would change already-shared boards) and have known, accepted empty-task
@@ -21,6 +21,13 @@ const resilientTaskVersions = taskVersions.filter(
 const SEED_SAMPLE_SIZE = 100_000;
 
 beforeAll(() => {
+  // taskSource.ts defaults to resolving tasks/ against its own module URL,
+  // which only lines up in a built deployment (dist/task.js sits next to
+  // dist/tasks/). Under vitest the module is still at src/libs/tasks/, so
+  // pin the base the same way the app does — the stub below expects a URL
+  // ending in exactly one "/tasks/<version>.json".
+  setTasksBaseUrl("/tasks/");
+
   vi.stubGlobal(
     "fetch",
     vi.fn(async (input: string | URL) => {
