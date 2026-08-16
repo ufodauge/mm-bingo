@@ -7,6 +7,7 @@ import type { TaskVersion } from "../../../features/store/versions/taskVersion";
 import { taskVersions } from "../../../features/store/versions/taskVersion";
 import goldenBoardsJson from "../__fixtures__/legacyGoldenBoards.json";
 import { ALGORITHM_BY_VERSION, generateTasksAsync } from "../index";
+import { setTasksBaseUrl } from "../taskSource";
 
 type GoldenBoard = { d: number; en: string; lt: string[] }[] | null;
 
@@ -23,6 +24,13 @@ const legacyVersions = taskVersions.filter(
 const N = 100;
 
 beforeAll(() => {
+  // taskSource.ts defaults to resolving tasks/ against its own module URL,
+  // which only lines up in a built deployment (dist/task.js sits next to
+  // dist/tasks/). Under vitest the module is still at src/libs/tasks/, so
+  // pin the base the same way the app does — the stub below expects a URL
+  // ending in exactly one "/tasks/<version>.json".
+  setTasksBaseUrl("/tasks/");
+
   vi.stubGlobal(
     "fetch",
     vi.fn(async (input: string | URL) => {
@@ -58,21 +66,24 @@ beforeAll(() => {
 // one thing: a *new* task-version is being declared, with its own fresh
 // seed space nobody has shared boards from yet — never an edit to an
 // existing legacy version's output.
-describe.each(legacyVersions)("generateTasksLegacy (%s) is frozen", (version) => {
-  it(`matches the golden snapshot across ${N} seeds`, async () => {
-    const boards = [];
-    for (let seed = 0; seed < N; seed++) {
-      const result = await generateTasksAsync(seed, version);
-      boards.push(
-        result.ok
-          ? result.value.map((t) => ({
-              d: t.difficulty,
-              en: t.text.en,
-              lt: t.lineTypes,
-            }))
-          : null,
-      );
-    }
-    expect(boards).toEqual(goldenBoards[version]);
-  });
-});
+describe.each(legacyVersions)(
+  "generateTasksLegacy (%s) is frozen",
+  (version) => {
+    it(`matches the golden snapshot across ${N} seeds`, async () => {
+      const boards = [];
+      for (let seed = 0; seed < N; seed++) {
+        const result = await generateTasksAsync(seed, version);
+        boards.push(
+          result.ok
+            ? result.value.map((t) => ({
+                d: t.difficulty,
+                en: t.text.en,
+                lt: t.lineTypes,
+              }))
+            : null,
+        );
+      }
+      expect(boards).toEqual(goldenBoards[version]);
+    });
+  },
+);

@@ -8,6 +8,7 @@ import { generateTasksResilient } from "./generate/resilient";
 import { getTaskSourcePromise } from "./taskSource";
 
 export { emptyTask, isEmptyTask, isFallbackTask } from "./emptyTask";
+export { setTasksBaseUrl } from "./taskSource";
 
 // Which task-generation algorithm a version uses. "legacy" is the original
 // algorithm (see generate/legacy.ts) — kept byte-for-byte for already-

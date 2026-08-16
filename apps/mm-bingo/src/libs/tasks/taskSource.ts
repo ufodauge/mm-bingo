@@ -14,6 +14,42 @@ const taskSourceMap: Map<
   Promise<Result<Map<number, TaskSource[]>, Error>>
 > = new Map();
 
+// Where the per-version task pools (tasks/<version>.json) are served from.
+//
+// The default resolves against this module's own URL. That is what lets the
+// published library entry work with no configuration at all: dist/task.js
+// sits right next to dist/tasks/, so an outside consumer importing
+// https://<host>/mm-bingo/task.js from any origin still has its fetches land
+// on https://<host>/mm-bingo/tasks/<version>.json.
+//
+// That default is wrong for this app's own bundle, though — the app build
+// emits its chunks into assets/, so import.meta.url would resolve to
+// assets/tasks/. The app overrides this at startup instead; see
+// routes/router.ts.
+//
+// Swapping this module's own file name for "tasks/" is what `new URL("./
+// tasks/", import.meta.url)` would do, minus two problems: Vite rewrites
+// `new URL("<literal>", import.meta.url)` into a build-time asset reference,
+// and this module is also typechecked under tsconfig.scripts.json, which has
+// no DOM lib and so no URL global to lean on.
+let tasksBaseUrl = import.meta.url.replace(/[^/]*$/, "tasks/");
+
+/**
+ * Point the task loader at a different `tasks/` directory.
+ *
+ * Absolute URLs and document-relative paths both work — the value is only
+ * ever concatenated with `<version>.json` and handed to `fetch`, which
+ * resolves anything relative against the document. A missing trailing slash
+ * is added for you.
+ *
+ * Call this before the first `generateTasksAsync()` for a given version:
+ * pools are cached per version, so a later change will not dislodge one that
+ * has already been fetched.
+ */
+export const setTasksBaseUrl = (base: string): void => {
+  tasksBaseUrl = base.endsWith("/") ? base : `${base}/`;
+};
+
 export const getTaskSourcePromise = (
   version: TaskVersion,
 ): Promise<Result<Map<number, TaskSource[]>, Error>> => {
@@ -22,17 +58,7 @@ export const getTaskSourcePromise = (
     return taskSource;
   }
 
-  // vite.config.ts sets `base` differently per environment (dev: "/", build:
-  // "/mm-bingo" — deliberately no trailing slash there, see its own comment)
-  // and BASE_URL just reflects that raw value back, trailing slash or not.
-  // Stripping any trailing slash before adding exactly one back is what
-  // makes this work under both: naively concatenating a literal "/" here
-  // produced "//tasks/..." in dev (a leading "//" is a protocol-relative
-  // URL, not a path, so fetch tried to hit host "tasks" instead of the dev
-  // server), while dropping that "/" entirely to match dev broke the build,
-  // where BASE_URL has no trailing slash of its own ("/mm-bingotasks/...").
-  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-  const dataUrl = `${base}/tasks/${version}.json`;
+  const dataUrl = `${tasksBaseUrl}${version}.json`;
   const result = fetch(dataUrl).then(
     async (v) => {
       if (!v.ok) {
